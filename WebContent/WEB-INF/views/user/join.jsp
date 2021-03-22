@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<c:set var='root' value="${pageContext.request.contextPath }/" />
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +31,7 @@
 		
 		$.ajax({
 			//요청할 주소
-			url : '${root}user/checkUserIdExist/' + user_email,
+			url : '${root}/user/checkUserIdExist/' + user_email,
 			//요청타입
 			type : 'get',
 			//응답결과
