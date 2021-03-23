@@ -4,7 +4,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class UserBean {
-	
+	//hahihia
 	@Size(min=2, max=4)
 	@Pattern(regexp = "[가-힣]*")	
 	private String user_name;
