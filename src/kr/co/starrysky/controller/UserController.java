@@ -1,5 +1,6 @@
 package kr.co.starrysky.controller;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +24,28 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Resource(name="loginUserBean")
+	private UserBean loginUserBean;
+	
 	@GetMapping("/login")
-	public String login() {
+	public String login(@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean) {
 		
 		return "user/login";
+	}
+	
+	@PostMapping("/login_pro")
+	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "user/login";
+		}
+		
+		userService.getLoginUserInfo(tempLoginUserBean);
+		
+		if(loginUserBean.isUserLogin()==true) {
+			return "user/login_success";	
+		}
+		return "user/login_fail";
 	}
 	
 	@GetMapping("/join")
