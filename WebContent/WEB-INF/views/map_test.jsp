@@ -14,7 +14,7 @@
 #category li:hover {background: #ffe6e6;border-left:1px solid #acacac;margin-left: -1px;}
 #category li:last-child{margin-right:0;border-right:0;}
 #category li span {display: block;margin:0 auto 3px;width:27px;height: 28px;}
-#category li .category_bg {background:url(places_category.png) no-repeat;}
+#category li .category_bg {background:url(images/places_category.png) no-repeat;}
 #category li .bank {background-position: -10px 0;}
 #category li .mart {background-position: -10px -36px;}
 #category li .pharmacy {background-position: -10px -72px;}
@@ -152,7 +152,7 @@ function displayPlaces(places) {
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 function addMarker(position, order) {
-    var imageSrc = 'places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+    var imageSrc = 'images/places_category.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
         imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기
         imgOptions =  {
             spriteSize : new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
