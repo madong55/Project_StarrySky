@@ -46,8 +46,20 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<script>
+	$(function(){
+			
+			$("#mapDay1").click(function(){
+				var test_txt = $("#mapDay2").html();
+				
+				$(this).html(test_txt);
+			})
+		})
+	</script>
 
 </head>
+
+
 <body class="host_version"> 
 
 	<!-- <!-- Modal -->
@@ -188,7 +200,7 @@
 			<li data-target="#carouselExampleControls" data-slide-to="2"></li>
 		</ol>
 		<div class="carousel-inner" role="listbox">
-			<div class="carousel-item active">
+			<div class="carousel-item active" id="mapDay1">
 				<div id="home" class="first-section" style="background-image:url('images/header-bg.jpg'); position:relative" >
 					<!-- <div class="dtab"> -->
 						<div class="container">
@@ -215,7 +227,7 @@
 				</div><!-- end section -->
 			</div>
 			
-			<div class="carousel-item">
+			<div class="carousel-item" id="mapDay2">
 				<div id="home" class="first-section" style="background-image:url('images/header-bg.jpg');">
 					
 						<div class="container">
@@ -237,7 +249,7 @@
 					
 				</div><!-- end section -->
 			</div>
-			<div class="carousel-item">
+			<div class="carousel-item" id="mapDay3">
 				<div id="home" class="first-section" style="background-image:url('images/header-bg.jpg');">
 					
 						<div class="container">
