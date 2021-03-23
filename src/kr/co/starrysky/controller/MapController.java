@@ -8,6 +8,6 @@ public class MapController {
 
 	@GetMapping("/map")
 	public String map() {
-		return "map";
+		return "map_test";
 	}
 }
