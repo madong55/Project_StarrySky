@@ -5,25 +5,25 @@ import javax.validation.constraints.Size;
 
 public class UserBean {
 	
-	@Size(min=2, max=4)
-	@Pattern(regexp = "[가-힣]*")	
+	@Size(min=2, max=20)
+	@Pattern(regexp = "([가-힣]*)|([a-zA-Z]*)")	
 	private String user_name;
 	
-	@Size(min=2, max=4)
-	@Pattern(regexp = "[가-힣]*")	
+	@Pattern(regexp = "[가-힣a-zA-Z0-9]{2,12}")	
 	private String user_nickname;
 	
-	@Size(min=4, max=20)
-	@Pattern(regexp = "[a-zA-Z0-9]*")
+	@Pattern(regexp = "[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}")
 	private String user_email;
 	
-	@Size(min=4, max=20)
-	@Pattern(regexp = "[a-zA-Z0-9]*")
+	@Size(min=8, max=20)
+	@Pattern(regexp = "^.*(?=.{8,20})(?=.*[!,@,#,$,%,^,&,*,?,_,~])(?=.*[0-9])(?=.*[a-zA-Z]).*$")
 	private String user_pw;
 	
-	@Size(min=4, max=20)
-	@Pattern(regexp = "[a-zA-Z0-9]*")
+	@Size(min=8, max=20)
+	@Pattern(regexp = "^.*(?=.{8,20})(?=.*[!,@,#,$,%,^,&,*,?,_,~])(?=.*[0-9])(?=.*[a-zA-Z]).*$")
 	private String user_pw2;
+	
+	private String preference_location;
 	
 	private boolean userIdExist;
 	private boolean userLogin;
@@ -78,6 +78,13 @@ public class UserBean {
 	}
 	public void setUser_pw(String user_pw) {
 		this.user_pw = user_pw;
+	}
+
+	public String getPreference_location() {
+		return preference_location;
+	}
+	public void setPreference_location(String preference_location) {
+		this.preference_location = preference_location;
 	}
 	
 	

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath }" />
     
 <!DOCTYPE html>
@@ -62,8 +61,8 @@
 
 
 <body class="host_version"> 
-   <!-- MODAL -->
-<c:import url="/WEB-INF/views/user/login.jsp"></c:import>
+	<!-- Top_menu -->
+<c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
 
     <!-- LOADER -->
  <div id="preloader">   
@@ -75,49 +74,6 @@
 		</div>
 	  </div>  
 	<!-- END LOADER -->	
-	
-	<!-- Start header -->
-	<header class="top-navbar">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container-fluid">
-			<h2><b><a class="starryColor" href="">
-					STARRY SKY
-					</a></b>	</h2>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbars-host">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown"> My Info</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="hosting.html">내가 쓴 리뷰 </a>
-								<a class="dropdown-item" href="hosting.html">결제 내역 </a>
-								<a class="dropdown-item" href="hosting.html">문의 게시판 </a>
-								<a class="dropdown-item" href="hosting.html">회원 정보 관리 </a>
-								<a class="dropdown-item" href="hosting.html">로그아웃 </a>
-							</div>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-b" data-toggle="dropdown">My Star</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="hosting.html">선호지역</a>
-								<a class="dropdown-item" href="hosting.html">추천한 리뷰 </a>
-							</div>
-						</li>
-
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-					
-                        <li><a class="hover-btn-new log" href="${root }/user/join" data-toggle="modal" data-target="#login"><span>Customer Login</span></a></li>
-                    </ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<!-- End header -->
 	
 	<div id="carouselExampleControls" class="carousel slide bs-slider box-slider" data-ride="carousel" data-pause="hover" data-interval="false" >
 		<!-- Indicators -->
@@ -134,7 +90,7 @@
 							<div class="row">
 								<div class="col-md-12 col-sm-12 text-center">
 							<h2>2021-03-21</h2>
-								<img src="images/map_grade2/kw_nobg.png" usemap="#image-map">
+								<img src="images/map_grade2/kmap_pink.jpg" usemap="#image-map">
 								<map name="image-map" id="image-map">
     <area target="_self" alt="jeju" title="jeju" href="#mydiv3" coords="207,582,93,470" shape="rect">
     <area target="_self" alt="kangwon" class="openlayor" title="kangwon" href="#mydiv2" coords="569,21,685,135" shape="rect">
@@ -161,7 +117,7 @@
 							<div class="row">
 									<div class="col-md-12 col-sm-12 text-center">
 							<h2>2021-03-22</h2>
-								<img src="images/map_grade2/kw.png">
+								<img src="images/map_grade2/kw_pink.jpg">
 								</div>
 									<!-- <div class="big-tagline">
 										<h2 data-animation="animated zoomInRight">Find the right <strong>Hosting</strong></h2>
@@ -183,7 +139,7 @@
 							<div class="row">
 									<div class="col-md-12 col-sm-12 text-center">
 							<h2>2021-03-23</h2>
-								<img src="images/kr-013.png" >
+								<img src="images/map_grade2/jeju_pink.jpg" >
 								</div>
 							</div><!-- end row -->            
 						</div><!-- end container -->
@@ -261,7 +217,6 @@
     </div> 
  </div>  
        <!--      <div class="row text-center">
-
                 <div class="col-lg-12">
                     <form class="checkdomain form-inline">
                         <div class="checkdomain-wrapper">
