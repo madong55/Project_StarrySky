@@ -1,7 +1,13 @@
 package kr.co.starrysky.beans;
 
+import java.sql.Date;
+
 public class WeatherBean {
 
+	private int location1_key;
+	private int location2_key;
+	private Date forecast_date;
+	
 	//WeatherData
 	private String headline; // 5일간의 날씨중에 중요한 사건을 나타내는 헤드라인
 	
@@ -17,13 +23,10 @@ public class WeatherBean {
 	private String short_phrase; // 날씨 정보 간략하게 나오는
 	private String long_phrase;  // 날씨 정보 길게
 	
-	private String air_and_pollen_name; // 꽃가루, 대기오염 물질 이름
-	private int air_and_pollen_value; // 꽃가루, 대기오염 물질 값
-	private String air_and_pollen_category; // 꽃가루, 대기오염 물질정도 -> 낮음, 높음, 중간..
 	private int air_and_pollen_category_value; // 꽃가루, 대기오염 물질정도 -> 숫자로
 	
-	private double minimum_value; // 온도 최소값
-	private double maximum_value; // 온도 최대값
+	private double tem_min_value; // 온도 최소값
+	private double tem_max_value; // 온도 최대값
 	
 	//RainData
 	private int rain_probability; // 비 올 확률
@@ -104,41 +107,23 @@ public class WeatherBean {
 	public void setLong_phrase(String long_phrase) {
 		this.long_phrase = long_phrase;
 	}
-	public String getAir_and_pollen_name() {
-		return air_and_pollen_name;
-	}
-	public void setAir_and_pollen_name(String air_and_pollen_name) {
-		this.air_and_pollen_name = air_and_pollen_name;
-	}
-	public int getAir_and_pollen_value() {
-		return air_and_pollen_value;
-	}
-	public void setAir_and_pollen_value(int air_and_pollen_value) {
-		this.air_and_pollen_value = air_and_pollen_value;
-	}
-	public String getAir_and_pollen_category() {
-		return air_and_pollen_category;
-	}
-	public void setAir_and_pollen_category(String air_and_pollen_category) {
-		this.air_and_pollen_category = air_and_pollen_category;
-	}
 	public int getAir_and_pollen_category_value() {
 		return air_and_pollen_category_value;
 	}
 	public void setAir_and_pollen_category_value(int air_and_pollen_category_value) {
 		this.air_and_pollen_category_value = air_and_pollen_category_value;
 	}
-	public double getMinimum_value() {
-		return minimum_value;
+	public double getTem_min_value() {
+		return tem_min_value;
 	}
-	public void setMinimum_value(double minimum_value) {
-		this.minimum_value = minimum_value;
+	public void setTem_min_value(double tem_min_value) {
+		this.tem_min_value = tem_min_value;
 	}
-	public double getMaximum_value() {
-		return maximum_value;
+	public double getTem_max_value() {
+		return tem_max_value;
 	}
-	public void setMaximum_value(double maximum_value) {
-		this.maximum_value = maximum_value;
+	public void setTem_max_value(double tem_max_value) {
+		this.tem_max_value = tem_max_value;
 	}
 	public int getRain_probability() {
 		return rain_probability;
@@ -229,6 +214,24 @@ public class WeatherBean {
 	}
 	public void setWind_speed_unit_type(int wind_speed_unit_type) {
 		this.wind_speed_unit_type = wind_speed_unit_type;
+	}
+	public int getLocation1_key() {
+		return location1_key;
+	}
+	public void setLocation1_key(int location1_key) {
+		this.location1_key = location1_key;
+	}
+	public int getLocation2_key() {
+		return location2_key;
+	}
+	public void setLocation2_key(int location2_key) {
+		this.location2_key = location2_key;
+	}
+	public Date getForecast_date() {
+		return forecast_date;
+	}
+	public void setForecast_date(Date forecast_date) {
+		this.forecast_date = forecast_date;
 	}
 	
 	
