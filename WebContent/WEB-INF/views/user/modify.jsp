@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
@@ -25,22 +26,37 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
-					<form action="${root }/user/modify" method="get">
+					<form:form action="${root }/user/modify_pro" method="post" modelAttribute="modifyUserBean">
 					<div class="form-group">
-						<label for="user_name">이름</label>
-						<input type="text" id="user_name" name="user_name" class="form-control" value="db에서 select문으로 가져오기" disabled="disabled"/>
+					<form:label path="user_name">이름</form:label>
+					<form:input path="user_name" class="form-control" readonly="true"/>
 					</div>
 					<div class="form-group">
-						<label for="user_email">이메일</label>
-						<input type="text" id="user_email" name="user_email" class="form-control" value="db에서 select문으로 가져오기" disabled="disabled"/>
+					<form:label path="user_email">이메일</form:label>
+					<form:input path="user_email" class="form-control" readonly="true"/>
 					</div>
 					<div class="form-group">
-						<label for="user_pw">비밀번호</label>
-						<input type="password" id="user_pw" name="user_pw" class="form-control" value="db에서 select문으로 가져오기"/>
+					<form:label path="user_nickname">닉네임</form:label>
+					<form:input path="user_nickname" class="form-control"/>
+					<form:errors path="user_nickname" style="color:red"></form:errors>
+					</div>
+					<form:label path="preference_location">선호지역</form:label><br/>
+							<form:select path="preference_location">
+							<form:option value="selct로불러온값" label="불러온값"></form:option>
+							<form:option value="서울" label="서울"></form:option>
+							<form:option value="강릉" label="강릉"></form:option>
+							<form:option value="제주" label="제주"></form:option>
+							</form:select>
+					
+					<div class="form-group">
+					<form:label path="user_pw">비밀번호</form:label>
+					<form:password path="user_pw" class="form-control"/>
+					<form:errors path="user_pw" style="color:red"></form:errors>
 					</div>
 					<div class="form-group">
-						<label for="user_pw2">비밀번호 확인</label>
-						<input type="password" id="user_pw2" name="user_pw2" class="form-control" value="db에서 select문으로 가져오기"/>
+					<form:label path="user_pw2">비밀번호 확인</form:label>
+					<form:password path="user_pw2" class="form-control"/>
+					<form:errors path="user_pw2" style="color:red"></form:errors>
 					</div>
 					<div class="form-group">
 						<div class="text-right">
@@ -48,7 +64,7 @@
 						</div>
 					</div>
 					
-					</form>
+					</form:form>
 				</div>
 			</div>
 		</div>

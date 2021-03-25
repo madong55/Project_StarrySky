@@ -35,10 +35,26 @@ public class UserService {
 	
 	public void getLoginUserInfo(UserBean tempLoginUserBean) {
 		UserBean tempLoginUserBean2 = userDao.getLoginUserInfo(tempLoginUserBean);
-		
 		if(tempLoginUserBean2 != null) {
+			loginUserBean.setUser_email(tempLoginUserBean2.getUser_email());
 			loginUserBean.setUser_name(tempLoginUserBean2.getUser_name());
+			loginUserBean.setUser_nickname(tempLoginUserBean2.getUser_nickname());
 			loginUserBean.setUserLogin(true);
 		}
+		
+	}
+	
+	public void getModifyUserInfo(UserBean modifyUserBean) {
+		UserBean tempModifyUserBean = userDao.getModifyUserInfo(loginUserBean.getUser_email());
+		
+		modifyUserBean.setUser_name(tempModifyUserBean.getUser_name());
+		modifyUserBean.setUser_email(tempModifyUserBean.getUser_email());
+		modifyUserBean.setUser_nickname(tempModifyUserBean.getUser_nickname());
+	}
+	
+	public void modifyUserInfo(UserBean modifyUserBean) {
+		modifyUserBean.setUser_email(loginUserBean.getUser_email());
+		
+		userDao.modifyUserInfo(modifyUserBean);
 	}
 }
