@@ -8,6 +8,10 @@ public class WeatherBean {
 	private int location2_key;
 	private Date forecast_date;
 	
+	//WeatherIcon
+	private int icon;
+	private String iconPhrase;
+
 	//WeatherData
 	private String headline; // 5일간의 날씨중에 중요한 사건을 나타내는 헤드라인
 	
@@ -53,6 +57,18 @@ public class WeatherBean {
 	private int wind_speed_unit_type; // 바람 단위 타입
 	
 	
+	public int getIcon() {
+		return icon;
+	}
+	public void setIcon(int icon) {
+		this.icon = icon;
+	}
+	public String getIconPhrase() {
+		return iconPhrase;
+	}
+	public void setIconPhrase(String iconPhrase) {
+		this.iconPhrase = iconPhrase;
+	}
 	public String getHeadline() {
 		return headline;
 	}
