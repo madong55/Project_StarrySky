@@ -10,7 +10,7 @@ public class WeatherBean {
 	
 	//WeatherIcon
 	private int icon;
-	private String iconPhrase;
+	private String icon_phrase;
 
 	//WeatherData
 	private String headline; // 5일간의 날씨중에 중요한 사건을 나타내는 헤드라인
@@ -63,11 +63,11 @@ public class WeatherBean {
 	public void setIcon(int icon) {
 		this.icon = icon;
 	}
-	public String getIconPhrase() {
-		return iconPhrase;
+	public String getIcon_phrase() {
+		return icon_phrase;
 	}
-	public void setIconPhrase(String iconPhrase) {
-		this.iconPhrase = iconPhrase;
+	public void setIcon_phrase(String icon_phrase) {
+		this.icon_phrase = icon_phrase;
 	}
 	public String getHeadline() {
 		return headline;
