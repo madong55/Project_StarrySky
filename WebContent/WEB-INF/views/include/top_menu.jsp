@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 
 <!-- 상단 메뉴 부분  -->
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -83,7 +84,7 @@
 	<header class="top-navbar">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-			<h2><b><a class="starryColor" href="">
+			<h2><b><a class="starryColor" href="${root }/main">
 					STARRY SKY
 					</a></b>	</h2>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,6 +93,8 @@
                     <span class="icon-bar"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-host">
+					<c:choose>
+					<c:when test="${loginUserBean.userLogin == true }">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown"> My Info</a>
@@ -99,8 +102,8 @@
 								<a class="dropdown-item" href="hosting.html">내가 쓴 리뷰 </a>
 								<a class="dropdown-item" href="hosting.html">결제 내역 </a>
 								<a class="dropdown-item" href="hosting.html">문의 게시판 </a>
-								<a class="dropdown-item" href="hosting.html">회원 정보 관리 </a>
-								<a class="dropdown-item" href="hosting.html">로그아웃 </a>
+								<a href="${root }/user/modify" class="dropdown-item" href="hosting.html">회원 정보 관리 </a>
+								<a href="${root }/user/logout" class="dropdown-item" href="hosting.html">로그아웃 </a>
 							</div>
 						</li>
 						<li class="nav-item dropdown">
@@ -110,8 +113,19 @@
 								<a class="dropdown-item" href="hosting.html">추천한 리뷰 </a>
 							</div>
 						</li>
-
 					</ul>
+					</c:when>
+					<c:otherwise>
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a href="${root }/user/login" class="nav-link">Sign In</a>
+						</li>
+						<li class="nav-item">
+							<a href="${root }/user/join" class="nav-link">Sing Up</a>
+						</li>
+					</ul>
+					</c:otherwise>
+					</c:choose>
 					<ul class="nav navbar-nav navbar-right">
                         <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>Customer Login</span></a></li>
                     </ul>

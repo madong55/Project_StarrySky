@@ -2,6 +2,7 @@ package kr.co.starrysky.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import kr.co.starrysky.beans.UserBean;
 public interface UserMapper {
@@ -15,9 +16,18 @@ public interface UserMapper {
 				+ "values(#{user_name}, #{user_nickname}, #{user_email}, #{user_pw})")
 		void addUserInfo(UserBean joinUserBean);
 		
-		@Select("select user_name "
+		@Select("select user_name, user_email, user_nickname "
 				+ "from user_table "
 				+ "where user_email=#{user_email} and user_pw=#{user_pw}")
 		UserBean getLoginUserInfo(UserBean tempLoginUserBean);
+		
+		@Select("select user_name, user_email "
+				+ "from user_table "
+				+ "where user_email=#{user_email}")
+		UserBean getModifyUserInfo(String user_email);
+		
+		@Update("update user_table set user_pw=#{user_pw}, user_nickname=#{user_nickname}"
+				+ "where user_email=#{user_email} ")
+		void modifyUserInfo(UserBean modifyUserBean);
 	}
 

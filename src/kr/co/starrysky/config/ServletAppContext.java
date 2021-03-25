@@ -1,5 +1,7 @@
 package kr.co.starrysky.config;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -12,11 +14,15 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-
+import kr.co.starrysky.beans.UserBean;
+import kr.co.starrysky.interceptor.CheckLoginInterceptor;
+import kr.co.starrysky.interceptor.TopMenuInterceptor;
 import kr.co.starrysky.mapper.UserMapper;
 
 //Spring MVC 프로젝트에 관련된 설정을 하는 클래스
@@ -43,6 +49,9 @@ public class ServletAppContext implements WebMvcConfigurer{
 	
 	@Value("${db.password}")
 	private String db_password;
+	
+	@Resource(name="loginUserBean")
+	private UserBean loginUserBean;
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
@@ -83,6 +92,20 @@ public class ServletAppContext implements WebMvcConfigurer{
 		MapperFactoryBean<UserMapper> factoryBean = new MapperFactoryBean<UserMapper>(UserMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
+	}
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		WebMvcConfigurer.super.addInterceptors(registry);
+		
+		TopMenuInterceptor topMenuIntercepter = new TopMenuInterceptor(loginUserBean);
+		InterceptorRegistration reg1 = registry.addInterceptor(topMenuIntercepter);
+		reg1.addPathPatterns("/**");
+		
+		CheckLoginInterceptor checkLoginInterceptor = new CheckLoginInterceptor(loginUserBean);
+		InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
+		reg2.addPathPatterns("/user/modify","/user/logout");
+		//reg2.excludePathPatterns("/board/main");
 	}
 	
 	@Bean
