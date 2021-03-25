@@ -23,7 +23,7 @@ public class WeatherBean {
 	private String short_phrase; // 날씨 정보 간략하게 나오는
 	private String long_phrase;  // 날씨 정보 길게
 	
-	private int air_and_pollen_category_value; // 꽃가루, 대기오염 물질정도 -> 숫자로
+	private int air_quality_value; // 꽃가루, 대기오염 물질정도 -> 숫자로
 	
 	private double tem_min_value; // 온도 최소값
 	private double tem_max_value; // 온도 최대값
@@ -37,7 +37,7 @@ public class WeatherBean {
 	private boolean rain_precipitation_exist; // 강수량 있으면 true
 	private String rain_precipitation_intensity; // 강수량 있을때만 반환 
 	
-	private float rain_per_hour; // 비가 몇 시간 동안 오는지
+	private float hour_of_rain; // 비가 몇 시간 동안 오는지
 
 	//SnowData
 	private int snow_probability; // 눈 올 확률
@@ -45,7 +45,7 @@ public class WeatherBean {
 	private String snow_unit;  // 적설량 단위
 	private int snow_unit_type; // 적설량 단위 타입
 	
-	private float snow_per_hour; // 눈이 몇시간동안 오는지
+	private float hour_of_snow; // 눈이 몇시간동안 오는지
 	
 	//WindData
 	private double wind_speed_value; // 바람 세기
@@ -107,11 +107,12 @@ public class WeatherBean {
 	public void setLong_phrase(String long_phrase) {
 		this.long_phrase = long_phrase;
 	}
-	public int getAir_and_pollen_category_value() {
-		return air_and_pollen_category_value;
+	
+	public int getAir_quality_value() {
+		return air_quality_value;
 	}
-	public void setAir_and_pollen_category_value(int air_and_pollen_category_value) {
-		this.air_and_pollen_category_value = air_and_pollen_category_value;
+	public void setAir_quality_value(int air_quality_value) {
+		this.air_quality_value = air_quality_value;
 	}
 	public double getTem_min_value() {
 		return tem_min_value;
@@ -161,11 +162,11 @@ public class WeatherBean {
 	public void setRain_precipitation_intensity(String rain_precipitation_intensity) {
 		this.rain_precipitation_intensity = rain_precipitation_intensity;
 	}
-	public float getRain_per_hour() {
-		return rain_per_hour;
+	public float getHour_of_rain() {
+		return hour_of_rain;
 	}
-	public void setRain_per_hour(float rain_per_hour) {
-		this.rain_per_hour = rain_per_hour;
+	public void setHour_of_rain(float hour_of_rain) {
+		this.hour_of_rain = hour_of_rain;
 	}
 	public int getSnow_probability() {
 		return snow_probability;
@@ -191,11 +192,11 @@ public class WeatherBean {
 	public void setSnow_unit_type(int snow_unit_type) {
 		this.snow_unit_type = snow_unit_type;
 	}
-	public float getSnow_per_hour() {
-		return snow_per_hour;
+	public float getHour_of_snow() {
+		return hour_of_snow;
 	}
-	public void setSnow_per_hour(float snow_per_hour) {
-		this.snow_per_hour = snow_per_hour;
+	public void setHour_of_snow(float hour_of_snow) {
+		this.hour_of_snow = hour_of_snow;
 	}
 	public double getWind_speed_value() {
 		return wind_speed_value;
