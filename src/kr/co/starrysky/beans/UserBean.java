@@ -3,6 +3,8 @@ package kr.co.starrysky.beans;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class UserBean {
 	
 	@Size(min=2, max=20)
@@ -24,7 +26,7 @@ public class UserBean {
 	private String user_pw2;
 	
 	private String preference_location;
-	
+	private MultipartFile user_profile_image;
 	private boolean userIdExist;
 	private boolean userLogin;
 	
@@ -85,6 +87,12 @@ public class UserBean {
 	}
 	public void setPreference_location(String preference_location) {
 		this.preference_location = preference_location;
+	}
+	public MultipartFile getUser_profile_image() {
+		return user_profile_image;
+	}
+	public void setUser_profile_image(MultipartFile user_profile_image) {
+		this.user_profile_image = user_profile_image;
 	}
 	
 	
