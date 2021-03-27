@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css">
-
-<script>
+   <script src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
 	/* 날짜계산식 */
 	var dt = new Date();
 	var date1 = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-'
@@ -45,6 +45,34 @@
 	var dt5 = new Date(dt.setDate(dt4.getDate() + 1));
 	var date5 = dt5.getFullYear() + '-' + (dt5.getMonth() + 1) + '-'
 			+ dt5.getDate();
+	
+	$(document).ready(function(){
+		/* $(".map-day1-all").bind("click",function(){
+			$(".map-day1").hide();
+		}); */
+		 
+		/* $(".map-day1-img").bind("click",function(){
+			$(".map-day1").hide();
+		}); */
+		
+		
+	/* 	$(".map-day1").bind("click",function(){
+			$(".map-day1").hide();
+		}); */
+		$(".map-day1").find(".jeju-button").bind("click",function(){
+			//$(".map-day1").hide();
+		});
+		$(".map-day1").find(".kangwon-button").bind("click",function(){
+			$(".map-day1").hide();
+		});
+	
+		$(".date1_value").text(date1);
+		$(".date2_value").text(date2);
+		$(".date3_value").text(date3);
+		$(".date4_value").text(date4);
+		$(".date5_value").text(date5);
+	});
+</script>
 </script>
 
 </head>
@@ -117,10 +145,8 @@
 					<div class="row">
 						<div class="hs-text">
 
-							<h2>
-							<!--  <script> document.write(date1);</script>  -->
-							</h2>
-
+							<h2 class="date1_value" ></h2>
+				
 							<img src="img/map_grade2/kr1.png" usemap="#image-kr">
 							<map name="image-kr">
 								<area target="" alt="seoul" title="seoul" href=""
@@ -162,9 +188,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="hs-text">							
-							<h2>
-							<!-- 	<script> document.write(date2);</script> -->
-							</h2>
+							
+							<h2 class="date2_value" ></h2>
+						
 							<img src="img/map_grade2/kr1.png" usemap="#image-kr">						
 						</div>
 					</div>
@@ -176,9 +202,7 @@
 					<div class="row">
 						<div class="hs-text">
 							
-							<h2>
-							<!-- 	<script> document.write(date3);</script> -->
-							</h2>
+							<h2 class="date3_value" ></h2>
 							
 							<img src="img/map_grade2/kr1.png" usemap="#image-kr">						
 						</div>
@@ -191,9 +215,7 @@
 					<div class="row">
 						<div class="hs-text">
 							<!-- style="display : block ; text-align : center ;" -->
-							<h2>
-							<!-- 	<script> document.write(date4);</script> -->
-							</h2>
+							<h2 class="date4_value" ></h2>
 							<img src="img/map_grade2/kr1.png" usemap="#image-kr">						
 						</div>
 					</div>
@@ -205,9 +227,7 @@
 					<div class="row">
 						<div class="hs-text">
 							<!-- style="display : block ; text-align : center ;" -->
-							<h2>
-							<!-- 	<script> document.write(date5);</script> -->
-							</h2>
+							<h2 class="date5_value" ></h2>
 							<img src="img/map_grade2/kr1.png" usemap="#image-kr">						
 						</div>
 					</div>
@@ -390,7 +410,7 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
+ 
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
