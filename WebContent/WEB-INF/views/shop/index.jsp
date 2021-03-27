@@ -14,15 +14,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="resources/css/bootstrap.css">
     <!-- style css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="resources/style.css">
     <!-- Responsive-->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="resources/css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="icon" href="resources/images/fevicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="resources/css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
@@ -40,7 +40,7 @@
 <body ><!-- class="main-layout" -->
     <!-- loader  -->
     <div class="loader_bg">
-        <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+        <div class="loader"><img src="resources/images/loading.gif" alt="#" /></div>
     </div>
 
     <div class="wrapper">
@@ -90,7 +90,7 @@
                                     <div class="full">
                                         <div class="center-desk">
                                             <div class="logo">
-                                                <a href="index.html"><img src="images/logo.png" alt="#"></a>
+                                                <a href="index.html"><img src="resources/images/logo.png" alt="#"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -99,24 +99,24 @@
                                     <div class="right_header_info">
                                         <ul>
                                             <li class="menu_iconb">
-                                                <a href="#"><img style="margin-right: 15px;" src="icon/1.png" alt="#" />7213456789</a>
+                                                <a href="#"><img style="margin-right: 15px;" src="resources/icon/1.png" alt="#" />7213456789</a>
                                             </li>
                                             <li class="menu_iconb">
-                                                <a href="#">Log in <img style="margin-right: 15px;" src="icon/5.png" alt="#" /> </a>
+                                                <a href="#">Log in <img style="margin-right: 15px;" src="resources/icon/5.png" alt="#" /> </a>
                                             </li>
                                             <li class="menu_iconb">
-                                                <a href="#">Signup<img style="margin-left: 15px;" src="icon/6.png" alt="#" /></a>
+                                                <a href="#">Signup<img style="margin-left: 15px;" src="resources/icon/6.png" alt="#" /></a>
                                             </li>
                                             <li class="tytyu">
-                                                <a href="#"> <img style="margin-right: 15px;" src="icon/2.png" alt="#" /></a>
+                                                <a href="#"> <img style="margin-right: 15px;" src="resources/icon/2.png" alt="#" /></a>
                                             </li>
                                             <li class="menu_iconb">
-                                                <a href="#"><img style="margin-right: 15px;" src="icon/3.png" alt="#" /></a>
+                                                <a href="#"><img style="margin-right: 15px;" src="resources/icon/3.png" alt="#" /></a>
                                             </li>
 
                                             <li>
                                                 <button type="button" id="sidebarCollapse">
-                                                    <img src="images/menu_icon.png" alt="#" />
+                                                    <img src="resources/images/menu_icon.png" alt="#" />
                                                 </button>
                                             </li>
                                         </ul>
@@ -228,7 +228,7 @@
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                                 <div class="brand-box">
                                     <h5>Sale</h5>
-                                    <i><img src="icon/p1.png"/>
+                                    <i><img src="resources/icon/p1.png"/>
                                 </i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
 
@@ -237,28 +237,28 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                                 <div class="brand-box">
-                                    <i><img src="icon/p2.png"/></i>
+                                    <i><img src="resources/icon/p2.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                                 <a class="buynow" href="#">Buy now</a>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                                 <div class="brand-box">
-                                    <i><img src="icon/p1.png"/></i>
+                                    <i><img src="resources/icon/p1.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                                 <a class="buynow" href="#">Buy now</a>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                                 <div class="brand-box">
-                                    <i><img src="icon/p4.png"/></i>
+                                    <i><img src="resources/icon/p4.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                                 <a class="buynow" href="#">Buy now</a>
                             </div>
                               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                                 <div class="brand-box">
-                                    <i><img src="icon/p4.png"/></i>
+                                    <i><img src="resources/icon/p4.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                                 <a class="buynow" href="#">Buy now</a>
@@ -275,7 +275,7 @@
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                                 <div class="shoes-box">
                                     <h5>Sale</h5>
-                                    <i><img src="icon/s1.png"/>
+                                    <i><img src="resources/icon/s1.png"/>
                                 </i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
 
@@ -284,14 +284,14 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                                 <div class="shoes-box">
-                                    <i><img src="icon/s2.png"/></i>
+                                    <i><img src="resources/icon/s2.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                                 <a class="buynow" href="#">Buy now</a>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                                 <div class="shoes-box">
-                                    <i><img src="icon/s3.png"/></i>
+                                    <i><img src="resources/icon/s3.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                                 <a class="buynow" href="#">Buy now</a>
@@ -299,7 +299,7 @@
                             <p></p>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                                 <div class="shoes-box">
-                                    <i><img src="icon/s4.png"/></i>
+                                    <i><img src="resources/icon/s4.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                                 <a class="buynow" href="#">Buy now</a>
@@ -347,7 +347,7 @@
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                             <div class="Jewellery-box">
                                 <h5>Sale</h5>
-                                <i><img src="icon/j1.png"/>
+                                <i><img src="resources/icon/j1.png"/>
                                 </i>
                                 <h4>Price $<span class="nolmal">100</span></h4>
 
@@ -356,21 +356,21 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                             <div class="Jewellery-box">
-                                <i><img src="icon/j2.png"/></i>
+                                <i><img src="resources/icon/j2.png"/></i>
                                 <h4>Price $<span class="nolmal">100</span></h4>
                             </div>
                             <a class="buynow" href="#">Buy now</a>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                             <div class="Jewellery-box">
-                                <i><img src="icon/j3.png"/></i>
+                                <i><img src="resources/icon/j3.png"/></i>
                                 <h4>Price $<span class="nolmal">100</span></h4>
                             </div>
                             <a class="buynow" href="#">Buy now</a>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                             <div class="Jewellery-box">
-                                <i><img src="icon/j4.png"/></i>
+                                <i><img src="resources/icon/j4.png"/></i>
                                 <h4>Price $<span class="nolmal">100</span></h4>
                             </div>
                             <a class="buynow" href="#">Buy now</a>
@@ -394,7 +394,7 @@
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                                 <div class="Kids-box">
 
-                                    <i><img src="icon/k1.png"/>
+                                    <i><img src="resources/icon/k1.png"/>
                                 </i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
 
@@ -402,19 +402,19 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                                 <div class="Kids-box">
-                                    <i><img src="icon/k1.png"/></i>
+                                    <i><img src="resources/icon/k1.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                                 <div class="Kids-box">
-                                    <i><img src="icon/k1.png"/></i>
+                                    <i><img src="resources/icon/k1.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                                 <div class="Kids-box">
-                                    <i><img src="icon/k1.png"/></i>
+                                    <i><img src="resources/icon/k1.png"/></i>
                                     <h4>Price $<span class="nolmal">100</span></h4>
                                 </div>
                             </div>
@@ -458,12 +458,12 @@
                                     <h3>Contact us </h3>
                                     <ul class="loca">
                                         <li>
-                                            <a href="#"><img src="icon/loc.png" alt="#" /></a>145 londone
+                                            <a href="#"><img src="resources/icon/loc.png" alt="#" /></a>145 londone
                                             <br>uk </li>
                                         <li>
-                                            <a href="#"><img src="icon/call.png" alt="#" /></a>+12586954775 </li>
+                                            <a href="#"><img src="resources/icon/call.png" alt="#" /></a>+12586954775 </li>
                                         <li>
-                                            <a href="#"><img src="icon/email.png" alt="#" /></a>demo@gmail.com </li>
+                                            <a href="#"><img src="resources/icon/email.png" alt="#" /></a>demo@gmail.com </li>
 
                                     </ul>
 
@@ -525,14 +525,14 @@
     <div class="overlay"></div>
 
     <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="resources/js/jquery.min.js"></script>
+    <script src="resources/js/popper.min.js"></script>
+    <script src="resources/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/js/jquery-3.0.0.min.js"></script>
 
     <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="resources/js/custom.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
