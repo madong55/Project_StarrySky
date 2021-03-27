@@ -10,4 +10,10 @@ public class ShopController {
 	public String shop() {
 		return "shop/index";
 	}
+	
+	@GetMapping("/test")
+	public String shop_test() {
+		return "shop/test";
+	}
+	
 }
