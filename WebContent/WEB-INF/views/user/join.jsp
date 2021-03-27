@@ -159,17 +159,6 @@
 								</div>
 								<form:errors path='user_pw2' style='color:red' />
 							</div>
-							
-							<div class="form-group">
-							<form:label path="preference_location">선호지역</form:label><br/>
-							<form:select path="preference_location">
-							<form:option value="#" label="자주 찾는 지역을 선택해 주세요"></form:option>
-							<form:option value="서울" label="서울"></form:option>
-							<form:option value="강릉" label="강릉"></form:option>
-							<form:option value="제주" label="제주"></form:option>
-							</form:select>
-							</div>
-							
 							<div class="form-group">
 								<div class="text-right">
 									<form:button class='btn btn-primary'>회원가입</form:button>

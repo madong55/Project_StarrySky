@@ -85,7 +85,7 @@ public class SpringConfigClass extends AbstractAnnotationConfigDispatcherServlet
 	protected void customizeRegistration(Dynamic registration) {
 		// TODO Auto-generated method stub
 		super.customizeRegistration(registration);
-		//(사용자 지정이 아닌 서버가 제공하는 임시기억장소 : null ,업로드시 메모리 용량 할당 : 52428800, 파일데이터를 포함한 전체용량 : 524288000, 데이터를 받아서 자동으로 저장 : 0 false)
+		//(사용자 지정이 아닌 서버가 제공하는 임시기억장소 : null 업로드시 메모리 용량 할당 : 52428800, 파일데이터를 포함한 전체용량 : 524288000, 데이터를 받아서 자동으로 저장 : 0 false)
 		MultipartConfigElement config1 = new MultipartConfigElement(null, 52428800, 524288000, 0);
 		registration.setMultipartConfig(config1);
 	}
