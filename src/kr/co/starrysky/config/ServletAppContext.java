@@ -54,6 +54,8 @@ public class ServletAppContext implements WebMvcConfigurer{
 	@Resource(name="loginUserBean")
 	private UserBean loginUserBean;
 	
+	
+	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		// TODO Auto-generated method stub

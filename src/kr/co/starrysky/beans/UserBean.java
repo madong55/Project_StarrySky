@@ -25,7 +25,7 @@ public class UserBean {
 	@Pattern(regexp = "^.*(?=.{8,20})(?=.*[!,@,#,$,%,^,&,*,?,_,~])(?=.*[0-9])(?=.*[a-zA-Z]).*$")
 	private String user_pw2;
 	
-	private String preference_location;
+	private String latestPage;
 	private MultipartFile user_profile_image;
 	private boolean userIdExist;
 	private boolean userLogin;
@@ -33,9 +33,19 @@ public class UserBean {
 	public UserBean() {
 		this.userIdExist=false;
 		this.userLogin=false;
+		this.latestPage="main";
 	}
 	
 	
+	public String getLatestPage() {
+		return latestPage;
+	}
+
+	public void setLatestPage(String latestPage) {
+		this.latestPage = latestPage;
+	}
+
+
 	public boolean isUserLogin() {
 		return userLogin;
 	}
@@ -82,12 +92,6 @@ public class UserBean {
 		this.user_pw = user_pw;
 	}
 
-	public String getPreference_location() {
-		return preference_location;
-	}
-	public void setPreference_location(String preference_location) {
-		this.preference_location = preference_location;
-	}
 	public MultipartFile getUser_profile_image() {
 		return user_profile_image;
 	}
