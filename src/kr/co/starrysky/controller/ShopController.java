@@ -4,16 +4,43 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ShopController {
-
-	@GetMapping("/shop")
-	public String shop() {
+public class ShopController{
+	
+	
+	
+	@GetMapping("/shop_index")
+	public String shop_index() {
 		return "shop/index";
+		
 	}
 	
-	@GetMapping("/test")
-	public String shop_test() {
-		return "shop/test";
+	@GetMapping("/starry_top")
+	public String starry_top() {
+		return "include/starry_top";
+	}
+	
+	@GetMapping("/shop_checkout")
+	public String shop_checkout() {
+		return "shop/checkout";
+		
+	}
+	
+	@GetMapping("/shop_shop-details")
+	public String shop_shopDetails() {
+		return "shop/shop-details";
+		
+	}
+	
+	@GetMapping("/shop_shop-grid")
+	public String shop_shopGrid() {
+		return "shop/shop-grid";
+		
+	}
+	
+	@GetMapping("/shop_shoping-cart")
+	public String shop_shopingCart() {
+		return "shop/shoping-cart";
+		
 	}
 	
 }

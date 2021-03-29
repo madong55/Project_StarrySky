@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+'<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -72,10 +74,12 @@
 		$(".date4_value").text(date4);
 		$(".date5_value").text(date5);
 	});
-</script>
+	/* h2안에 스크립트를 넣는게 아니라 h2에 클래스를 줘서 클래스에 따라 값을 뿌려야 한다 */
+	
 </script>
 
-</head>
+
+
 
 <body>
     <!-- Page Preloder -->
@@ -84,7 +88,7 @@
     </div>
 
     <!-- Header Section Begin -->
-    <header class="header-section">
+ <!-- <header class="header-section">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -95,20 +99,22 @@
                     </div>
                     <nav class="nav-menu mobile-menu">
                         <ul>
-                        <li><a href="#">Pages</a>
+                        <li><a href="shop/index.html">STARRY SHOP</a>
+                        <li><a href="#">MY PAGE</a>
                                 <ul class="dropdown">
-                                    <li><a href="./gallery.html">Gallery</a></li>
-                                    <li><a href="./portfolio-details.html">Portfolio Details</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="">내 게시물 조회</a></li> 
+                                    <li><a href="">결제 내역</a></li>
+                                    <li><a href="">내 정보</a></li>
+                                    <li><a href="logOut">로그아웃</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Contact</a><ul class="dropdown">
-                                    <li><a href="./gallery.html">Gallery</a></li>
-                                    <li><a href="./portfolio-details.html">Portfolio Details</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                            <li><a href="#">MY STAR</a><ul class="dropdown">
+                                    <li><a href="./gallery.html">선호지역</a></li>
+									유저 DB의 선호지역을 반복문으로 삽입
+                                    <li><a href="./portfolio-details.html">좋아한 게시물</a></li>
+                                  
                                 </ul></li>
-                        <div class="top-search search-switch">
-                        <i class="fa fa-search"></i>
+                   
                     </div></ul>
                     </nav>
                     
@@ -133,8 +139,13 @@
                 </div>
             </div>
         </div>
-    </header>
-
+    </header> -->
+    <header>
+   
+ <jsp:include page="include/starry_top.jsp"></jsp:include>
+ </header>
+ 
+<%-- <c:import url="${root}/include/starry_top.jsp"></c:import> --%>
     
     <!-- Hero Section Begin -->
     <section class="hero-section">
