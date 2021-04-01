@@ -159,11 +159,12 @@
 							<div class="form-group">
 								<form:label path="user_pw2">비밀번호 확인</form:label>
 								<form:input type="password" path="user_pw2" class='form-control' placeholder="비밀번호(8-20자 이내 영문,숫자,기호 사용 가능)"/>
-								<div class="eyes" style="float:right;">
-								<i class="fas fa-eye"></i>
+								<div class="eyes" style="float: right;">
+									<i class="fas fa-eye"></i>
 								</div>
 								<form:errors path='user_pw2' style='color:red' />
 							</div>
+							<br/>
 							<div class="form-group">
 								<div class="text-right">
 									<form:button class='btn btn-primary'>회원가입</form:button>

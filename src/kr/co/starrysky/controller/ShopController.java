@@ -16,7 +16,7 @@ public class ShopController{
 	@GetMapping("/shop_index")
 	public String shop_index() {
 		presentPageCheckBean.setPresentPage(true);
-		System.out.println(presentPageCheckBean.isPresentPage());
+		//System.out.println(presentPageCheckBean.isPresentPage());
 		return "shop/index";
 		
 	}

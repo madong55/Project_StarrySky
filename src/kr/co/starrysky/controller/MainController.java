@@ -16,7 +16,7 @@ public class MainController {
 	@GetMapping("/main")
 	public String main() {
 	presentPageCheckBean.setPresentPage(false);
-	System.out.println(presentPageCheckBean.isPresentPage());
+	//System.out.println(presentPageCheckBean.isPresentPage());
 		return "main";
 	}
 	
