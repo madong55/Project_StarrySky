@@ -25,6 +25,9 @@ public class UserBean {
 	@Pattern(regexp = "^.*(?=.{8,20})(?=.*[!,@,#,$,%,^,&,*,?,_,~])(?=.*[0-9])(?=.*[a-zA-Z]).*$")
 	private String user_pw2;
 	
+	@Pattern(regexp = "^[0-9]{2,3}[0-9]{3,4}[0-9]{4}")
+	private String user_phone_number;
+	
 	private String latestPage;
 	private MultipartFile user_profile_image;
 	private boolean userIdExist;
@@ -91,6 +94,13 @@ public class UserBean {
 	public void setUser_pw(String user_pw) {
 		this.user_pw = user_pw;
 	}
+	public String getUser_phone_number() {
+		return user_phone_number;
+	}
+	public void setUser_phone_number(String user_phone_number) {
+		this.user_phone_number = user_phone_number;
+	}
+
 
 	public MultipartFile getUser_profile_image() {
 		return user_profile_image;

@@ -12,8 +12,8 @@ public interface UserMapper {
 				+ "where user_email= #{user_email}")
 		String checkUserIdExist(String user_email);
 		
-		@Insert("insert into user_table(user_name, user_nickname, user_email, user_pw) "
-				+ "values(#{user_name}, #{user_nickname}, #{user_email}, #{user_pw})")
+		@Insert("insert into user_table(user_name, user_nickname, user_email, user_pw, user_phone_number) "
+				+ "values(#{user_name}, #{user_nickname}, #{user_email}, #{user_pw}, #{user_phone_number})")
 		void addUserInfo(UserBean joinUserBean);
 		
 		@Select("select user_name, user_email, user_nickname "

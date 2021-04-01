@@ -143,7 +143,11 @@
 								</div>
 								<form:errors path="user_email" style='color:red' />
 							</div>
-
+							<div class="form-group">
+								<form:label path="user_phone_number">전화번호</form:label>
+								<form:input path="user_phone_number" class='form-control' placeholder="'-'을 제외한 숫자로만 입력" />
+								<form:errors path="user_phone_number" style='color:red' />
+							</div>
 							<div class="form-group">
 								<form:label path="user_pw">비밀번호</form:label>
 								<form:input type="password" path="user_pw" class='form-control' placeholder="비밀번호(8-20자 이내 영문,숫자,기호 사용 가능)"/>
@@ -152,7 +156,6 @@
 								</div>
 								<form:errors path='user_pw' style='color:red' />
 							</div>
-
 							<div class="form-group">
 								<form:label path="user_pw2">비밀번호 확인</form:label>
 								<form:input type="password" path="user_pw2" class='form-control' placeholder="비밀번호(8-20자 이내 영문,숫자,기호 사용 가능)"/>
