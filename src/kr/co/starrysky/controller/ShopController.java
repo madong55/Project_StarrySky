@@ -50,4 +50,16 @@ public class ShopController{
 		
 	}
 	
+	@GetMapping("/shop_blog")
+	public String shop_blog() {
+		return "shop/blog";
+		
+	}
+	
+	@GetMapping("/shop_blog-details")
+	public String shop_blog_details() {
+		return "shop/blog-details";
+		
+	}
+	
 }

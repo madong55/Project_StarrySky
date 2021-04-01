@@ -61,6 +61,11 @@
                             </h2>
                             <p></p>
                             <h4>2차 문구</h4>
+                      <a href="shop_shop-details">/shop_shop-details</a> <br />
+                        <a href="shop_shoping-cart">/shop_shoping-cart</a> <br />
+                        <a href="shop_checkout">/shop_shop-checkout</a> <br />
+                        <a href="shop_blog">/shop_blog</a> <br />
+                        <a href="shop_blog-details">/shop_blog-details</a> <br />
                         <!--     <a href="#" class="primary-btn">SHOP NOW</a> -->
                         </div>
                     </div>
