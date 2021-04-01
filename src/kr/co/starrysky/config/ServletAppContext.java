@@ -21,6 +21,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import kr.co.starrysky.beans.PresentPageCheckBean;
 import kr.co.starrysky.beans.UserBean;
 import kr.co.starrysky.interceptor.CheckLoginInterceptor;
 import kr.co.starrysky.interceptor.TopMenuInterceptor;
@@ -54,7 +55,8 @@ public class ServletAppContext implements WebMvcConfigurer{
 	@Resource(name="loginUserBean")
 	private UserBean loginUserBean;
 	
-	
+	@Resource(name="presentPageCheckBean")
+	private PresentPageCheckBean presentPageCheckBean;
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
@@ -101,7 +103,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 	public void addInterceptors(InterceptorRegistry registry) {
 		WebMvcConfigurer.super.addInterceptors(registry);
 		
-		TopMenuInterceptor topMenuIntercepter = new TopMenuInterceptor(loginUserBean);
+		TopMenuInterceptor topMenuIntercepter = new TopMenuInterceptor(loginUserBean, presentPageCheckBean);
 		InterceptorRegistration reg1 = registry.addInterceptor(topMenuIntercepter);
 		reg1.addPathPatterns("/**");
 		

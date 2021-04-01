@@ -5,15 +5,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import kr.co.starrysky.beans.PresentPageCheckBean;
 import kr.co.starrysky.beans.UserBean;
 
 public class TopMenuInterceptor implements HandlerInterceptor{
 
 	private UserBean loginUserBean;
+	private PresentPageCheckBean presentPageCheckBean;
 	
-	public TopMenuInterceptor(UserBean loginUserBean) {
+	public TopMenuInterceptor(UserBean loginUserBean, PresentPageCheckBean presentPageCheckBean) {
 		this.loginUserBean = loginUserBean;
-		
+		this.presentPageCheckBean = presentPageCheckBean;
 	}
 	
 	@Override
@@ -28,7 +30,7 @@ public class TopMenuInterceptor implements HandlerInterceptor{
 		 * System.out.println("ServletPath : "+request.getServletPath());
 		 */
 		request.setAttribute("loginUserBean", loginUserBean);
-		
+		request.setAttribute("PresentPageCheckBean", presentPageCheckBean);
 		
 		return true;
 	}

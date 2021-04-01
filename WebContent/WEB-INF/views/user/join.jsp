@@ -6,19 +6,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Starry Sky Sign-Up</title>
-<!-- Bootstrap CDN -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<!-- Css Styles -->
+<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="../css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="../style.css" type="text/css">
+<script src="js/jquery-3.6.0.js"></script>
 
 <!-- eyes icon -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -106,7 +107,8 @@
         }	 
 </script>
 <body>
-	<c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
+<jsp:include page="/WEB-INF/views/include/starry_top.jsp" />
+	
 	
 	<div class="container" style="margin-top: 100px">
 		<div class="row">
