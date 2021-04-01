@@ -62,4 +62,11 @@ public class ShopController{
 		
 	}
 	
+	@GetMapping("/shop_board_main")
+	public String shop_board_main() {
+		return "shop/board/main";
+		
+	}
+	
+	
 }

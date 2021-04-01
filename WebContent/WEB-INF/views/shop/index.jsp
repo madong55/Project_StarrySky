@@ -66,6 +66,7 @@
                         <a href="shop_checkout">/shop_shop-checkout</a> <br />
                         <a href="shop_blog">/shop_blog</a> <br />
                         <a href="shop_blog-details">/shop_blog-details</a> <br />
+                        <a href="shop_board_main">/shop_board_main</a> <br/>
                         <!--     <a href="#" class="primary-btn">SHOP NOW</a> -->
                         </div>
                     </div>
