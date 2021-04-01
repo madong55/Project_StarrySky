@@ -393,7 +393,7 @@ ol {
 	bottom: 0;
 	height: 3px;
 	width: 100%;
-	background: #009603;
+	background: #ffca38;
 	content: "";
 	opacity: 0;
 	-webkit-transition: all 0.3s;
@@ -514,6 +514,7 @@ ol {
 }
 .hs-text{
   height: 800px;  
+  width: fit-content;
    display: block;
    position:absolute;
    top:50%;
@@ -897,8 +898,8 @@ ol {
 -----------------------*/
 
 .footer-section {
-	background: #000606;
-	padding-top: 70px;
+	background: #333333;
+	padding-top: 20px;
 }
 
 .fs-about {
@@ -926,7 +927,7 @@ ol {
 }
 
 .fs-widget {
-	margin-bottom: 30px;
+	 margin-bottom: 5px;
 	overflow: hidden;
 }
 
@@ -956,6 +957,7 @@ ol {
 
 .fs-widget ul li {
 	list-style: none;
+	color: #c4c4c4;
 }
 
 .fs-widget ul li a {
@@ -1019,8 +1021,8 @@ ol {
 	color: #c4c4c4;
 	text-align: center;
 	border-top: 1px solid #181d1d;
-	padding: 30px 0;
-	margin-top: 40px;
+/* 	padding: 30px 0;*/
+	margin-top: 5px; 
 }
 
 /*---------------------
