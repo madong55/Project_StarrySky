@@ -39,6 +39,7 @@ public class UserService {
 			loginUserBean.setUser_email(tempLoginUserBean2.getUser_email());
 			loginUserBean.setUser_name(tempLoginUserBean2.getUser_name());
 			loginUserBean.setUser_nickname(tempLoginUserBean2.getUser_nickname());
+			loginUserBean.setUser_phone_number(tempLoginUserBean2.getUser_phone_number());
 			loginUserBean.setUserLogin(true);
 		}
 		
@@ -50,6 +51,7 @@ public class UserService {
 		modifyUserBean.setUser_name(tempModifyUserBean.getUser_name());
 		modifyUserBean.setUser_email(tempModifyUserBean.getUser_email());
 		modifyUserBean.setUser_nickname(tempModifyUserBean.getUser_nickname());
+		modifyUserBean.setUser_phone_number(tempModifyUserBean.getUser_phone_number());
 	}
 	
 	public void modifyUserInfo(UserBean modifyUserBean) {

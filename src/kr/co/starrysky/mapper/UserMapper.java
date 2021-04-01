@@ -16,12 +16,12 @@ public interface UserMapper {
 				+ "values(#{user_name}, #{user_nickname}, #{user_email}, #{user_pw}, #{user_phone_number})")
 		void addUserInfo(UserBean joinUserBean);
 		
-		@Select("select user_name, user_email, user_nickname "
+		@Select("select user_name, user_email, user_nickname, user_phone_number "
 				+ "from user_table "
 				+ "where user_email=#{user_email} and user_pw=#{user_pw}")
 		UserBean getLoginUserInfo(UserBean tempLoginUserBean);
 		
-		@Select("select user_name, user_email "
+		@Select("select user_name, user_email, user_nickname, user_phone_number "
 				+ "from user_table "
 				+ "where user_email=#{user_email}")
 		UserBean getModifyUserInfo(String user_email);

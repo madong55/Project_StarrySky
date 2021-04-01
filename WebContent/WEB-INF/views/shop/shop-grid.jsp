@@ -113,18 +113,17 @@
                 <div class="col-lg-3 col-md-5">
                     <div class="sidebar">
                         <div class="sidebar__item">
-                            <h4>Department</h4>
+                            <h4>제품목록</h4>
                             <ul>
-                                <li><a href="#">Fresh Meat</a></li>
-                                <li><a href="#">Vegetables</a></li>
-                                <li><a href="#">Fruit & Nut Gifts</a></li>
-                                <li><a href="#">Fresh Berries</a></li>
-                                <li><a href="#">Ocean Foods</a></li>
-                                <li><a href="#">Butter & Eggs</a></li>
-                                <li><a href="#">Fastfood</a></li>
-                                <li><a href="#">Fresh Onion</a></li>
-                                <li><a href="#">Papayaya & Crisps</a></li>
-                                <li><a href="#">Oatmeal</a></li>
+                            <li><a href="shop_checkout">checkout</a></li>
+                            <li><a href="shop_shop-details">shop-details</a></li>
+                            <li><a href="shop_shop-grid">shop-grid</a></li>
+                            <li><a href="shop_shoping-cart">장바구니</a></li>
+                            <li><a href="shop_shop-grid">텐트 / 타프</a></li>
+                            <li><a href="shop_shop-grid">침낭 / 매트</a></li>
+                            <li><a href="shop_shop-grid">배낭</a></li>
+                            <li><a href="shop_shop-grid">난로 / 핫팩</a></li>
+                            <li><a href="shop_shop-grid">랜턴 / 조명</a></li>
                             </ul>
                         </div>
                         <div class="sidebar__item">

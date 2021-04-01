@@ -9,16 +9,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Edit Profile</title>
-<!-- Bootstrap CDN -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
+<!-- Css Styles -->
+<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="../css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="../style.css" type="text/css">
+<script src="js/jquery-3.6.0.js"></script>
 </head>
 <body>
 
-<c:import url="/WEB-INF/views/include/top_menu.jsp"></c:import>
+<jsp:include page="/WEB-INF/views/include/starry_top.jsp" />
 
 <div class="container" style="margin-top:100px">
 	<div class="row">
@@ -40,14 +43,11 @@
 					<form:input path="user_nickname" class="form-control"/>
 					<form:errors path="user_nickname" style="color:red"></form:errors>
 					</div>
-					<form:label path="preference_location">선호지역</form:label><br/>
-							<form:select path="preference_location">
-							<form:option value="selct로불러온값" label="불러온값"></form:option>
-							<form:option value="서울" label="서울"></form:option>
-							<form:option value="강릉" label="강릉"></form:option>
-							<form:option value="제주" label="제주"></form:option>
-							</form:select>
-					
+					<div class="form-group">
+					<form:label path="user_phone_number">전화번호</form:label>
+					<form:input path="user_phone_number" class="form-control"/>
+					<form:errors path="user_phone_number" style="color:red"></form:errors>
+					</div>
 					<div class="form-group">
 					<form:label path="user_pw">비밀번호</form:label>
 					<form:password path="user_pw" class="form-control"/>
