@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="style.css" type="text/css">
    <script src="js/jquery-3.6.0.js"></script>
 <script type="text/javascript">
+
+
+
 	/* 날짜계산식 */
 	var dt = new Date();
 	var date1 = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-'
@@ -160,11 +163,12 @@
 				
 							<img src="img/map_grade2/kr1.png" usemap="#image-kr">
 							<map name="image-kr">
+							
 								<area target="" alt="seoul" title="seoul" href=""
 									coords="109,117,185,75,249,113,232,145,261,160,229,221,205,236,174,232,126,184"
 									shape="poly">
 								<area target="" alt="kangwon" title="kangwon"
-									href="day1_kangwon"
+									href="grade2/day1_kw"
 									coords="188,72,326,33,413,227,409,290,380,234,339,229,245,205,268,162,241,145,253,113"
 									shape="poly">
 								<area target="" alt="chungbuk" title="chungbuk" href=""
@@ -246,6 +250,25 @@
 			</div>
                 
                 
+                	<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
+				<div class="container">
+				
+							
+					<div class="row">
+					
+					
+					
+						<div class="hs-text">
+							<h2 class="date5_value" ></h2>
+						
+							<img src="img/krb3.png" usemap="#image-kr"/>
+
+						</div>
+					</div>
+				</div>
+			</div>
+                
+                
             </div>  
     </section>
     <!-- Hero Section End -->
@@ -289,9 +312,8 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="section-title">
-                        <h2>Categories</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do<br /> eiusmod tempor
-                            incididunt ut labore et dolore.</p>
+                        <h2>Starry Recommended</h2>
+                        <p>당신만의 밤하늘을 위한 추천 물품</p>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -326,13 +348,20 @@
                         <h4>Animal</h4>
                         <span>120 pictures</span>
                     </div>
-                </div>
+                </div>            
                 <div class="cs-item">
-                    <div class="cs-pic set-bg" data-setbg="img/categories/cat-5.jpg"></div>
+                
+                <a href="shop_shop-details">
+                
+                    <div class="cs-pic set-bg" data-setbg="img/categories/cat-5.jpg" ></div>
                     <div class="cs-text">
-                        <h4>Animal</h4>
-                        <span>120 pictures</span>
+                        <h3><b>사우스페이스 4인형 텐트</b></h3>
+                      <h3> <del>50,000 &#8361;</del> </h3> 
+                      <h2> &#10149; 30,000 &#8361;&nbsp;&nbsp;</h2>
                     </div>
+                    
+                    </a>
+                    
                 </div>
             </div>
         </div>
@@ -340,73 +369,9 @@
     <!-- Categories Section End -->
 
        <!-- Footer Section Begin -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="fs-about">
-                        <div class="fa-logo">
-                            <a href="#">
-                                <img src="img/f-logo.png" alt="">
-                            </a>
-                        </div>
-                        <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua.</p>
-                        <div class="fa-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="fs-widget">
-                        <h5>Instagram</h5>
-                        <div class="fw-instagram">
-                            <img src="img/instagram/insta-1.jpg" alt="">
-                            <img src="img/instagram/insta-2.jpg" alt="">
-                            <img src="img/instagram/insta-3.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="fs-widget">
-                        <h5>Quick links</h5>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Services</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="fs-widget">
-                        <h5>Subscribe</h5>
-                        <p>Imolor amet consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                        <div class="fw-subscribe">
-                            <form action="#">
-                                <input type="text" placeholder="Email">
-                                <button type="submit"><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="copyright-text">
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+ 
+    <jsp:include page="/WEB-INF/views/include/starry_footer.jsp"></jsp:include>   
+ 
     <!-- Footer Section End -->
 
     <!-- Search model Begin -->
