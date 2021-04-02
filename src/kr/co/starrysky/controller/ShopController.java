@@ -2,20 +2,15 @@ package kr.co.starrysky.controller;
 
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.starrysky.beans.PresentPageCheckBean;
-import kr.co.starrysky.service.ProductService;
 
 @Controller
 @RequestMapping("/shop")
 public class ShopController{
-	
-	@Autowired
-	private ProductService productService;
 	
 	@Resource(name="presentPageCheckBean")
 	private PresentPageCheckBean presentPageCheckBean;
@@ -24,8 +19,6 @@ public class ShopController{
 	public String shop_index() {
 		presentPageCheckBean.setPresentPage(true);
 		//System.out.println(presentPageCheckBean.isPresentPage());
-		productService.getProductList();
-		productService.getSaleProductList();
 		
 		return "shop/index";
 		
