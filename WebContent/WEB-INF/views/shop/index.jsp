@@ -15,7 +15,10 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
+	
+	<!-- 한글나눔고딕 -->
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700" rel="stylesheet">
+	
     <!-- Css Styles -->
     <link rel="stylesheet" href="shop/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="shop/css/font-awesome.min.css" type="text/css">
@@ -55,17 +58,17 @@
                             <h2>
                             <br/>
                             당신만의 밤하늘을 위해 <br/>
-                            . <br/>
+                       <!--      . <br/> -->
                            	. <br/>
                             - STARRY SHOP -
                             </h2>
                             <p></p>
-                            <h4>2차 문구</h4>
+                     <!--        <h4>2차 문구</h4> -->
                       <a href="shop_shop-details">/shop_shop-details</a> <br />
                         <a href="shop_shoping-cart">/shop_shoping-cart</a> <br />
                         <a href="shop_checkout">/shop_shop-checkout</a> <br />
-                        <a href="shop_blog">/shop_blog</a> <br />
-                        <a href="shop_blog-details">/shop_blog-details</a> <br />
+                <!--         <a href="shop_blog">/shop_blog</a> <br />
+                        <a href="shop_blog-details">/shop_blog-details</a> <br /> -->
                         <a href="shop_board_main">/shop_board_main</a> <br/>
                         
                         <!--     <a href="#" class="primary-btn">SHOP NOW</a> -->
@@ -85,8 +88,8 @@
                
                 <div class="col-lg-12">
                     <div class="product__discount">
-                        <div class="section-title product__discount__title">
-                            <h2>Sale Off</h2>
+                        <div class="section-title related__product__title">
+                            <h2>특가 할인중!</h2>
                         </div>
                         <div class="row">
                             <div class="product__discount__slider owl-carousel">
@@ -205,7 +208,9 @@
 </div>
 </div> 
 <!-- 세일품목 끝 -->
-                               
+                               <div class="section-title related__product__title">
+                            <h2>전체 제품 목록</h2>
+                        </div>
                     <!-- 제품목록 -->
                      <div class="featured__controls">
                   

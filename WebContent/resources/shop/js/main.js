@@ -221,4 +221,8 @@
         $button.parent().find('input').val(newVal);
     });
 
+	 $(".shoping__cart__table").on("click", ".shoping__cart__item__close", function() { 
+    $(this).parent().parent().remove(); 
+  });  
+
 })(jQuery);
