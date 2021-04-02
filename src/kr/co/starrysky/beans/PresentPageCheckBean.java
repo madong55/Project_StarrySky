@@ -11,5 +11,4 @@ public class PresentPageCheckBean {
 		this.presentPage = presentPage;
 	}
 	
-	
 }

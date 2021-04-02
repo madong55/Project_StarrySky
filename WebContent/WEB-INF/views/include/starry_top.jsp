@@ -28,7 +28,7 @@
                     <div class="logo">
 					<c:choose>
 						<c:when test="${PresentPageCheckBean.presentPage == true }">
-							<a href="${root }/shop_index"> <img src="img/logo.png" alt="">
+							<a href="${root }/shop/index"> <img src="img/logo.png" alt="">
 							</a>
 						</c:when>
 						<c:otherwise>
@@ -73,7 +73,7 @@
 								<li><a href="${root }/main">STARRY SKY</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="${root }/shop_index">STARRY SHOP</a></li>
+								<li><a href="${root }/shop/index">STARRY SHOP</a></li>
 							</c:otherwise>
 						</c:choose>
 					</ul>

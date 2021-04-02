@@ -25,6 +25,7 @@ import kr.co.starrysky.beans.PresentPageCheckBean;
 import kr.co.starrysky.beans.UserBean;
 import kr.co.starrysky.interceptor.CheckLoginInterceptor;
 import kr.co.starrysky.interceptor.TopMenuInterceptor;
+import kr.co.starrysky.mapper.ProductMapper;
 import kr.co.starrysky.mapper.UserMapper;
 
 //Spring MVC 프로젝트에 관련된 설정을 하는 클래스
@@ -71,6 +72,8 @@ public class ServletAppContext implements WebMvcConfigurer{
 		// TODO Auto-generated method stub
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 		registry.addResourceHandler("/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/user/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/shop/**").addResourceLocations("/resources/");
 	}
 	
 	@Bean
@@ -99,6 +102,12 @@ public class ServletAppContext implements WebMvcConfigurer{
 		return factoryBean;
 	}
 	
+	@Bean
+	public MapperFactoryBean<ProductMapper> getProductMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<ProductMapper> factoryBean = new MapperFactoryBean<ProductMapper>(ProductMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		WebMvcConfigurer.super.addInterceptors(registry);
