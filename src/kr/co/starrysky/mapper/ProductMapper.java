@@ -20,6 +20,6 @@ public interface ProductMapper {
 	
 	//세일상품 페이지(메인)
 	@Select("select product_name, product_id, product_price, product_sale_price, product_thumbnail "
-			+ "from product_list where product_sale_price is not null;")
+			+ "from product_list where product_sale_price is not null")
 	List<ProductBean> getSaleProductList();
 }
