@@ -67,6 +67,7 @@
                         <a href="shop_blog">/shop_blog</a> <br />
                         <a href="shop_blog-details">/shop_blog-details</a> <br />
                         <a href="shop_board_main">/shop_board_main</a> <br/>
+                        
                         <!--     <a href="#" class="primary-btn">SHOP NOW</a> -->
                         </div>
                     </div>
@@ -200,51 +201,29 @@
                             </div>
                         </div>
                     </div>
-                    
+    
+</div>
+</div> 
+<!-- 세일품목 끝 -->
+                               
+                    <!-- 제품목록 -->
                      <div class="featured__controls">
+                  
                         <ul>
-                            <li class="active" data-filter="*">전체목록</li>
-                            <li data-filter=".oranges">텐트 / 타프</li>
-                            <li data-filter=".fresh-meat">침낭 / 매트</li>
-                            <li data-filter=".vegetables">배낭</li>
-                            <li data-filter=".fastfood">난로 / 핫팩</li>
-                            <li data-filter=".fastfood">랜턴 / 조명</li>
+                            <li class="active" data-filter="*">전체 보기</li>
+                            <li data-filter=".tent">텐트 / 타프</li>
+                            <li data-filter=".slpbag">침낭 / 매트</li>
+                            <li data-filter=".backpack">배낭</li>
+                            <li data-filter=".heater">난로 / 핫팩</li>
+                            <li data-filter=".lights">랜턴 / 조명</li>
+                            
                         </ul>
-                        
-                        
-
-
-
 
                     </div>
-                    
-                    <div class="filter__item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                <div class="filter__sort">
-                                    <span>Sort By</span>
-                                    <select>
-                                        <option value="0">Default</option>
-                                        <option value="0">Default</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-3">
-                                <div class="filter__option">
-                                    <span class="icon_grid-2x2"></span>
-                                    <span class="icon_ul"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="product__item">
+              
+                    <div class="row featured__filter">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix tent">
+                            <div class="featured__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-1.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -253,13 +232,13 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
-                                    <h5>$30.00</h5>
+                                    <h6><a href="#">텐트1</a></h6>
+                                    <h5>30,000원</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                            <div class="product__item">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix tent">
+                            <div class="featured__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-2.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -268,12 +247,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">텐트2</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix slpbag">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-3.jpg">
                                     <ul class="product__item__pic__hover">
@@ -283,12 +262,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">침낭1</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix slpbag">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-4.jpg">
                                     <ul class="product__item__pic__hover">
@@ -298,12 +277,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">침낭2</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix backpack">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-5.jpg">
                                     <ul class="product__item__pic__hover">
@@ -313,12 +292,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">배낭1</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix backpack">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-6.jpg">
                                     <ul class="product__item__pic__hover">
@@ -328,12 +307,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">배낭2</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix heater">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-7.jpg">
                                     <ul class="product__item__pic__hover">
@@ -343,12 +322,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">난로1</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix heater">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-8.jpg">
                                     <ul class="product__item__pic__hover">
@@ -358,12 +337,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">난로2</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix lights">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-9.jpg">
                                     <ul class="product__item__pic__hover">
@@ -373,12 +352,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">조명1</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix lights">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-10.jpg">
                                     <ul class="product__item__pic__hover">
@@ -388,12 +367,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">조명2</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix tent">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-11.jpg">
                                     <ul class="product__item__pic__hover">
@@ -403,12 +382,12 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
+                                    <h6><a href="#">텐트3</a></h6>
                                     <h5>$30.00</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix backpack">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-12.jpg">
                                     <ul class="product__item__pic__hover">
@@ -430,9 +409,11 @@
                         <a href="#">3</a>
                         <a href="#"><i class="fa fa-long-arrow-right"></i></a>
                     </div>
+                    
                 </div>
-            </div>
-        </div>
+                
+        <!-- 제품목록 끝 -->
+     
     </section>
 
     <!-- Footer Section Begin -->
