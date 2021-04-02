@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>미니 프로젝트</title>
+<title>Starry Shop</title>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -105,7 +105,7 @@
 			</div>
 			
 			<div class="text-right">
-			<!-- 글쓰기 누르면, 어느 게시판의 글쓰기인지지 보드인덱스를 붙여서 간다. -->
+			<!-- 글쓰기 누르면, 어느 게시판의 글쓰기인지 보드인덱스를 붙여서 간다. -->
 				<a href="${root }board/write?board_info_idx=${board_info_idx}" class="btn btn-primary">글쓰기</a>
 			</div>
 			
