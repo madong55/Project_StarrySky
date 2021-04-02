@@ -5,7 +5,6 @@ public class Location1Bean {
 	private int location1_id;
 	
 	
-	
 	public String getLocation1_name() {
 		return location1_name;
 	}

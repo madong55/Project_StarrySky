@@ -5,6 +5,7 @@ public class PreferenceLocationBean {
 	private String user_email;
 	private int location2_id;
 	
+	
 	public String getUser_email() {
 		return user_email;
 	}

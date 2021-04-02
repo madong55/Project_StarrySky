@@ -2,6 +2,8 @@ package kr.co.starrysky.beans;
 
 import javax.validation.constraints.NotBlank;
 
+
+
 // QnA 게시글에 대한 정보를 저장
 public class QnAContentBean {
 	

@@ -6,6 +6,7 @@ public class OrderDetailBean {
 	private int order_quantity;
 	private int product_id;
 	private int product_price;
+	
 	public int getOrder_detail_id() {
 		return order_detail_id;
 	}

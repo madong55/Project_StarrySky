@@ -4,6 +4,8 @@ public class ProductTypeBean {
 	public String product_category_id;
 	public String product_category;
 	
+	
+	
 	public String getProduct_category_id() {
 		return product_category_id;
 	}

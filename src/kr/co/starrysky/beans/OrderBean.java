@@ -6,6 +6,7 @@ public class OrderBean {
 	private String user_email;
 	private int total_price;
 	
+	
 	public int getOrder_id() {
 		return order_id;
 	}

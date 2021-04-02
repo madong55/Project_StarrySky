@@ -6,6 +6,8 @@ public class StarIndicatorBean {
 	private String forecast_date;
 	private String star_indicator_data;
 	
+	
+	
 	public int getLocation1_id() {
 		return location1_id;
 	}
