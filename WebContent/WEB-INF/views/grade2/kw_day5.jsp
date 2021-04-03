@@ -82,7 +82,7 @@
 
     <!-- Header Section Begin -->
     <header>   
- <jsp:include page="include/starry_top.jsp"></jsp:include>
+ <jsp:include page="/WEB-INF/views/include/starry_top.jsp"></jsp:include>
  </header>
  
 <%-- <c:import url="${root}/include/starry_top.jsp"></c:import> --%>
@@ -96,112 +96,23 @@
 					<div class="row">
 						<div class="hs-text">
 
-							<h2 class="date1_value" ></h2>
-				
-							<img src="img/krb4.png" usemap="#image-kr">
-							<map name="image-kr">
-							<area target="" alt="seoul" title="seoul" href="#kr_day1" coords="447,74,372,114,433,228,473,236,527,164,502,152,513,122,486,86" shape="poly">
-    <area target="" alt="chungnam" title="chungnam" href="" coords="466,242,398,216,353,246,403,338,499,346" shape="poly">
-    <area target="" alt="jeonbuk" title="jeonbuk" href="#kr_day3" coords="402,342,518,350,523,361,491,429,446,424,420,406,395,425,391,414,379,411" shape="poly">
-    <area target="" alt="jeonnam" title="jeonnam" href="" coords="373,416,336,522,406,554,513,513,492,437,448,430,421,413,394,430" shape="poly">
-    <area target="" alt="kangwon" title="kangwon" href="kw_day1" coords="457,68,597,32,685,230,679,282,649,244,621,221,609,229,549,201,509,206,534,162,511,150,521,120,487,78" shape="poly">
-    <area target="" alt="chungbuk" title="chungbuk" href="" coords="505,212,477,242,500,338,521,346,538,329,521,315,528,289,517,280,565,249,575,256,596,231,549,207" shape="poly">
-    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="601,234,577,261,564,257,527,279,533,290,528,314,546,332,525,347,533,367,553,384,553,394,627,407,669,411,683,294,624,227" shape="poly">
-    <area target="" alt="gyungnam" title="gyungnam" href="" coords="524,366,495,433,516,508,593,510,671,418,549,401,549,387" shape="poly">
-    <area target="" alt="jeju" title="jeju" href="" coords="343,639,416,639,409,610,345,612,233,578,0,581,0,686,243,683,251,601" shape="poly">
-    <area target="" alt="seoul" title="seoul" href="" coords="0,17,245,121" shape="rect">
-    <area target="" alt="chungnam" title="chungnam" href="" coords="0,159,247,264" shape="rect">
-    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="1,298,243,402" shape="rect">
-    <area target="" alt="jeonnam" title="jeonnam" href="" coords="2,438,247,542" shape="rect">
-    <area target="" alt="kangwon" title="kangwon" href="" coords="751,33,999,136" shape="rect">
-    <area target="" alt="chungbuk" title="chungbuk" href="" coords="753,208,999,320" shape="rect">
-    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
-    <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
-
-							</map>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-
-				<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
-				<div class="container">
-					<div class="row">
-						<div class="hs-text" id="kr_day2">							
-							
-							<h2 class="date2_value" ></h2>
-						
-							<img src="img/krb4.png" usemap="#image-kr">						
-						</div>
-					</div>
-				</div>
-			</div>
-    
-       	<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
-				<div class="container">
-					<div class="row">
-						<div class="hs-text" id="kr_day3">
-							
-							<h2 class="date3_value" ></h2>
-							
-							<img src="img/krb4.png" usemap="#image-kr">						
-						</div>
-					</div>
-				</div>
-			</div>
-       
-          	<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
-				<div class="container">
-					<div class="row">
-						<div class="hs-text" id="kr_day4">
-							<!-- style="display : block ; text-align : center ;" -->
-							<h2 class="date4_value" ></h2>
-							<img src="img/krb4.png" usemap="#image-kr">						
-						</div>
-					</div>
-				</div>
-			</div>  
-                
-                	<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
-				<div class="container">
-					<div class="row">
-						<div class="hs-text " id="kr_day5">
-							<!-- style="display : block ; text-align : center ;" -->
 							<h2 class="date5_value" ></h2>
-							<img src="img/krb4.png" usemap="#image-kr">						
-						</div>
-					</div>
-				</div>
-			</div>
-                
-                
-                	<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
-				<div class="container">
 				
+						<a href="map">	<img src="img/map_grade2/kw1.png" ></a>
 							
-					<div class="row">
-					
-					
-					
-						<div class="hs-text">
-							<h2 class="date5_value" ></h2>
-						
-							<img src="img/krb3.png" usemap="#image-kr"/>
-
 						</div>
 					</div>
 				</div>
 			</div>
-                
-            
             </div>  
     </section>
     <!-- Hero Section End -->
 
+   
     <!-- Services Section Begin -->
     <jsp:include page="/WEB-INF/views/include/main_review.jsp"></jsp:include>
     <!-- Services Section End -->
+
 
     <!-- Categories Section Begin -->
     <jsp:include page="/WEB-INF/views/include/main_recommended.jsp"></jsp:include>
@@ -214,7 +125,6 @@
     <jsp:include page="/WEB-INF/views/include/starry_footer.jsp"></jsp:include>   
  
     <!-- Footer Section End -->
-
 
 
     <!-- Js Plugins -->
