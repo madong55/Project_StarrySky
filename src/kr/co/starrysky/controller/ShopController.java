@@ -20,9 +20,13 @@ public class ShopController{
 		presentPageCheckBean.setPresentPage(true);
 		//System.out.println(presentPageCheckBean.isPresentPage());
 		
-		return "shop/index";
+		return "forward:product/product_list";
 		
-	}
+				
+		}
+		
+		
+	
 	//지워도될듯
 	@GetMapping("/starry_top")
 	public String starry_top() {
