@@ -138,6 +138,11 @@
                                         <span class="icon_close"></span>
                                     </td>
                                 </tr>
+                                 <tr>
+                                <td colspan="3" />
+                                <td colspan="2"><a href="#" class="primary-btn" 
+                                style="border: solid black; color: #333333;">수량 적용</a></td>
+                        		</tr>
                             </tbody>
                         </table>
                     </div>
