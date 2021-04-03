@@ -73,7 +73,7 @@
 
 				<c:forEach var='saleProductListTent' items="${saleProductListTent }">
 					<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix tent">
-						<div class="col-lg-4">
+				
 							<div class="product__discount__item">
 								<div class="product__discount__item__pic set-bg"
 									data-setbg="shop/img/product/discount/pd-1.jpg">
@@ -92,7 +92,7 @@
 										<span>${saleProductListTent.product_price }</span>
 									</div>
 								</div>
-							</div>
+					
 						</div>
 					</div>
 				</c:forEach>
