@@ -33,7 +33,7 @@
 html,
 body {
 	height: 100%;
-	font-family: "Cairo", sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 	 padding-top: 43px !important; 
@@ -48,7 +48,7 @@ h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Cairo", sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 
 h1 {
@@ -78,7 +78,7 @@ h6 {
 
 p {
 	font-size: 16px;
-	font-family: "Cairo", sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	color: #6f6f6f;
 	font-weight: 400;
 	line-height: 26px;
@@ -134,8 +134,8 @@ margin-bottom: 0 !important;
 	bottom: -15px;
 	right: 0;
 	height: 4px;
-	width: 80px;
-	background: #7fad39;
+	/* width: 80px; */
+	background: #faca38;
 	content: "";
 	margin: 0 auto;
 }
@@ -167,14 +167,17 @@ margin-bottom: 0 !important;
 /* buttons */
 
 .primary-btn {
-	display: inline-block;
-	font-size: 14px;
-	padding: 10px 28px 10px;
-	color: #ffffff;
-	text-transform: uppercase;
-	font-weight: 700;
-	background: #7fad39;
-	letter-spacing: 2px;
+    display: inline-block;
+    font-size: 16px;
+    padding: 14px 30px;
+    color: #ffffff;
+    background: #ffca38;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: "Nanum Gothic", sans-serif;
+    width: 140px;
+    height: 50px;
+    text-align: center;
 }
 
 .site-btn {
@@ -830,12 +833,13 @@ margin-bottom: 0 !important;
 
 .featured__controls ul li {
 	list-style: none;
-font-size: 25px; 	/* font-size: 18px; */
+	font-size: 25px; 	/* font-size: 18px; */
 	color: #333333;
 	display: inline-block;
 	margin-right: 25px;
 	position: relative;
 	cursor: pointer;
+	font-weight: 700;
 }
 
 .featured__controls ul li.active:after {
@@ -1056,6 +1060,8 @@ font-size: 25px; 	/* font-size: 18px; */
 	font-size: 46px;
 	color: #ffffff;
 	font-weight: 700;
+	padding-bottom: 10px;
+	
 }
 
 .breadcrumb__option a {
@@ -1267,7 +1273,7 @@ font-size: 25px; 	/* font-size: 18px; */
 }
 
 .product__discount {
-	padding-bottom: 50px;
+	padding-bottom: 100px;
 }
 
 .product__discount__title {
@@ -1281,7 +1287,7 @@ font-size: 25px; 	/* font-size: 18px; */
 
 .product__discount__title h2:after {
 	margin: 0;
-	width: 100%;
+	/* width: 800%; */
 }
 
 .product__discount__item:hover .product__discount__item__pic .product__item__pic__hover {
@@ -1722,9 +1728,9 @@ font-size: 25px; 	/* font-size: 18px; */
 }
 
 .product__details__text .primary-btn {
-	padding: 16px 28px 14px;
+/* 	padding: 16px 28px 14px; */
 	margin-right: 6px;
-	margin-bottom: 5px;
+/* 	margin-bottom: 5px; */
 }
 
 .product__details__text .heart-icon {
@@ -2033,6 +2039,8 @@ font-size: 25px; 	/* font-size: 18px; */
 	padding: 30px;
 	padding-top: 20px;
 	margin-top: 50px;
+	max-width:50%;
+	border: solid #333333;
 }
 
 .shoping__checkout h5 {
@@ -2071,7 +2079,29 @@ font-size: 25px; 	/* font-size: 18px; */
 
 .shoping__checkout .primary-btn {
 	display: block;
-	text-align: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    border: solid black;
+    color: #333333;
+    
+
+}
+.shoping__checkout .primary-btn-keepshoping {
+display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    border: solid black;
+    color: #333333;
+   
+    font-size: 16px;
+    padding: 14px 30px;
+    color: #ffffff;
+    background: #ffca38;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: "Nanum Gothic", sans-serif;
 }
 
 /*---------------------
