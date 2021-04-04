@@ -74,6 +74,9 @@ public class ServletAppContext implements WebMvcConfigurer{
 		registry.addResourceHandler("/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/user/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/shop/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/shop/product/**").addResourceLocations("/resources/");
+		//registry.addResourceHandler("/shop/index").addResourceLocations("file:////var/lib/tomcat8/webapps/ROOT/resources/");
+		//registry.addResourceHandler("/shop/product/product_list").addResourceLocations("file:////var/lib/tomcat8/webapps/ROOT/resources/");
 	}
 	
 	@Bean

@@ -15,7 +15,7 @@ public interface OrderMapper {
 	//(1.샵메인장바구니아이콘)from index , 수량은 무조건 1개로 갱신, alert설정, 
 	//(2.제품상세페이지장바구니넣기버튼)from product_details
 	//(3.쇼핑 더 하기,4.updatecart,5.proceed to checkout)from shopping_cart
-	//1,2의 경우 같은상품이 이미 장바구니db에 존재하면 수량만 +시켜줌
+	//1,2의 경우 같은상품이 이미 장바구니db에 존재하면 alert 이미등록된상품입니다
 	//db갱신메소드 두종류필요
 	//로그인시 db에서 불러와서 장바구니정보 바로세팅 root에 추가해서 사용해야함
 	//장바구니 구매최대수량설정? 재고정보 불러와서?(보류)

@@ -2,6 +2,7 @@ package kr.co.starrysky.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 import kr.co.starrysky.beans.ProductBean;
@@ -15,18 +16,23 @@ public interface ProductMapper {
 			+ "order by product_category_id")
 	List<ProductTypeBean> getProductType();
 	
+	//상품정보 입력
+	@Insert("insert into product_list(product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details)"
+			+ " values (#{product_name}, #{product_category_id}, #{product_id}, #{product_price}, #{product_sale_price}, #{product_quantity}, #{product_thumbnail,jdbcType=VARCHAR}, #{product_details})")
+	void insertProductBean(ProductBean insertProductBean);
+	
 	//상품 상세페이지
 	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
 			+ "from product_list where product_id = #{product_id}")
 	ProductBean getProductInfo(int product_id);
 	
 	//상품 전체페이지(카테고리별)
-	@Select("select product_name, product_id, product_price, product_sale_price, product_thumbnail "
-			+ "from product_list where product_sale_price is null and product_category_id = #{product_category_id}")//and product_category_id = #{product_category_id} 
-	List<ProductBean> getProductList(String product_category_id);//String product_category_id
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
+			+ "from product_list where product_sale_price is null and product_category_id = #{product_category_id}")
+	List<ProductBean> getProductList(String product_category_id);
 	
 	//세일상품 페이지(카테고리별)
-	@Select("select product_name, product_id, product_price, product_sale_price, product_thumbnail "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
 			+ "from product_list where product_sale_price is not null and product_category_id = #{product_category_id}")
 	List<ProductBean> getSaleProductList(String product_category_id);
 

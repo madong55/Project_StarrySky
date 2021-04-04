@@ -19,6 +19,10 @@ public class ProductDao {
 		return productMapper.getProductType();
 	}
 	
+	public void insertProductBean(ProductBean insertProductBean) {
+		productMapper.insertProductBean(insertProductBean);
+	}
+	
 	public List<ProductBean> getProductList(String product_category_id){
 		return productMapper.getProductList(product_category_id);
 	}

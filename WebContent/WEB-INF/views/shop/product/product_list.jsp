@@ -26,7 +26,7 @@
 									<div class="col-lg-4">
 										<div class="product__discount__item">
 											<div class="product__discount__item__pic set-bg"
-												data-setbg="shop/img/product/discount/pd-1.jpg">
+												data-setbg="product_thumbnail/${saleAllProductList.product_thumbnail}">
 												<div class="product__discount__percent">-${Math.floor((1-saleAllProductList.product_sale_price/saleAllProductList.product_price)*100) }%</div>
 												<ul class="product__item__pic__hover">
 													<li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -76,7 +76,7 @@
 				
 							<div class="product__discount__item">
 								<div class="product__discount__item__pic set-bg"
-									data-setbg="shop/img/product/discount/pd-1.jpg">
+									data-setbg="../var/lib/tomcat8/webapps/ROOT/resources/product_thumbnail/${saleProductListTent.product_thumbnail}">
 									<div class="product__discount__percent">-${Math.floor((1-saleProductListTent.product_sale_price/saleProductListTent.product_price)*100) }%</div>
 									<ul class="product__item__pic__hover">
 										<li><a href="#"><i class="fa fa-heart"></i></a></li>
@@ -101,7 +101,7 @@
 					<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix tent">
 						<div class="featured__item">
 							<div class="product__item__pic set-bg"
-								data-setbg="shop/img/product/product-1.jpg">
+								data-setbg="${root}/product_thumbnail/${productListTent.product_thumbnail}">
 								<ul class="product__item__pic__hover">
 									<li><a href="#"><i class="fa fa-heart"></i></a></li>
 									<li><a href="#"><i class="fa fa-retweet"></i></a></li>

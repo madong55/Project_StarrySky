@@ -1,12 +1,13 @@
 package kr.co.starrysky.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.starrysky.beans.ProductBean;
@@ -19,6 +20,19 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@GetMapping("/insert_product")
+	public String insert_product(@ModelAttribute("insertProductBean") ProductBean insertProductBean) {
+		
+		return "shop/product/insert_product";
+	}
+	
+	@PostMapping("/insert_product_pro")
+	public String insert_product_pro(@ModelAttribute("insertProductBean") ProductBean insertProductBean) {
+		
+		productService.insertProductBean(insertProductBean);
+		return "shop/product/insert_product_success";
+	}
 	
 	@GetMapping("/product_list")
 	public String product_list(Model model) {

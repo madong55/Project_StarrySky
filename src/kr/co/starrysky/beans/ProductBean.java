@@ -9,8 +9,10 @@ public class ProductBean {
 	private int product_price;
 	private int product_sale_price;
 	private int product_quantity;
-	private MultipartFile product_thumbnail;
+	private String product_thumbnail;
 	private String product_details;
+	
+	private MultipartFile file_name; 
 	
 	public String getProduct_name() {
 		return product_name;
@@ -48,10 +50,10 @@ public class ProductBean {
 	public void setProduct_quantity(int product_quantity) {
 		this.product_quantity = product_quantity;
 	}
-	public MultipartFile getProduct_thumbnail() {
+	public String getProduct_thumbnail() {
 		return product_thumbnail;
 	}
-	public void setProduct_thumbnail(MultipartFile product_thumbnail) {
+	public void setProduct_thumbnail(String product_thumbnail) {
 		this.product_thumbnail = product_thumbnail;
 	}
 	public String getProduct_details() {
@@ -60,6 +62,13 @@ public class ProductBean {
 	public void setProduct_details(String product_details) {
 		this.product_details = product_details;
 	}
+	public MultipartFile getFile_name() {
+		return file_name;
+	}
+	public void setFile_name(MultipartFile file_name) {
+		this.file_name = file_name;
+	}
+	
 	
 	
 	// incomplete
