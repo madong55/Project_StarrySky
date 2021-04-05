@@ -10,9 +10,18 @@ public class ProductBean {
 	private Integer product_sale_price;
 	private int product_quantity;
 	private String product_thumbnail;
+	private String product_thumbnail2;
+	private String product_thumbnail3;
+	private String product_thumbnail4;
+	private String product_thumbnail5;
 	private String product_details;
+	private String product_details2;
 	
 	private MultipartFile file_name; 
+	private MultipartFile file_name2;
+	private MultipartFile file_name3;
+	private MultipartFile file_name4;
+	private MultipartFile file_name5;
 	
 	public String getProduct_name() {
 		return product_name;
@@ -67,6 +76,60 @@ public class ProductBean {
 	}
 	public void setFile_name(MultipartFile file_name) {
 		this.file_name = file_name;
+	}
+	public String getProduct_thumbnail2() {
+		return product_thumbnail2;
+	}
+	public void setProduct_thumbnail2(String product_thumbnail2) {
+		this.product_thumbnail2 = product_thumbnail2;
+	}
+	public String getProduct_thumbnail3() {
+		return product_thumbnail3;
+	}
+	public void setProduct_thumbnail3(String product_thumbnail3) {
+		this.product_thumbnail3 = product_thumbnail3;
+	}
+	public String getProduct_thumbnail4() {
+		return product_thumbnail4;
+	}
+	public void setProduct_thumbnail4(String product_thumbnail4) {
+		this.product_thumbnail4 = product_thumbnail4;
+	}
+	public String getProduct_thumbnail5() {
+		return product_thumbnail5;
+	}
+	public void setProduct_thumbnail5(String product_thumbnail5) {
+		this.product_thumbnail5 = product_thumbnail5;
+	}
+	public MultipartFile getFile_name2() {
+		return file_name2;
+	}
+	public void setFile_name2(MultipartFile file_name2) {
+		this.file_name2 = file_name2;
+	}
+	public MultipartFile getFile_name3() {
+		return file_name3;
+	}
+	public void setFile_name3(MultipartFile file_name3) {
+		this.file_name3 = file_name3;
+	}
+	public MultipartFile getFile_name4() {
+		return file_name4;
+	}
+	public void setFile_name4(MultipartFile file_name4) {
+		this.file_name4 = file_name4;
+	}
+	public MultipartFile getFile_name5() {
+		return file_name5;
+	}
+	public void setFile_name5(MultipartFile file_name5) {
+		this.file_name5 = file_name5;
+	}
+	public String getProduct_details2() {
+		return product_details2;
+	}
+	public void setProduct_details2(String product_details2) {
+		this.product_details2 = product_details2;
 	}
 	
 	

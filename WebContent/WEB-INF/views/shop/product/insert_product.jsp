@@ -62,8 +62,29 @@
 								
 							</div>
 							<div class="form-group">
+								<form:label path="product_details2">product_details</form:label>
+								<form:textarea path="product_details2" class="form-control" rows="10" style="resize:none" />
+								
+							</div>
+							<div class="form-group">
 								<form:label path="file_name">product_thumbnail</form:label>
 								<form:input type='file' path='file_name' class="form-control" accept="image/*" />
+							</div>
+							<div class="form-group">
+								<form:label path="file_name2">product_thumbnail2</form:label>
+								<form:input type='file' path='file_name2' class="form-control" accept="image/*" />
+							</div>
+							<div class="form-group">
+								<form:label path="file_name3">product_thumbnail3</form:label>
+								<form:input type='file' path='file_name3' class="form-control" accept="image/*" />
+							</div>
+							<div class="form-group">
+								<form:label path="file_name4">product_thumbnail4</form:label>
+								<form:input type='file' path='file_name4' class="form-control" accept="image/*" />
+							</div>
+							<div class="form-group">
+								<form:label path="file_name5">product_thumbnail5</form:label>
+								<form:input type='file' path='file_name5' class="form-control" accept="image/*" />
 							</div>
 							<div class="form-group">
 								<div class="text-right">

@@ -21,31 +21,31 @@ public interface ProductMapper {
 	List<ProductTypeBean> getProductType();
 	
 	//상품정보 입력
-	@Insert("insert into product_list(product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details)"
-			+ " values (#{product_name}, #{product_category_id}, #{product_id}, #{product_price}, #{product_sale_price}, #{product_quantity}, #{product_thumbnail,jdbcType=VARCHAR}, #{product_details})")
+	@Insert("insert into product_list(product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2)"
+			+ " values (#{product_name}, #{product_category_id}, #{product_id}, #{product_price}, #{product_sale_price}, #{product_quantity}, #{product_thumbnail,jdbcType=VARCHAR}, #{product_thumbnail2,jdbcType=VARCHAR}, #{product_thumbnail3,jdbcType=VARCHAR}, #{product_thumbnail4,jdbcType=VARCHAR}, #{product_thumbnail5,jdbcType=VARCHAR}, #{product_details}, #{product_details2})")
 	void insertProductBean(ProductBean insertProductBean);
 	
 	//전체상품페이지(카테고리별)
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
 			+ "from product_list where product_category_id = #{product_category_id}")
 	List<ProductBean> getProductListByCategory(String product_category_id);
 		
 	//상품페이지(카테고리별)
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
 			+ "from product_list where product_sale_price is null and product_category_id = #{product_category_id}")
 	List<ProductBean> getProductList(String product_category_id);
 	
 	//세일상품 페이지(카테고리별)
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
 			+ "from product_list where product_sale_price is not null and product_category_id = #{product_category_id}")
 	List<ProductBean> getSaleProductList(String product_category_id);
 
 	//세일상품 페이지(전체)
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
 			+ "from product_list where product_sale_price is not null")
 	List<ProductBean> getSaleAllProductList();
 	
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
 			+ "from product_list")
 	List<ProductBean> getAllProductList();
 	
