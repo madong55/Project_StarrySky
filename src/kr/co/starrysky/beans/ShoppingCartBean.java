@@ -4,6 +4,7 @@ public class ShoppingCartBean {
 
 	private int cart_idx;
 	private String user_email;
+	private String product_id;
 	private String product_name;
 	private Integer product_temp_quantity;
 	private int product_price;
@@ -21,6 +22,12 @@ public class ShoppingCartBean {
 	}
 	public void setUser_email(String user_email) {
 		this.user_email = user_email;
+	}
+	public String getProduct_id() {
+		return product_id;
+	}
+	public void setProduct_id(String product_id) {
+		this.product_id = product_id;
 	}
 	public String getProduct_name() {
 		return product_name;

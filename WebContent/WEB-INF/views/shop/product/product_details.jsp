@@ -42,16 +42,34 @@
     <!-- Hero Section Begin -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="shop/img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="product_thumbnail/${saleAllProductList.product_thumbnail}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>${detailsProductBean.product_name}(제품명)</h2>
+                        <h2>${detailsProductBean.product_name}</h2>
                         <div class="breadcrumb__option">
-                            <a href="shop_index">홈</a>
-                            <a href="shop_index">(카테고리)</a>
-                            <span>${detailsProductBean.product_name}(제품명)</span>
+                            <a href="/shop/index">홈</a>					
+                            <a href="#">
+                            <c:choose>
+                            <c:when test="${detailsProductBean.product_category_id=='tent' }">
+                             텐트 / 타프
+                            </c:when>
+                            <c:when test="${detailsProductBean.product_category_id=='slpbag' }">
+                             침낭 / 매트
+                            </c:when>
+                            <c:when test="${detailsProductBean.product_category_id=='backpack' }">
+                             배낭
+                            </c:when>
+                            <c:when test="${detailsProductBean.product_category_id=='heater' }">
+                             난로 / 핫팩
+                            </c:when>
+                            <c:when test="${detailsProductBean.product_category_id=='light' }">
+                             랜턴 / 조명
+                            </c:when>
+                            </c:choose>
+                            </a>
+                            <span>${detailsProductBean.product_name}</span>
                         </div>
                     </div>
                 </div>
@@ -85,14 +103,14 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
                         <h3>${detailsProductBean.product_name}</h3>
-                        <div class="product__details__rating">
+                        <!-- <div class="product__details__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
-                        </div>
+                        </div> -->
                         <c:choose>
                         <c:when test="${detailsProductBean.product_sale_price == null }">
                         <div class="product__details__price">&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${detailsProductBean.product_price }"/></div>
@@ -112,15 +130,11 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <input type="submit" value="장바구니" class="primary-btn">
-                        
                         <a href="shop_checkout" class="primary-btn">바로 구매</a>
                         </form>
-                        
-                        
                        
-                       <!--  <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a> -->
+                        <%-- <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>재고</b> 
                             <c:choose>
@@ -133,8 +147,8 @@
                            </c:otherwise>
                            </c:choose>
                             <span>${product_qtt}test</span></li>
-                           <!--  <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li> -->
-                           <!--  <li><b>Weight</b> <span>0.5 kg</span></li> -->
+                           <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+                           <li><b>Weight</b> <span>0.5 kg</span></li>
                   	   	 <li><b>공유하기</b>
                                 <div class="share">
                                     <a href="https://facebook.com" target="blank"><i class="fa fa-facebook"></i></a>
@@ -142,7 +156,8 @@
                                     <a href="https://instagram.com" target="blank"><i class="fa fa-instagram"></i></a>                 
                                 </div> 
                             </li>
-                        </ul>
+                        </ul> --%>
+                        
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -188,71 +203,50 @@
                 </div>
             </div>
             <div class="row">
-                
                 <c:forEach var='similarProductList' items="${similarProductList }">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-1.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="${root }/shop/product/product_details?product_category_id=${similarProductList.product_category_id}&product_id=${similarProductList.product_id}">${similarProductList.product_name }</a></h6>
-                            <h5>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${similarProductList.product_price }"/></h5>
-                        </div>
-                    </div>
-                </div>
-                </c:forEach>
-                
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-2.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-3.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-7.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+					<c:choose>
+						<c:when test="${similarProductList.product_sale_price == null }">
+							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix ${similarProductList.product_category_id }">
+								<div class="featured__item">
+									<div class="product__item__pic set-bg" style="cursor:pointer;" onclick="location.href=${root }/shop/product/product_details?product_category_id='${similarProductList.product_category_id}&product_id=${similarProductList.product_id}';"
+										data-setbg="product_thumbnail/${similarProductList.product_thumbnail}">
+										<ul class="product__item__pic__hover">
+											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+										</ul>
+									</div>
+									<div class="product__item__text">
+										<h6>
+											<a href="${root }/shop/product/product_details?product_category_id=${similarProductList.product_category_id}&product_id=${similarProductList.product_id}">${similarProductList.product_name }</a>
+										</h6>
+										<h5>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${similarProductList.product_price }"/></h5>
+									</div>
+								</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix ${similarProductList.product_category_id }">
+								<div class="product__discount__item">
+									<div class="product__discount__item__pic set-bg" style="cursor:pointer;" onclick="location.href=${root }/shop/product/product_details?product_category_id='${similarProductList.product_category_id}&product_id=${similarProductList.product_id}';"
+										data-setbg="product_thumbnail/${similarProductList.product_thumbnail}">
+										<div class="product__discount__percent">-${Math.round((1-similarProductList.product_sale_price/similarProductList.product_price)*100) }%</div>
+										<ul class="product__item__pic__hover">
+											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+										</ul>
+									</div>
+									<div class="product__discount__item__text">
+										<h5>
+											<a href="${root }/shop/product/product_details?product_category_id=${similarProductList.product_category_id}&product_id=${similarProductList.product_id}">${similarProductList.product_name }</a>
+										</h5>
+										<div class="product__item__price">
+											&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${similarProductList.product_sale_price }"/> <span>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${similarProductList.product_price }"/></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</div>
         </div>
     </section>
     <!-- Related Product Section End -->

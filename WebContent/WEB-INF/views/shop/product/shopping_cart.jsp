@@ -69,94 +69,68 @@
                                     <th>상품 가격</th>
                                     <th>주문 수량</th>
                                     <th>Total</th>
-                                    <th></th>
+                                    <td class="shoping__cart__item__close">
+                                    <a href="${root }/shop/product/delete_all_cart_info" class="icon_close" style="color: gray"></a>
+                                    </td>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
-                            <c:forEach var="shoppingCartList" items="${shoppingCartList }">
+                            <c:forEach var="userShoppingCartList" items="${userShoppingCartList }">
                                 <tr>
                                     <td class="shoping__cart__item">
                                         <img src="shop/img/cart/cart-1.jpg" alt="">
-                                        <h5>${shoppingCartList.product_name }</h5>
+                                        <h5>${userShoppingCartList.product_name }</h5>
                                     </td>
 										<c:choose>
-											<c:when test="${shoppingCartList.product_sale_price == null }">
+											<c:when test="${userShoppingCartList.product_sale_price == null }">
 												<td class="shoping__cart__price">
-												&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${shoppingCartList.product_price }"/>
+												&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${userShoppingCartList.product_price }"/>
 												</td>
-
 											</c:when>
 											<c:otherwise>
 												<td class="shoping__cart__price">
-												&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${shoppingCartList.product_sale_price }"/>
+												&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${userShoppingCartList.product_sale_price }"/>
 												</td>
 											</c:otherwise>
 										</c:choose>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value=${shoppingCartList.product_temp_quantity }>
+                                                <input type="text" value="${userShoppingCartList.product_temp_quantity }">
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="shoping__cart__total">
-                                        $110.00
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                </c:forEach>
-                                
+										<c:choose>
+											<c:when
+												test="${userShoppingCartList.product_sale_price == null }">
+												<td class="shoping__cart__total">&#8361;<fmt:formatNumber
+														type="number" maxFractionDigits="3"
+														value="${userShoppingCartList.product_temp_quantity*userShoppingCartList.product_price }" />
+												</td>
+											</c:when>
+											<c:otherwise>
+												<td class="shoping__cart__total">&#8361;<fmt:formatNumber
+														type="number" maxFractionDigits="3"
+														value="${userShoppingCartList.product_temp_quantity*userShoppingCartList.product_sale_price }" />
+												</td>
+											</c:otherwise>
+										</c:choose>
+										<td class="shoping__cart__item__close"><a
+												href="${root }/shop/product/delete_cart_info?product_id=${userShoppingCartList.product_id}"
+												class="icon_close" style="color: gray"></a>
+										</td>
+									</tr>
+                                </c:forEach> 
+                                                               
                                 <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="shop/img/cart/cart-2.jpg" alt="">
-                                        <h5>Fresh Garden Vegetable</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $39.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $39.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="shop/img/cart/cart-3.jpg" alt="">
-                                        <h5>Organic Bananas</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $69.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $69.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                 <tr>
                                 <td colspan="3" />
-                                <td colspan="2"><a href="#" class="primary-btn" 
+                                <td colspan="2"><a href="${root }/shop/product/delete_all_cart_info" class="primary-btn" 
+                                style="border: solid black; color: #333333;">전체삭제</a></td>
+                                <td colspan="2"><a href="${root }/shop/product/update_all_quantity" class="primary-btn" 
                                 style="border: solid black; color: #333333;">수량 적용</a></td>
                         		</tr>
+                        		
                             </tbody>
                         </table>
                     </div>
@@ -184,7 +158,7 @@
                             <li><h2>100,000&#8361</h2></li>
                            
                         </ul>
-                       <a href="shop_index" class="primary-btn"></span>계속 쇼핑하기</a>
+                       <a href="shop_index" class="primary-btn">계속 쇼핑하기</a>
                         <a href="shop_checkout" class="primary-btn">결제하기</a>
             
                   </div>
@@ -193,7 +167,7 @@
                             Upadate Cart</a> -->
                     </div>
                     
-                </div>
+                
        
     </section>
     <!-- Shoping Cart Section End -->

@@ -7,7 +7,7 @@ public class ProductBean {
 	private String product_category_id;
 	private String product_id;
 	private int product_price;
-	private int product_sale_price;
+	private Integer product_sale_price;
 	private int product_quantity;
 	private String product_thumbnail;
 	private String product_details;
@@ -38,10 +38,10 @@ public class ProductBean {
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
-	public int getProduct_sale_price() {
+	public Integer getProduct_sale_price() {
 		return product_sale_price;
 	}
-	public void setProduct_sale_price(int product_sale_price) {
+	public void setProduct_sale_price(Integer product_sale_price) {
 		this.product_sale_price = product_sale_price;
 	}
 	public int getProduct_quantity() {

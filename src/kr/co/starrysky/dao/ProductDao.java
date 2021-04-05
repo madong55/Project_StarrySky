@@ -24,6 +24,10 @@ public class ProductDao {
 		productMapper.insertProductBean(insertProductBean);
 	}
 	
+	public List<ProductBean> getProductListByCategory(String product_category_id){
+		return productMapper.getProductListByCategory(product_category_id);
+	}
+	
 	public List<ProductBean> getProductList(String product_category_id){
 		return productMapper.getProductList(product_category_id);
 	}
@@ -34,6 +38,10 @@ public class ProductDao {
 	
 	public List<ProductBean> getSaleAllProductList(){
 		return productMapper.getSaleAllProductList();
+	}
+	
+	public List<ProductBean> getAllProductList(){
+		return productMapper.getAllProductList();
 	}
 	
 	public ProductBean getProductInfo(String product_id) {
@@ -55,5 +63,18 @@ public class ProductDao {
 	
 	public List<ShoppingCartBean> getShoppingCartInfo(String user_email){
 		return productMapper.getShoppingCartInfo(user_email);
+	}
+	
+	//장바구니수량정보 갱신
+	public void updateAllTempQuantity(String user_email, String product_id, int product_temp_quantity) {
+		productMapper.updateAllTempQuantity(user_email, product_id, product_temp_quantity);
+	}
+	// 장바구니삭제(하나만)
+	public void deleteShoppingCartInfo(String user_email,String product_id) {
+		productMapper.deleteShoppingCartInfo(user_email, product_id);
+	}
+	// 모든 장바구니삭제
+	public void deleteAllShoppingCartInfo(String user_email) {
+		productMapper.deleteAllShoppingCartInfo(user_email);
 	}
 }

@@ -1,10 +1,14 @@
 package kr.co.starrysky.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.SessionScope;
 
 import kr.co.starrysky.beans.PresentPageCheckBean;
+import kr.co.starrysky.beans.ShoppingCartBean;
 import kr.co.starrysky.beans.UserBean;
 
 //프로젝트 작업시 사용할 bean을 정의하는 클래스
@@ -21,7 +25,11 @@ public class RootAppContext {
 	@SessionScope
 	public PresentPageCheckBean presentPage() {
 		return new PresentPageCheckBean();
+	}	
+	
+	@Bean("userShoppingCartList")
+	@SessionScope
+	public List<ShoppingCartBean> userShoppingCartList() {
+		return new ArrayList<ShoppingCartBean>();
 	}
-	
-	
 }
