@@ -12,11 +12,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
+import kr.co.starrysky.beans.WeatherKey;
+
 @Component
 public class WeatherScheduler {
 	
-	public boolean updateDBfromJSON() throws JSONException, IOException {
-		String url = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/498?apikey=Wt1VIDg17MjAwkEFdL0crjSaGY4TwMn2&details=true&metric=true";
+	public boolean updateLocationWeatherFromJSON(int location_key) throws JSONException, IOException {
+		
+		
+		String url = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/498?apikey=Wt1VIDg17MjAwkEFdL0crjSaGY4TwMn2&details=true&metric=true";
 		
 		JSONObject weather_json;
 		
