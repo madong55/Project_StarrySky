@@ -27,6 +27,7 @@ import kr.co.starrysky.interceptor.CheckLoginInterceptor;
 import kr.co.starrysky.interceptor.TopMenuInterceptor;
 import kr.co.starrysky.mapper.ProductMapper;
 import kr.co.starrysky.mapper.UserMapper;
+import kr.co.starrysky.mapper.WeatherMapper;
 
 //Spring MVC 프로젝트에 관련된 설정을 하는 클래스
 //(servlet-context에서 <annotation-driven/>와 같음)
@@ -111,6 +112,15 @@ public class ServletAppContext implements WebMvcConfigurer{
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}
+	
+	@Bean
+	public MapperFactoryBean<WeatherMapper> getWeatherMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<WeatherMapper> factoryBean = new MapperFactoryBean<WeatherMapper>(WeatherMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		WebMvcConfigurer.super.addInterceptors(registry);
