@@ -31,6 +31,7 @@ public class UserService {
 	
 	public void addUserInfo(UserBean joinUserBean) {
 		userDao.addUserInfo(joinUserBean);
+		/* userDao.addShoppingCartInfo(joinUserBean); */
 	}
 	
 	public void getLoginUserInfo(UserBean tempLoginUserBean) {

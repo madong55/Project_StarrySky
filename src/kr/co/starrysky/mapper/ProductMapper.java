@@ -3,10 +3,13 @@ package kr.co.starrysky.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import kr.co.starrysky.beans.ProductBean;
 import kr.co.starrysky.beans.ProductTypeBean;
+import kr.co.starrysky.beans.ShoppingCartBean;
 
 public interface ProductMapper {
 
@@ -21,10 +24,6 @@ public interface ProductMapper {
 			+ " values (#{product_name}, #{product_category_id}, #{product_id}, #{product_price}, #{product_sale_price}, #{product_quantity}, #{product_thumbnail,jdbcType=VARCHAR}, #{product_details})")
 	void insertProductBean(ProductBean insertProductBean);
 	
-	//상품 상세페이지
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
-			+ "from product_list where product_id = #{product_id}")
-	ProductBean getProductInfo(int product_id);
 	
 	//상품 전체페이지(카테고리별)
 	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
@@ -37,7 +36,44 @@ public interface ProductMapper {
 	List<ProductBean> getSaleProductList(String product_category_id);
 
 	//세일상품 페이지(전체)
-	@Select("select product_name, product_id, product_price, product_sale_price, product_thumbnail "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
 			+ "from product_list where product_sale_price is not null")
 	List<ProductBean> getSaleAllProductList();
+	
+	/////////////////////
+	
+	//상품 상세페이지
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
+			+ "from product_list where product_id = #{product_id}")
+	ProductBean getProductInfo(String product_id);
+	
+	//장바구니에 들어있는지 체크
+	@Select("SELECT PRODUCT_TEMP_QUANTITY FROM SHOPPING_CART WHERE USER_EMAIL = #{user_email} AND PRODUCT_ID = #{product_id}")
+	Integer checkShoppingCartInfo(@Param("user_email")String user_email, @Param("product_id")String product_id);
+	
+	//장바구니정보삽입
+	@Insert("INSERT INTO SHOPPING_CART(CART_IDX, USER_EMAIL, PRODUCT_ID, PRODUCT_TEMP_QUANTITY) "
+			+ " VALUES (CART_SEQ.NEXTVAL, #{user_email}, #{product_id}, #{product_temp_quantity})")
+	void insertShoppingCartInfo(@Param("user_email")String user_email, @Param("product_id")String product_id, @Param("product_temp_quantity")int product_temp_quantity);
+	
+	//장바구니 구매수량 추가
+	@Update("UPDATE SHOPPING_CART SET PRODUCT_TEMP_QUANTITY = PRODUCT_TEMP_QUANTITY + #{product_temp_quantity}"
+			+ "WHERE USER_EMAIL = #{user_email} AND PRODUCT_ID = #{product_id}")
+	void plusTempQuantity(@Param("user_email")String user_email, @Param("product_id")String product_id, @Param("product_temp_quantity")int product_temp_quantity);
+	
+	//로그인한 유저의 모든 장바구니정보 불러오기
+	@Select("SELECT CART_IDX, U.USER_EMAIL, P.PRODUCT_NAME, P.PRODUCT_PRICE, P.PRODUCT_SALE_PRICE, P.PRODUCT_THUMBNAIL, PRODUCT_TEMP_QUANTITY "
+			+ "FROM SHOPPING_CART S "
+			+ "INNER JOIN USER_TABLE U ON S.USER_EMAIL = U.USER_EMAIL "
+			+ "INNER JOIN PRODUCT_LIST P ON S.PRODUCT_ID = P.PRODUCT_ID "
+			+ "WHERE U.USER_EMAIL = #{user_email}")
+	List<ShoppingCartBean> getShoppingCartInfo(@Param("user_email")String user_email);
+	
+	//수량정보 업데이트
+	
+	//장바구니삭제(하나만)
+	
+	//모든 장바구니삭제
+	
+	//메인화면에서 장바구니버튼 클릭시 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
    <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
    
 <!DOCTYPE html>
@@ -72,18 +73,29 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:forEach var="shoppingCartList" items="${shoppingCartList }">
                                 <tr>
                                     <td class="shoping__cart__item">
                                         <img src="shop/img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetableâs Package</h5>
+                                        <h5>${shoppingCartList.product_name }</h5>
                                     </td>
-                                    <td class="shoping__cart__price">
-                                        $55.00
-                                    </td>
+										<c:choose>
+											<c:when test="${shoppingCartList.product_sale_price == null }">
+												<td class="shoping__cart__price">
+												&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${shoppingCartList.product_price }"/>
+												</td>
+
+											</c:when>
+											<c:otherwise>
+												<td class="shoping__cart__price">
+												&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${shoppingCartList.product_sale_price }"/>
+												</td>
+											</c:otherwise>
+										</c:choose>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="text" value="1">
+                                                <input type="text" value=${shoppingCartList.product_temp_quantity }>
                                             </div>
                                         </div>
                                     </td>
@@ -94,6 +106,8 @@
                                         <span class="icon_close"></span>
                                     </td>
                                 </tr>
+                                </c:forEach>
+                                
                                 <tr>
                                     <td class="shoping__cart__item">
                                         <img src="shop/img/cart/cart-2.jpg" alt="">

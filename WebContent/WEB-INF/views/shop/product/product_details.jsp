@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+   
    <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
    
 <!DOCTYPE html>
@@ -45,11 +47,11 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>${product_list.getProduct_name}(제품명)</h2>
+                        <h2>${detailsProductBean.product_name}(제품명)</h2>
                         <div class="breadcrumb__option">
                             <a href="shop_index">홈</a>
                             <a href="shop_index">(카테고리)</a>
-                            <span>${product_list.getProduct_name}(제품명)</span>
+                            <span>${detailsProductBean.product_name}(제품명)</span>
                         </div>
                     </div>
                 </div>
@@ -82,7 +84,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3>${product_list.getProduct_name}제품명</h3>
+                        <h3>${detailsProductBean.product_name}</h3>
                         <div class="product__details__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -91,31 +93,46 @@
                             <i class="fa fa-star-half-o"></i>
                             <span>(18 reviews)</span>
                         </div>
-                        <div class="product__details__price">${product_list.getProduct_price }원 $50.00</div>
-                        <p>${product_list.getProduct_detail }</p>
+                        <c:choose>
+                        <c:when test="${detailsProductBean.product_sale_price == null }">
+                        <div class="product__details__price">&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${detailsProductBean.product_price }"/></div>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="product__details__price">&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${detailsProductBean.product_sale_price }"/></div>
+                        </c:otherwise>
+                        </c:choose>
+                        
+                        <p>${detailsProductBean.product_details }test</p>
+            			<form action="${root }/shop/product/shopping_cart_from_details?product_temp_quantity=${param.product_temp_quantity}">
+                        <input type="hidden" name="product_id" value="${detailsProductBean.product_id}"/>
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" value="1" name="product_temp_quantity" id="product_temp_quantity">
                                 </div>
                             </div>
                         </div>
                         
+                        <input type="submit" value="장바구니" class="primary-btn">
+                        
                         <a href="shop_checkout" class="primary-btn">바로 구매</a>
-                        <a href="shop_shoping-cart" class="primary-btn">장바구니</a>
+                        </form>
+                        
+                        
+                       
                        <!--  <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a> -->
                         <ul>
                             <li><b>재고</b> 
                             <c:choose>
-                            <c:when test="${ product_list.getProduct_quantity == null ||  product_list.getProduct_quantity == 0}">                           
+                            <c:when test="${ detailsProductBean.product_quantity == null ||  detailsProductBean.product_quantity == 0}">                           
                             <c:set var="product_qtt" value="재고 없음" />
                             
                            </c:when>
                            <c:otherwise>
-                           <c:set var="product_qtt" value="${ product_list.getProduct_quantity} 개" />
+                           <c:set var="product_qtt" value="${ detailsProductBean.product_quantity} 개" />
                            </c:otherwise>
                            </c:choose>
-                            <span>${product_qtt}</span></li>
+                            <span>${product_qtt}test</span></li>
                            <!--  <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li> -->
                            <!--  <li><b>Weight</b> <span>0.5 kg</span></li> -->
                   	   	 <li><b>공유하기</b>
@@ -148,7 +165,7 @@
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
                                     <h6>제품 상세설명</h6>
-                                    <p>제품 상세설명 제품 상세설명 제품 상세설명 제품 상세설명 제품 상세설명 제품 상세설명 제품 상세설명 </p>
+                                    <p>${detailsProductBean.product_details } </p>
                                 </div>
                             </div>
                           
@@ -171,6 +188,8 @@
                 </div>
             </div>
             <div class="row">
+                
+                <c:forEach var='similarProductList' items="${similarProductList }">
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-1.jpg">
@@ -181,11 +200,13 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6><a href="${root }/shop/product/product_details?product_category_id=${similarProductList.product_category_id}&product_id=${similarProductList.product_id}">${similarProductList.product_name }</a></h6>
+                            <h5>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${similarProductList.product_price }"/></h5>
                         </div>
                     </div>
                 </div>
+                </c:forEach>
+                
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="shop/img/product/product-2.jpg">

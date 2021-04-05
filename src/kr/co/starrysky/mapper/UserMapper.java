@@ -16,6 +16,11 @@ public interface UserMapper {
 				+ "values(#{user_name}, #{user_nickname}, #{user_email}, #{user_pw}, #{user_phone_number})")
 		void addUserInfo(UserBean joinUserBean);
 		
+		/*
+		 * @Insert("insert into shopping_cart (user_email) values (#{user_email})") void
+		 * addShoppingCartInfo(UserBean joinUserBean);
+		 */
+		
 		@Select("select user_name, user_email, user_nickname, user_phone_number "
 				+ "from user_table "
 				+ "where user_email=#{user_email} and user_pw=#{user_pw}")

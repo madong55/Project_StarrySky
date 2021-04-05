@@ -3,6 +3,8 @@ package kr.co.starrysky.service;
 import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -11,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.starrysky.beans.ProductBean;
 import kr.co.starrysky.beans.ProductTypeBean;
+import kr.co.starrysky.beans.ShoppingCartBean;
+import kr.co.starrysky.beans.UserBean;
 import kr.co.starrysky.dao.ProductDao;
 
 @Service
@@ -19,6 +23,9 @@ public class ProductService {
 
 	@Value("${path.product_thumbnail}")
 	private String path_thumbnail;
+	
+	@Resource(name="loginUserBean")
+	private UserBean loginUserBean;
 	
 	@Autowired
 	private ProductDao productDao;
@@ -68,7 +75,43 @@ public class ProductService {
 	public List<ProductBean> getSaleProductList(String product_category_id){
 		return productDao.getSaleProductList(product_category_id);
 	}
+	
 	public List<ProductBean> getSaleAllProductList(){
 		return productDao.getSaleAllProductList();
+	}
+	
+	public ProductBean getProductInfo(String product_id) {
+		return productDao.getProductInfo(product_id);
+	}
+	
+	public void insertInfoOrPlusQuantity(String user_email, String product_id, int product_temp_quantity) {
+		
+		//장바구니에서 수량 받아옴, 없으면 null
+		Integer checkQuantity = productDao.checkShoppingCartInfo(user_email, product_id);
+		
+		//수량값이 null이면 전체추가, null아니면 수량만큼 증가
+		if(checkQuantity==null) {
+			productDao.insertShoppingCartInfo(user_email, product_id, product_temp_quantity);	
+		}else {
+			productDao.plusTempQuantity(user_email, product_id, product_temp_quantity);	
+		}
+	}
+	
+	public List<ShoppingCartBean> getShoppingCartInfo(String user_email){
+		return productDao.getShoppingCartInfo(user_email);
+	}
+	
+	public void addCart(String product_id) {
+		
+		String user_email = loginUserBean.getUser_email();
+		
+		Integer checkQuantity = productDao.checkShoppingCartInfo(user_email, product_id);
+		
+		if(checkQuantity==null) {
+			productDao.insertShoppingCartInfo(user_email, product_id, 1);	
+		}else {
+			productDao.plusTempQuantity(user_email, product_id, 1);	
+		}
+		
 	}
 }

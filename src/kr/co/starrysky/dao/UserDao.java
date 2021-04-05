@@ -20,6 +20,11 @@ public class UserDao {
 		userMapper.addUserInfo(joinUserBean);
 	}
 	
+	/*
+	 * public void addShoppingCartInfo(UserBean joinUserBean) {
+	 * userMapper.addShoppingCartInfo(joinUserBean); }
+	 */
+	
 	public UserBean getLoginUserInfo(UserBean tempLoginUserBean) {
 		return userMapper.getLoginUserInfo(tempLoginUserBean);
 	}
