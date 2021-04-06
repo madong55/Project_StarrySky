@@ -105,7 +105,7 @@
         stagePadding: 120,
         smartSpeed: 1200,
         autoHeight: false,
-        autoplay: false,
+        autoplay: true,
         responsive: {
             0: {
                 items: 1,

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <section class="categories-section">
         <div class="container">
             <div class="row">
@@ -9,18 +11,54 @@
                         <p>당신만의 밤하늘을 위한 추천 물품</p>
                     </div>
                 </div>
+      
+                
                 <div class="col-lg-6 col-md-6">
-                    <div class="right-btn"><a href="shop_index" class="primary-btn">VIew all</a></div>
+                    <div class="right-btn"><a href="shop/index" class="primary-btn">VIew all</a></div>
                 </div>
+                
+                
+                
             </div>
             <div class="categories-slider owl-carousel">
+            
+              <c:forEach var='saleAllProductList' items="${saleAllProductList }">
                 <div class="cs-item">
-                    <div class="cs-pic set-bg" data-setbg="img/categories/cat-1.jpg"></div>
+                    <div class="cs-pic set-bg" data-setbg="product_thumbnail/${saleAllProductList.product_thumbnail}"></div>
                     <div class="cs-text">
-                        <h4>Animal</h4>
-                        <span>120 pictures</span>
+                      <h5>
+                      <a href="${root }/shop/product/product_details?product_category_id=${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}">${saleAllProductList.product_name }</a>
+						</h5>
+						                        		<span>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_price }" /></span>
+						                        	<h2>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_sale_price }" /></h2>
+					
+											
                     </div>
                 </div>
+                <!-- </div> -->
+                </c:forEach>
+ 
+ 								<%-- <c:forEach var='saleAllProductList'
+									items="${saleAllProductList }">
+									<div class="col-lg-4">
+										<div class="product__discount__item">
+											<div class="product__discount__item__pic set-bg"
+												data-setbg="product_thumbnail/${saleAllProductList.product_thumbnail}">
+												</div>
+											<div class="product__discount__item__text">
+												<h5>
+													<a href="${root }/shop/product/product_details?product_category_id=${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}">${saleAllProductList.product_name }</a>
+												</h5>
+												<div class="product__item__price">&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_sale_price }"/>
+													<span>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_price }"/></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach> --%>
+             
+                
+                <!-- 
                 <div class="cs-item">
                     <div class="cs-pic set-bg" data-setbg="img/categories/cat-2.jpg"></div>
                     <div class="cs-text">
@@ -55,7 +93,8 @@
                     
                     </a>
                     
-                </div>
+                </div>-->
             </div>
+             
         </div>
     </section>

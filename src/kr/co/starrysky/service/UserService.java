@@ -1,10 +1,13 @@
 package kr.co.starrysky.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.starrysky.beans.ShoppingCartBean;
 import kr.co.starrysky.beans.UserBean;
 import kr.co.starrysky.dao.UserDao;
 
@@ -14,8 +17,14 @@ public class UserService {
 	@Autowired
 	private UserDao userDao;
 	
+	@Autowired
+	private ProductService productService;
+	
 	@Resource(name="loginUserBean")
 	private UserBean loginUserBean;
+	
+	@Resource(name="userShoppingCartList")
+	private List<ShoppingCartBean> userShoppingCartList;
 	
 	public boolean checkUserIdExist(String user_email) {
 		
@@ -42,6 +51,9 @@ public class UserService {
 			loginUserBean.setUser_nickname(tempLoginUserBean2.getUser_nickname());
 			loginUserBean.setUser_phone_number(tempLoginUserBean2.getUser_phone_number());
 			loginUserBean.setUserLogin(true);
+			
+			userShoppingCartList = productService.getShoppingCartInfo(loginUserBean.getUser_email()); 
+			
 		}
 		
 	}

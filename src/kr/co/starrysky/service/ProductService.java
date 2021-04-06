@@ -68,6 +68,10 @@ public class ProductService {
 		
 	}
 	
+	public List<ProductBean> getProductListByCategory(String product_category_id){
+		return productDao.getProductListByCategory(product_category_id);
+	}
+	
 	public List<ProductBean> getProductList(String product_category_id){
 		return productDao.getProductList(product_category_id);
 	}
@@ -78,6 +82,10 @@ public class ProductService {
 	
 	public List<ProductBean> getSaleAllProductList(){
 		return productDao.getSaleAllProductList();
+	}
+	
+	public List<ProductBean> getAllProductList(){
+		return productDao.getAllProductList();
 	}
 	
 	public ProductBean getProductInfo(String product_id) {
@@ -113,5 +121,18 @@ public class ProductService {
 			productDao.plusTempQuantity(user_email, product_id, 1);	
 		}
 		
+	}
+	
+	//장바구니수량정보 갱신
+	public void updateAllTempQuantity(String user_email, String product_id, int product_temp_quantity) {
+		productDao.updateAllTempQuantity(user_email, product_id, product_temp_quantity);
+	}
+	// 장바구니삭제(하나만)
+	public void deleteShoppingCartInfo(String user_email,String product_id) {
+		productDao.deleteShoppingCartInfo(user_email, product_id);
+	}
+	// 모든 장바구니삭제
+	public void deleteAllShoppingCartInfo(String user_email) {
+		productDao.deleteAllShoppingCartInfo(user_email);
 	}
 }

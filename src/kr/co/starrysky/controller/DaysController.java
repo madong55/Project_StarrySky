@@ -67,7 +67,11 @@ public class DaysController {
 		return "grade2/jj_day5";
 	}
 	
-
+	@GetMapping("/review/review1")
+	public String review1() {
+		return "review/review1";
+	}
+	
 	
 	
 }
