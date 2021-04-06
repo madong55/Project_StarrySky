@@ -6,7 +6,7 @@ public class WeatherBean {
 
 	private int location1_key;
 	private int location2_key;
-	private Date forecast_date;
+	private String forecast_date;
 	
 	//WeatherIcon
 	private int icon;
@@ -244,10 +244,10 @@ public class WeatherBean {
 	public void setLocation2_key(int location2_key) {
 		this.location2_key = location2_key;
 	}
-	public Date getForecast_date() {
+	public String getForecast_date() {
 		return forecast_date;
 	}
-	public void setForecast_date(Date forecast_date) {
+	public void setForecast_date(String forecast_date) {
 		this.forecast_date = forecast_date;
 	}
 	
