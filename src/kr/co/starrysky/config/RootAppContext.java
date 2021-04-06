@@ -32,4 +32,5 @@ public class RootAppContext {
 	public List<ShoppingCartBean> userShoppingCartList() {
 		return new ArrayList<ShoppingCartBean>();
 	}
+	
 }

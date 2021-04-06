@@ -42,7 +42,7 @@
     <!-- Hero Section Begin -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="product_thumbnail/${saleAllProductList.product_thumbnail}">
+    <section class="breadcrumb-section set-bg" data-setbg="shop/img/camp_bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -69,7 +69,7 @@
                             </c:when>
                             </c:choose>
                             </a>
-                            <span>${detailsProductBean.product_name}</span>
+                            
                         </div>
                     </div>
                 </div>
@@ -86,17 +86,17 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="shop/img/product/details/product-details-1.jpg" alt="">
+                                src="shop/img/product/details/${detailsProductBean.product_category_id }/product_${detailsProductBean.product_id }_1.png" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="shop/img/product/details/product-details-2.jpg"
-                                src="shop/img/product/details/thumb-1.jpg" alt="">
-                            <img data-imgbigurl="shop/img/product/details/product-details-3.jpg"
-                                src="shop/img/product/details/thumb-2.jpg" alt="">
-                            <img data-imgbigurl="shop/img/product/details/product-details-5.jpg"
-                                src="shop/img/product/details/thumb-3.jpg" alt="">
-                            <img data-imgbigurl="shop/img/product/details/product-details-4.jpg"
-                                src="shop/img/product/details/thumb-4.jpg" alt="">
+                            <img data-imgbigurl="shop/img/product/details/${detailsProductBean.product_category_id }/product_${detailsProductBean.product_id }_2.png"
+                                src="shop/img/product/details/${detailsProductBean.product_category_id }/product_${detailsProductBean.product_id }_2.png" alt="">
+                            <img data-imgbigurl="shop/img/product/details/${detailsProductBean.product_category_id }/product_${detailsProductBean.product_id }_3.png"
+                                src="shop/img/product/details/${detailsProductBean.product_category_id }/product_${detailsProductBean.product_id }_3.png" alt="">
+                            <img data-imgbigurl="shop/img/product/details/${detailsProductBean.product_category_id }/product_${detailsProductBean.product_id }_4.png"
+                                src="shop/img/product/details/${detailsProductBean.product_category_id }/product_${detailsProductBean.product_id }_4.png" alt="">
+                            <img data-imgbigurl="shop/img/product/details/${detailsProductBean.product_category_id }/product_${detailsProductBean.product_id }_5.png"
+                                src="shop/img/product/details/${detailsProductBean.product_category_id }/product_${detailsProductBean.product_id }_5.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         </c:otherwise>
                         </c:choose>
                         
-                        <p>${detailsProductBean.product_details }test</p>
+                        <p>${detailsProductBean.product_details }</p>
             			<form action="${root }/shop/product/shopping_cart_from_details?product_temp_quantity=${param.product_temp_quantity}">
                         <input type="hidden" name="product_id" value="${detailsProductBean.product_id}"/>
                         <div class="product__details__quantity">
@@ -209,7 +209,8 @@
 							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix ${similarProductList.product_category_id }">
 								<div class="featured__item">
 									<div class="product__item__pic set-bg" style="cursor:pointer;" onclick="location.href=${root }/shop/product/product_details?product_category_id='${similarProductList.product_category_id}&product_id=${similarProductList.product_id}';"
-										data-setbg="product_thumbnail/${similarProductList.product_thumbnail}">
+										data-setbg="shop/img/product/details/${similarProductList.product_category_id }/product_${similarProductList.product_id }_1.png">
+										
 										<ul class="product__item__pic__hover">
 											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
 										</ul>
@@ -227,7 +228,7 @@
 							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix ${similarProductList.product_category_id }">
 								<div class="product__discount__item">
 									<div class="product__discount__item__pic set-bg" style="cursor:pointer;" onclick="location.href=${root }/shop/product/product_details?product_category_id='${similarProductList.product_category_id}&product_id=${similarProductList.product_id}';"
-										data-setbg="product_thumbnail/${similarProductList.product_thumbnail}">
+										data-setbg="shop/img/product/details/${similarProductList.product_category_id }/product_${similarProductList.product_id }_1.png">
 										<div class="product__discount__percent">-${Math.round((1-similarProductList.product_sale_price/similarProductList.product_price)*100) }%</div>
 										<ul class="product__item__pic__hover">
 											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>

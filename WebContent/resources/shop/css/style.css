@@ -1685,6 +1685,7 @@ margin-bottom: 0 !important;
 
 .product__details__pic__item img {
 	min-width: 100%;
+	object-fit: cover;
 }
 
 .product__details__pic__slider img {
@@ -1693,6 +1694,7 @@ margin-bottom: 0 !important;
 
 .product__details__pic__slider.owl-carousel .owl-item img {
 	width: auto;
+	object-fit: cover;
 }
 
 .product__details__text h3 {
@@ -1902,7 +1904,7 @@ margin-bottom: 0 !important;
 }
 
 .shoping__cart__table table {
-	width: 100%;
+	width: 800px;
 	text-align: center;
 }
 
@@ -1915,12 +1917,18 @@ margin-bottom: 0 !important;
 	font-weight: 700;
 	color: #1c1c1c;
 	padding-bottom: 20px;
+	width:15%;
 }
 
 .shoping__cart__table table thead th.shoping__product {
-	text-align: left;
+	text-align: center;
+	width:10%;
 }
 
+.shoping__cart__table table thead th.shoping__product_name {
+	text-align: center;
+	width:40%;
+}
 .shoping__cart__table table tbody tr td {
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -1957,7 +1965,7 @@ margin-bottom: 0 !important;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item__close {
-	text-align: right;
+	text-align: center;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__item__close span {
@@ -1985,6 +1993,38 @@ margin-bottom: 0 !important;
 
 .shoping__cart__table table tbody tr td.shoping__cart__quantity .pro-qty .qtybtn {
 	width: 15px;
+}
+.shoping__cart__table table tbody tr td.btn, .btn:link, .btn:visited, .btn:active, .input[type=button]{
+	        background-color: #383838;
+        border: 1px solid #888888;
+        color: #ffffff;
+        cursor: pointer;
+        letter-spacing: -1px;
+        padding: 3px 5px;
+        margin: 2px 3px;
+        width: auto;
+        word-break: keep-all;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9375em;
+}
+	.abutton, .abutton:link, .abutton:visited, .abutton:active, input[type=button] {
+        background-color: #383838;
+        border: 1px solid #888888;
+        color: #ffffff;
+        cursor: pointer;
+        letter-spacing: -1px;
+        padding: 3px 5px;
+        margin: 2px 3px;
+        width: auto;
+        word-break: keep-all;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9375em;
+    }
+
+.abutton-alt {
+    background-color: #d3e2c6;
 }
 
 .primary-btn.cart-btn {
