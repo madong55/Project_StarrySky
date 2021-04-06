@@ -25,6 +25,7 @@ import kr.co.starrysky.beans.PresentPageCheckBean;
 import kr.co.starrysky.beans.UserBean;
 import kr.co.starrysky.interceptor.CheckLoginInterceptor;
 import kr.co.starrysky.interceptor.TopMenuInterceptor;
+import kr.co.starrysky.mapper.LocationMapper;
 import kr.co.starrysky.mapper.ProductMapper;
 import kr.co.starrysky.mapper.UserMapper;
 import kr.co.starrysky.mapper.WeatherMapper;
@@ -120,6 +121,12 @@ public class ServletAppContext implements WebMvcConfigurer{
 		return factoryBean;
 	}
 	
+	@Bean
+	public MapperFactoryBean<LocationMapper> getLocationMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<LocationMapper> factoryBean = new MapperFactoryBean<LocationMapper>(LocationMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
