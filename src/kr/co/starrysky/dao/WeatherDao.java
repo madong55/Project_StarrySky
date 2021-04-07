@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.starrysky.beans.StarIndicatorBean;
 import kr.co.starrysky.beans.WeatherBean;
 import kr.co.starrysky.mapper.WeatherMapper;
 
@@ -40,6 +41,14 @@ public class WeatherDao {
 	
 	public WeatherBean getWeatherOfLocation2(String location2_id, String forecast_date) {
 		return weatherMapper.getWeatherOfLocation2(location2_id, forecast_date);
+	}
+	
+	public void insertStarIndicator(StarIndicatorBean bean) {
+		weatherMapper.insertStarIndicator(bean);
+	}
+	
+	public void updateStarIndicator(String star_indicator_data) {
+		weatherMapper.updateStarIndicator(star_indicator_data);
 	}
 	
 }

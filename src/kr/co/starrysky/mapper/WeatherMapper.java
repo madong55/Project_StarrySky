@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import kr.co.starrysky.beans.StarIndicatorBean;
 import kr.co.starrysky.beans.WeatherBean;
 
 public interface WeatherMapper {
@@ -31,8 +32,10 @@ public interface WeatherMapper {
 	@Select("select * from weather where location2_id=#{location2_id} and forecast_date=#{forecast_date}")
 	WeatherBean getWeatherOfLocation2(@Param("location2_id")String location2_id, @Param("forecast_date")String forecast_date);
 	
+	@Insert("insert into star_indicator(location1_id, location2_id, forecast_date, star_indicator_data)"
+			+" values(#{location1_id}, #{location2_id}, #{forecast_date}, #{star_indicator_data})")
+	void insertStarIndicator(StarIndicatorBean bean); 
 	
-	
-	//@Insert
-	
+	@Update("UPDATE star_indicator set star_indicator_data=#{star_indicator_data}")
+	void updateStarIndicator(@Param("star_indicator_data")String star_indicator_data);
 }

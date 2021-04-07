@@ -15,6 +15,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.google.gson.Gson;
 
 import kr.co.starrysky.beans.Location2Bean;
+import kr.co.starrysky.beans.StarIndicatorBean;
 import kr.co.starrysky.beans.UserBean;
 import kr.co.starrysky.beans.WeatherBean;
 import kr.co.starrysky.beans.WeatherKey;
 import kr.co.starrysky.scheduler.JsonReader;
 import kr.co.starrysky.scheduler.schema.AccuWeather5Days;
 import kr.co.starrysky.scheduler.schema.DailyForecast;
+import kr.co.starrysky.scheduler.schema.StargazingInfo;
 import kr.co.starrysky.service.LocationService;
 import kr.co.starrysky.service.WeatherService;
 
@@ -69,27 +72,41 @@ public class WeatherScheduler {
 		String url_head = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
 		String url_tail = "?apikey=fwZnmuj5EEcAZ3811NskvQrnlcGrDBUx&details=true&metric=true";
 		
+		String url_head_star ="http://dataservice.accuweather.com/indices/v1/daily/5day/";
+		String url_tail_star = "/12?apikey=fwZnmuj5EEcAZ3811NskvQrnlcGrDBUx&details=true&metric=true";
+		
 		JSONObject weather_json;
+		JSONArray star_list_json;
+		JSONObject star_json;
+		
 		AccuWeather5Days forecast_data;
+		StargazingInfo stargazing_data;
 		
 		
 		for(String id:location_ids) {
 			
 			try {
 				
-				weather_json = JsonReader.readJsonFromUrl(url_head+id+url_tail);
+				weather_json = (JSONObject)JsonReader.readJsonFromUrl(url_head+id+url_tail);
+				star_list_json = (JSONArray)JsonReader.readJsonFromUrl(url_head_star+id+url_tail_star);
+				
 				
 				forecast_data = objGson.fromJson(weather_json.toString(), AccuWeather5Days.class);
 				
+				
 				for(int i=0;i<5;i++) {
+					
+					stargazing_data = objGson.fromJson(star_list_json.get(i).toString(), StargazingInfo.class);
 					
 					DailyForecast df = forecast_data.getDailyForecasts().get(i);
 					
+					StarIndicatorBean sbean = new StarIndicatorBean();
 					WeatherBean bean = new WeatherBean();
 					
 					bean.setAir_quality_value(df.getAirAndPollen().get(0).getValue().intValue());
 					bean.setCloud_cover(df.getNight().getCloudCover().intValue());
 					bean.setForecast_date(df.getDate());
+					sbean.setForecast_date(df.getDate());
 					bean.setHeadline(forecast_data.getHeadline().getText());
 					bean.setHour_of_rain(df.getNight().getHoursOfRain());
 					bean.setHour_of_snow(df.getNight().getHoursOfSnow());
@@ -98,11 +115,15 @@ public class WeatherScheduler {
 					
 					if(locationService.isLocation1Id(id)) {
 						bean.setLocation1_id(Integer.valueOf(id));
+						sbean.setLocation1_id(Integer.valueOf(id));
 						bean.setLocation2_id(0);
+						sbean.setLocation2_id(0);
 					}else if(locationService.isLocation2Id(id)) {
 						Location2Bean l2b = locationService.expandLocationKey(id); 
 						bean.setLocation1_id(l2b.getLocation1_id());
+						sbean.setLocation1_id(l2b.getLocation1_id());
 						bean.setLocation2_id(l2b.getLocation2_id());
+						sbean.setLocation2_id(l2b.getLocation2_id());
 					}else {
 						System.out.println("weather scheduler : location id error.");
 					}
@@ -110,6 +131,7 @@ public class WeatherScheduler {
 					bean.setMoon_age(df.getMoon().getAge().intValue());
 					bean.setMoon_rise(df.getMoon().getRise());
 					bean.setMoon_set(df.getMoon().getSet());
+					sbean.setStar_indicator_data((String.valueOf(stargazing_data.getValue().floatValue()/2)));
 					//
 					
 					if(df.getNight().getRain().getValue()>0) {
@@ -144,6 +166,7 @@ public class WeatherScheduler {
 							weatherService.updateWeatherBean(bean);
 							System.out.println("location1 : update");
 						}
+						
 					}else {
 						if(weatherService.getWeatherOfLocation2(String.valueOf(bean.getLocation2_id()), bean.getForecast_date())==null) {
 							weatherService.insertWeatherBean(bean);
@@ -152,15 +175,21 @@ public class WeatherScheduler {
 							weatherService.updateWeatherBean(bean);
 							System.out.println("location2 : update");
 						}
+						
+						
+					}
+					try{
+						weatherService.insertStarIndicator(sbean);
+						}
+					catch(Exception e) {
+						weatherService.updateStarIndicator(sbean.getStar_indicator_data());
+						e.printStackTrace();
 					}
 				}
-				
-				
-				
+					
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-			
 			
 		}
 		

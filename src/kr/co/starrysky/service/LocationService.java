@@ -1,6 +1,7 @@
 package kr.co.starrysky.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,16 @@ public class LocationService {
 		
 		list.addAll(getLocation1IdList());
 		list.addAll(getLocation2IdList());
+		
+		Iterator<String> it = list.iterator();
+		
+		String temp;
+		while(it.hasNext()) {
+			temp=it.next();
+			if(temp.equals("0")) {
+				list.remove(temp);
+			}
+		}
 		
 		System.out.println("service list size : "+list.size());
 		

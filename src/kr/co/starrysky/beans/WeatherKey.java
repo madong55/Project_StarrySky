@@ -10,7 +10,7 @@ public class WeatherKey {
 	public int getLocation_key() {
 		return location_key;
 	}
-	public void setLocation1_key(int location_key) {
+	public void setLocation_key(int location_key) {
 		this.location_key = location_key;
 	}
 	

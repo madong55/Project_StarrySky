@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.starrysky.beans.StarIndicatorBean;
 import kr.co.starrysky.beans.WeatherBean;
 import kr.co.starrysky.dao.WeatherDao;
 
@@ -37,6 +38,14 @@ public class WeatherService {
 	
 	public WeatherBean getWeatherOfLocation2(String location2_id, String forecast_date) {
 		return weatherDao.getWeatherOfLocation2(location2_id, forecast_date);
+	}
+	
+	public void insertStarIndicator(StarIndicatorBean bean) {
+		weatherDao.insertStarIndicator(bean);
+	}
+	
+	public void updateStarIndicator(String star_indicator_data) {
+		weatherDao.updateStarIndicator(star_indicator_data);
 	}
 }
 
