@@ -26,6 +26,10 @@ public class LocationService {
 		return locationDao.getLocation1Data(location1_id);
 	}
 	
+	public List<Location2Bean> getLocation2BeanList(){
+		return locationDao.getLocation2BeanList();
+	}
+	
 	public String location1IdSearch(String location_id) {
 		return locationDao.location1IdSearch(location_id);
 	}

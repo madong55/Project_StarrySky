@@ -48,6 +48,10 @@ public class WeatherDao {
 		weatherMapper.insertStarIndicator(bean);
 	}
 	
+	public void updateStarIndicator(String star_indicator_data) {
+		weatherMapper.updateStarIndicator(star_indicator_data);
+	}
+	
 	
 	public List<WeatherStarBean> getRecent5Forecast(String location2_id, String location1_id){
 		return weatherMapper.getRecent5Forecast(location2_id, location1_id);

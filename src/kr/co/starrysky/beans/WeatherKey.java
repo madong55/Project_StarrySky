@@ -6,7 +6,7 @@ public class WeatherKey {
 	
 	private int location1_key;
 	private int location2_key;
-	private Date forecast_date;
+	private String forecast_date;
 	
 	public int getLocation1_key() {
 		return location1_key;
@@ -20,10 +20,10 @@ public class WeatherKey {
 	public void setLocation2_key(int location2_key) {
 		this.location2_key = location2_key;
 	}
-	public Date getForecast_date() {
+	public String getForecast_date() {
 		return forecast_date;
 	}
-	public void setForecast_date(Date forecast_date) {
+	public void setForecast_date(String forecast_date) {
 		this.forecast_date = forecast_date;
 	}
 	
