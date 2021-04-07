@@ -27,6 +27,6 @@ public interface LocationMapper {
 	@Select("select location1_id from location1")
 	List<String> getLocation1List();
 	
-	@Select("select location2_id from location2")
+	@Select("select location2_id from location2 where not(location2_id=0)")
 	List<String> getLocation2List();
 }

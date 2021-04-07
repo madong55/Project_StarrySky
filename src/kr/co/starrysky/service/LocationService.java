@@ -67,17 +67,6 @@ public class LocationService {
 		list.addAll(getLocation1IdList());
 		list.addAll(getLocation2IdList());
 		
-		Iterator<String> it = list.iterator();
-		
-		String temp;
-		while(it.hasNext()) {
-			temp=it.next();
-			if(temp.equals("0")) {
-				list.remove(temp);
-			}
-		}
-		
-		System.out.println("service list size : "+list.size());
 		
 		return list;
 	}
