@@ -62,7 +62,7 @@
 
 								<li><a href="${root }/user/login" class="nav-link">Sign
 										In</a></li>
-								<li><a href="${root }/user/join" class="nav-link">Sing
+								<li><a href="${root }/user/join" class="nav-link">Sign
 										Up</a></li>
 
 							</c:otherwise>
