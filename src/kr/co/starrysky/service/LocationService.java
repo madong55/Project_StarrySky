@@ -20,6 +20,7 @@ public class LocationService {
 		return locationDao.expandLocationKey(location2_id);
 	}
 	
+	//로케이션 1인지 2인지 체크해서 1이면 1데이터 2면 2데이터 적용
 	public Location1Bean getLocation1Data(String location1_id) {
 		return locationDao.getLocation1Data(location1_id);
 	}

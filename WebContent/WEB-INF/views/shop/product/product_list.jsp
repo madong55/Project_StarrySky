@@ -47,13 +47,13 @@ function addCart(product_id){
 									items="${saleAllProductList }">
 									<div class="col-lg-4">
 										<div class="product__discount__item">
-											<div class="product__discount__item__pic set-bg" style="cursor:pointer;" onclick="location.href=${root }/shop/product/product_details?product_category_id='${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}';"
-												data-setbg="product_thumbnail/${saleAllProductList.product_thumbnail}">
+											<div class="product__discount__item__pic set-bg" style="cursor:pointer;" onclick="location.href='${root }/shop/product/product_details?product_category_id=${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}'"
+												data-setbg="shop/img/product/details/${saleAllProductList.product_category_id }/product_${saleAllProductList.product_id }_1.png">
 												<div class="product__discount__percent">-${Math.round((1-saleAllProductList.product_sale_price/saleAllProductList.product_price)*100) }%</div>
 												<ul class="product__item__pic__hover">
 													<!-- <li><a href="#"><i class="fa fa-heart"></i></a></li>
 													<li><a href="#"><i class="fa fa-retweet"></i></a></li> -->
-													<li><a href="javascript:void(0);" onfocus="this.blur()" onclick="addCart('${saleAllProductList.product_id}');"><i class="fa fa-shopping-cart"></i></a></li>
+													<li><a href="javascript:alert('장바구니에 추가되었습니다');" onfocus="this.blur()" onclick="addCart('${saleAllProductList.product_id}');"><i class="fa fa-shopping-cart"></i></a></li>
 													<!-- <li><button type="button" onfocus="this.blur()"><i class="fa fa-shopping-cart"></i></button></li> -->
 												</ul>
 											</div>
@@ -87,7 +87,7 @@ function addCart(product_id){
 					<li data-filter=".slpbag">침낭 / 매트</li>
 					<li data-filter=".backpack">배낭</li>
 					<li data-filter=".heater">난로 / 핫팩</li>
-					<li data-filter=".lights">랜턴 / 조명</li>
+					<li data-filter=".light">랜턴 / 조명</li>
 
 				</ul>
 			</div>
@@ -98,10 +98,10 @@ function addCart(product_id){
 						<c:when test="${allProductList.product_sale_price == null }">
 							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix ${allProductList.product_category_id }">
 								<div class="featured__item">
-									<div class="product__item__pic set-bg" style="cursor:pointer;" onclick="location.href=${root }/shop/product/product_details?product_category_id='${allProductList.product_category_id}&product_id=${allProductList.product_id}';"
-										data-setbg="product_thumbnail/${allProductList.product_thumbnail}">
+									<div class="product__item__pic set-bg" style="cursor:pointer;" onclick="location.href='${root }/shop/product/product_details?product_category_id=${allProductList.product_category_id}&product_id=${allProductList.product_id}'"
+										data-setbg="shop/img/product/details/${allProductList.product_category_id }/product_${allProductList.product_id }_1.png">
 										<ul class="product__item__pic__hover">
-											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+											<li><a href="javascript:void(0);" onfocus="this.blur()" onclick="addCart('${allProductList.product_id}');"><i class="fa fa-shopping-cart"></i></a></li>
 										</ul>
 									</div>
 									<div class="product__item__text">
@@ -116,8 +116,8 @@ function addCart(product_id){
 						<c:otherwise>
 							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix ${allProductList.product_category_id }">
 								<div class="product__discount__item">
-									<div class="product__discount__item__pic set-bg" style="cursor:pointer;" onclick="location.href=${root }/shop/product/product_details?product_category_id='${allProductList.product_category_id}&product_id=${allProductList.product_id}';"
-										data-setbg="product_thumbnail/${allProductList.product_thumbnail}">
+									<div class="product__discount__item__pic set-bg" style="cursor:pointer;" onclick="location.href='${root }/shop/product/product_details?product_category_id=${allProductList.product_category_id}&product_id=${allProductList.product_id}'"
+										data-setbg="shop/img/product/details/${allProductList.product_category_id }/product_${allProductList.product_id }_1.png">
 										<div class="product__discount__percent">-${Math.round((1-allProductList.product_sale_price/allProductList.product_price)*100) }%</div>
 										<ul class="product__item__pic__hover">
 											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>

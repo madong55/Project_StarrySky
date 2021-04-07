@@ -26,33 +26,33 @@ public interface ProductMapper {
 	void insertProductBean(ProductBean insertProductBean);
 	
 	//전체상품페이지(카테고리별)
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details2 "
 			+ "from product_list where product_category_id = #{product_category_id}")
 	List<ProductBean> getProductListByCategory(String product_category_id);
 		
 	//상품페이지(카테고리별)
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details2 "
 			+ "from product_list where product_sale_price is null and product_category_id = #{product_category_id}")
 	List<ProductBean> getProductList(String product_category_id);
 	
 	//세일상품 페이지(카테고리별)
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details2 "
 			+ "from product_list where product_sale_price is not null and product_category_id = #{product_category_id}")
 	List<ProductBean> getSaleProductList(String product_category_id);
 
 	//세일상품 페이지(전체)
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details2 "
 			+ "from product_list where product_sale_price is not null")
 	List<ProductBean> getSaleAllProductList();
 	
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details, product_details2 "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details2 "
 			+ "from product_list")
 	List<ProductBean> getAllProductList();
 	
 	/////////////////////
 	
 	//상품 상세페이지
-	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details "
+	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details2 "
 			+ "from product_list where product_id = #{product_id}")
 	ProductBean getProductInfo(String product_id);
 	
@@ -71,7 +71,7 @@ public interface ProductMapper {
 	void plusTempQuantity(@Param("user_email")String user_email, @Param("product_id")String product_id, @Param("product_temp_quantity")int product_temp_quantity);
 	
 	//로그인한 유저의 모든 장바구니정보 불러오기
-	@Select("SELECT CART_IDX, U.USER_EMAIL, S.PRODUCT_ID, P.PRODUCT_NAME, P.PRODUCT_PRICE, P.PRODUCT_SALE_PRICE, P.PRODUCT_THUMBNAIL, S.PRODUCT_TEMP_QUANTITY "
+	@Select("SELECT CART_IDX, U.USER_EMAIL, S.PRODUCT_ID, P.PRODUCT_CATEGORY_ID, P.PRODUCT_NAME, P.PRODUCT_PRICE, P.PRODUCT_SALE_PRICE, P.PRODUCT_THUMBNAIL, S.PRODUCT_TEMP_QUANTITY "
 			+ "FROM SHOPPING_CART S "
 			+ "INNER JOIN USER_TABLE U ON S.USER_EMAIL = U.USER_EMAIL "
 			+ "INNER JOIN PRODUCT_LIST P ON S.PRODUCT_ID = P.PRODUCT_ID "

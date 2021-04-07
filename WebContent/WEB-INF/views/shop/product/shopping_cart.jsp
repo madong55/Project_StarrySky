@@ -41,7 +41,7 @@
    
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="shop/img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="shop/img/camp_bg2.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -65,13 +65,12 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">상품 정보</th>
-                                    <th>상품 가격</th>
-                                    <th>주문 수량</th>
-                                    <th>Total</th>
-                                    <td class="shoping__cart__item__close">
-                                    <a href="${root }/shop/product/delete_all_cart_info" class="icon_close" style="color: gray"></a>
-                                    </td>
+                                    <th class="shoping__product">이미지</th>
+                                    <th class="shoping__product_name">상품명</th>
+                                    <th>가격</th>
+                                    <th>수량</th>
+                                    <th>합계</th>
+                                    <th>삭제</th>
                                     
                                 </tr>
                             </thead>
@@ -79,18 +78,23 @@
                             <c:forEach var="userShoppingCartList" items="${userShoppingCartList }">
                                 <tr>
                                     <td class="shoping__cart__item">
-                                        <img src="shop/img/cart/cart-1.jpg" alt="">
-                                        <h5>${userShoppingCartList.product_name }</h5>
+                                        <img src="shop/img/product/details/${userShoppingCartList.product_category_id }/product_${userShoppingCartList.product_id }_1.png" alt="">
+                                        
+                                    </td>
+                                    <td>
+                                    <div class="product__item__text">
+                                    <h6><a href="${root }/shop/product/product_details?product_category_id=${userShoppingCartList.product_category_id}&product_id=${userShoppingCartList.product_id}">${userShoppingCartList.product_name }</a></h6>
+                                    </div>
                                     </td>
 										<c:choose>
 											<c:when test="${userShoppingCartList.product_sale_price == null }">
-												<td class="shoping__cart__price">
-												&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${userShoppingCartList.product_price }"/>
+												<td class="shoping__cart__price_${userShoppingCartList.product_id }" value="${userShoppingCartList.product_price }">
+												<%-- &#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${userShoppingCartList.product_price }"/> --%>
 												</td>
 											</c:when>
 											<c:otherwise>
-												<td class="shoping__cart__price">
-												&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${userShoppingCartList.product_sale_price }"/>
+												<td class="shoping__cart__price_${userShoppingCartList.product_id }" value="${userShoppingCartList.product_sale_price }">
+												<%-- &#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${userShoppingCartList.product_sale_price }"/> --%>
 												</td>
 											</c:otherwise>
 										</c:choose>
@@ -101,38 +105,39 @@
                                             </div>
                                         </div>
                                     </td>
+                                    	
 										<c:choose>
 											<c:when
 												test="${userShoppingCartList.product_sale_price == null }">
-												<td class="shoping__cart__total">&#8361;<fmt:formatNumber
+												<td class="shoping__cart__total${userShoppingCartList.product_id}" value="cartTotal"><%-- &#8361;<fmt:formatNumber
 														type="number" maxFractionDigits="3"
-														value="${userShoppingCartList.product_temp_quantity*userShoppingCartList.product_price }" />
+														value="${userShoppingCartList.product_temp_quantity*userShoppingCartList.product_price }" /> --%>
 												</td>
 											</c:when>
 											<c:otherwise>
-												<td class="shoping__cart__total">&#8361;<fmt:formatNumber
+												<td class="shoping__cart__total${userShoppingCartList.product_id }" value="cartTotal"><%-- &#8361;<fmt:formatNumber
 														type="number" maxFractionDigits="3"
-														value="${userShoppingCartList.product_temp_quantity*userShoppingCartList.product_sale_price }" />
+														value="${userShoppingCartList.product_temp_quantity*userShoppingCartList.product_sale_price }" /> --%>
 												</td>
 											</c:otherwise>
 										</c:choose>
+										
 										<td class="shoping__cart__item__close"><a
 												href="${root }/shop/product/delete_cart_info?product_id=${userShoppingCartList.product_id}"
 												class="icon_close" style="color: gray"></a>
 										</td>
 									</tr>
+									
                                 </c:forEach> 
-                                                               
-                                <tr>
-                                <td colspan="3" />
-                                <td colspan="2"><a href="${root }/shop/product/delete_all_cart_info" class="primary-btn" 
-                                style="border: solid black; color: #333333;">전체삭제</a></td>
-                                <td colspan="2"><a href="${root }/shop/product/update_all_quantity" class="primary-btn" 
-                                style="border: solid black; color: #333333;">수량 적용</a></td>
-                        		</tr>
-                        		
+                                    
+                        <tr><td colspan=6; style="text-align:right;">
+                        <a href="${root }/shop/product/delete_all_cart_info" class="btn" >모두 비우기</a>
+                        </td>
+                        </tr>
                             </tbody>
+                            
                         </table>
+                        <a href="${root }/shop/product/update_all_quantity" class="btn">수량 적용</a>  
                     </div>
                  </div>
                 </div>
@@ -158,7 +163,7 @@
                             <li><h2>100,000&#8361</h2></li>
                            
                         </ul>
-                       <a href="shop_index" class="primary-btn">계속 쇼핑하기</a>
+                       <a href="shop_index" class="primary-btn">쇼핑 더 하기</a>
                         <a href="shop_checkout" class="primary-btn">결제하기</a>
             
                   </div>

@@ -5,6 +5,7 @@ public class ShoppingCartBean {
 	private int cart_idx;
 	private String user_email;
 	private String product_id;
+	private String product_category_id;
 	private String product_name;
 	private Integer product_temp_quantity;
 	private int product_price;
@@ -28,6 +29,12 @@ public class ShoppingCartBean {
 	}
 	public void setProduct_id(String product_id) {
 		this.product_id = product_id;
+	}
+	public String getProduct_category_id() {
+		return product_category_id;
+	}
+	public void setProduct_category_id(String product_category_id) {
+		this.product_category_id = product_category_id;
 	}
 	public String getProduct_name() {
 		return product_name;

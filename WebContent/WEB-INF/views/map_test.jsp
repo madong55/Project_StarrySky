@@ -7,7 +7,7 @@
     <title>카테고리별 장소 검색하기</title>
     <style>
 .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-.map_wrap {position:relative;width:100%;height:350px;}
+.map_wrap {position:relative;width:100%;height:600px;} /* 지도사이즈 조절 */
 #category {position:absolute;top:10px;left:10px;border-radius: 5px; border:1px solid #909090;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);background: #fff;overflow: hidden;z-index: 2;}
 #category li {float:left;list-style: none;width:50px;px;border-right:1px solid #acacac;padding:6px 0;text-align: center; cursor: pointer;}
 #category li.on {background: #eee;}
@@ -34,10 +34,29 @@
 .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
 </style>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6b0eb32a824c5ad645c902d56294c254&libraries=services,clusterer,drawing"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 </head>
-<body>
+<body style="padding-top: 120px;">
 
+<!-- 로딩화면 -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+<!-- 로딩화면 -->
+
+   <header>   
+ <jsp:include page="include/starry_top.jsp"></jsp:include>
+ </header>
+ 
+<div class="container">
+<div class="row">
+<div class="col-lg-12" style="text-align: center; " >
+	<h1>지역이름</h1>
+	<br/>
+	<h3 style="margin-bottom:30px;">날씨 대기상태 월령 빛 구름</h3>
+	
 <div class="map_wrap">
+
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
     <ul id="category">
         <li id="AD5" data-order="0"> 
@@ -51,6 +70,49 @@
          
     </ul>
 </div>
+</div>
+
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12" style="text-align: center; margin-top: 30px; margin-bottom: 30px;" >
+<table border="1" style="width:100%; height:800px;">
+<tr>	
+<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
+</tr>
+<tr>	
+<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
+</tr>
+<tr>	
+<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
+</tr>
+<tr>	
+<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
+</tr>
+<tr>	
+<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
+</tr>
+<tr>	
+<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
+</tr>
+<tr>	
+<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
+</tr>
+<tr>	
+<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
+</tr>
+
+</table>
+
+
+ </div>
+
+</div>
+</div>
+    <jsp:include page="/WEB-INF/views/include/starry_footer.jsp"></jsp:include>   
+
 <script>
 //마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
 var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}), 
@@ -102,7 +164,7 @@ function searchPlaces() {
         return;
     }
     
-    // 커스텀 오버레이를 숨깁니다 
+    // 커스텀 오버레이를 숨깁니다
     placeOverlay.setMap(null);
 
     // 지도에 표시되고 있는 마커를 제거합니다
