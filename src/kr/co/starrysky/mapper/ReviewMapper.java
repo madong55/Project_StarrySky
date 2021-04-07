@@ -32,6 +32,10 @@ public  interface ReviewMapper {
 	@Select("select location1_id, location2_id, location2_name from location2 where not(location2_id=0)")
 	List<Location2Bean> getLocation2List();
 	
+	// 모든 리뷰 리스트 가지고 오는 메소드
+	@Select("select * from review_board_table")
+	List<ReviewBean>getAllReviewList();
+	
 	//--------------------------------------------------------------------------------------------------------------------
 	
 	// 리뷰 쓰는 메소드

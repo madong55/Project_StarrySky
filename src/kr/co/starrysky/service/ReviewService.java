@@ -18,7 +18,7 @@ import kr.co.starrysky.dao.ReviewDao;
 
 @Service
 @PropertySource("/WEB-INF/properties/option.properties")
-public class ReveiwService {
+public class ReviewService {
 	
 	@Value("${path.reviewupload}")
 	private String path_reviewupload;
@@ -61,6 +61,11 @@ public class ReveiwService {
 		
 		return reviewDao.getLocation2List();
 		
+	}
+	
+	public List<ReviewBean>getAllReviewList() {
+		
+		return reviewDao.getAllReviewList();
 	}
 	
 

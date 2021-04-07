@@ -36,6 +36,11 @@ public class ReviewDao {
 		
 	}
 	
+	public List<ReviewBean>getAllReviewList() {
+		
+		return reviewMapper.getAllReviewList();
+	}
+	
 	//--------------------------------------------------------------------------------------------------------------------
 
 	
