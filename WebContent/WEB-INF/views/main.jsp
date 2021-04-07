@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
      <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -56,24 +57,33 @@
 
 	
 	$(document).ready(function(){
-		$("#kangwon1").hide();
+		/* $("#kangwon1").hide(); 
 		
 		$("#kw_day1").click(function(){
-			$("#kr_day1").hide();
-			$("#kangwon1").show();
+			$("#kr_day1").fadeOut('slow');
+			$("#kangwon1").fadeIn('slow');
 			$("#kangwon1").css("z-index", "9999");
+			$("")
 		});
 		
+		$("#jeju1").hide(); 
+		
+		$("#jj_day1").click(function(){
+			$("#kr_day1").fadeOut('slow');
+			$("#jeju1").fadeIn('slow');
+			$("#jeju1").css("z-index", "9999");
+		}); */
+/* 		
 		$(".map-day1").find(".kangwon-button").bind("click",function(){
 			$(".map-day1").hide();
-		});
-	
+		}); */
 		
 		$(".date1_value").text(date1);
 		$(".date2_value").text(date2);
 		$(".date3_value").text(date3);
 		$(".date4_value").text(date4);
 		$(".date5_value").text(date5);
+
 	});
 	/* h2안에 스크립트를 넣는게 아니라 h2에 클래스를 줘서 클래스에 따라 값을 뿌려야 한다 */
 	
@@ -105,39 +115,34 @@
 						<div class="hs-text" id="kr_day1">
 
 							<h2 class="date1_value" ></h2>
-				
-							<img src="img/krb4.png" usemap="#image-kr">
-							<map name="image-kr">
-							<area target="" alt="seoul" title="seoul" href="#kr_day1" coords="447,74,372,114,433,228,473,236,527,164,502,152,513,122,486,86" shape="poly">
+							
+							<img src="img/krb4.png" usemap="#image-kr1">
+							<map name="image-kr1">
+							<area target="" alt="seoul" title="seoul" href="" coords="447,74,372,114,433,228,473,236,527,164,502,152,513,122,486,86" shape="poly">
     <area target="" alt="chungnam" title="chungnam" href="" coords="466,242,398,216,353,246,403,338,499,346" shape="poly">
-    <area target="" alt="jeonbuk" title="jeonbuk" href="#kr_day3" coords="402,342,518,350,523,361,491,429,446,424,420,406,395,425,391,414,379,411" shape="poly">
-    <area target="" alt="jeonnam" title="jeonnam" href="" coords="373,416,336,522,406,554,513,513,492,437,448,430,421,413,394,430" shape="poly">
-    <area target="" id="kw_day1" alt="kangwon" title="kangwon" href="#; return false;" coords="457,68,597,32,685,230,679,282,649,244,621,221,609,229,549,201,509,206,534,162,511,150,521,120,487,78" shape="poly">
+    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="402,342,518,350,523,361,491,429,446,424,420,406,395,425,391,414,379,411" shape="poly">
+    <area target="" alt="jeonnam" title="jeonnam" href="" coords="373,416,336,522,406,554,513,513,492,437,448,430,421,413,394,430" shape="poly">    
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=1&location_id=42" coords="457,68,597,32,685,230,679,282,649,244,621,221,609,229,549,201,509,206,534,162,511,150,521,120,487,78" shape="poly">	
     <area target="" alt="chungbuk" title="chungbuk" href="" coords="505,212,477,242,500,338,521,346,538,329,521,315,528,289,517,280,565,249,575,256,596,231,549,207" shape="poly">
     <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="601,234,577,261,564,257,527,279,533,290,528,314,546,332,525,347,533,367,553,384,553,394,627,407,669,411,683,294,624,227" shape="poly">
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="524,366,495,433,516,508,593,510,671,418,549,401,549,387" shape="poly">
-    <area target="" alt="jeju" title="jeju" href="jj_day1" coords="343,639,416,639,409,610,345,612,233,578,0,581,0,686,243,683,251,601" shape="poly">
+    <area target="" alt="jeju" title="jeju" href="jj_day1?dateinfo=1&location_id=49" coords="343,639,416,639,409,610,345,612,233,578,0,581,0,686,243,683,251,601" shape="poly">
     <area target="" alt="seoul" title="seoul" href="" coords="0,17,245,121" shape="rect">
     <area target="" alt="chungnam" title="chungnam" href="" coords="0,159,247,264" shape="rect">
     <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="1,298,243,402" shape="rect">
     <area target="" alt="jeonnam" title="jeonnam" href="" coords="2,438,247,542" shape="rect">
-    <area target="" alt="kangwon" title="kangwon" href="" coords="751,33,999,136" shape="rect">
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=1&location_id=42" coords="751,33,999,136" shape="rect">
     <area target="" alt="chungbuk" title="chungbuk" href="" coords="753,208,999,320" shape="rect">
     <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 
-							</map>
-							
-							
-							<div id="kangwon1" style="position: absolute; top:0; left:0;">
-					<img src="img/map_grade2/kw1.png" />	
-					</div>
-					
-					
-						</div>
+							</map>							
+							</div>
 					</div>
 				</div>
 			</div>
+
+
 
 				<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
 				<div class="container">
@@ -146,11 +151,31 @@
 							
 							<h2 class="date2_value" ></h2>
 						
-							<img src="img/krb4.png" usemap="#image-kr">						
+							<img src="img/krb4.png" usemap="#image-kr2">	
+								<map name="image-kr2">
+							<area target="" alt="seoul" title="seoul" href="" coords="447,74,372,114,433,228,473,236,527,164,502,152,513,122,486,86" shape="poly">
+    <area target="" alt="chungnam" title="chungnam" href="" coords="466,242,398,216,353,246,403,338,499,346" shape="poly">
+    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="402,342,518,350,523,361,491,429,446,424,420,406,395,425,391,414,379,411" shape="poly">
+    <area target="" alt="jeonnam" title="jeonnam" href="" coords="373,416,336,522,406,554,513,513,492,437,448,430,421,413,394,430" shape="poly">    
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=2&location_id=42" coords="457,68,597,32,685,230,679,282,649,244,621,221,609,229,549,201,509,206,534,162,511,150,521,120,487,78" shape="poly">	
+    <area target="" alt="chungbuk" title="chungbuk" href="" coords="505,212,477,242,500,338,521,346,538,329,521,315,528,289,517,280,565,249,575,256,596,231,549,207" shape="poly">
+    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="601,234,577,261,564,257,527,279,533,290,528,314,546,332,525,347,533,367,553,384,553,394,627,407,669,411,683,294,624,227" shape="poly">
+    <area target="" alt="gyungnam" title="gyungnam" href="" coords="524,366,495,433,516,508,593,510,671,418,549,401,549,387" shape="poly">
+    <area target="" alt="jeju" title="jeju" href="jj_day1#jjd2?dateinfo=2&location_id=49" coords="343,639,416,639,409,610,345,612,233,578,0,581,0,686,243,683,251,601" shape="poly">
+    <area target="" alt="seoul" title="seoul" href="" coords="0,17,245,121" shape="rect">
+    <area target="" alt="chungnam" title="chungnam" href="" coords="0,159,247,264" shape="rect">
+    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="1,298,243,402" shape="rect">
+    <area target="" alt="jeonnam" title="jeonnam" href="" coords="2,438,247,542" shape="rect">
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=2&location_id=42" coords="751,33,999,136" shape="rect">
+    <area target="" alt="chungbuk" title="chungbuk" href="" coords="753,208,999,320" shape="rect">
+    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
+    <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
+							</map>
 						</div>
 					</div>
 				</div>
 			</div>
+    
     
        	<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
 				<div class="container">
@@ -159,7 +184,26 @@
 							
 							<h2 class="date3_value" ></h2>
 							
-							<img src="img/krb4.png" usemap="#image-kr">						
+							<img src="img/krb4.png" usemap="#image-kr3">	
+							<map name="image-kr3">			
+								<area target="" alt="seoul" title="seoul" href="" coords="447,74,372,114,433,228,473,236,527,164,502,152,513,122,486,86" shape="poly">
+    <area target="" alt="chungnam" title="chungnam" href="" coords="466,242,398,216,353,246,403,338,499,346" shape="poly">
+    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="402,342,518,350,523,361,491,429,446,424,420,406,395,425,391,414,379,411" shape="poly">
+    <area target="" alt="jeonnam" title="jeonnam" href="" coords="373,416,336,522,406,554,513,513,492,437,448,430,421,413,394,430" shape="poly">    
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=3&location_id=42" coords="457,68,597,32,685,230,679,282,649,244,621,221,609,229,549,201,509,206,534,162,511,150,521,120,487,78" shape="poly">	
+    <area target="" alt="chungbuk" title="chungbuk" href="" coords="505,212,477,242,500,338,521,346,538,329,521,315,528,289,517,280,565,249,575,256,596,231,549,207" shape="poly">
+    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="601,234,577,261,564,257,527,279,533,290,528,314,546,332,525,347,533,367,553,384,553,394,627,407,669,411,683,294,624,227" shape="poly">
+    <area target="" alt="gyungnam" title="gyungnam" href="" coords="524,366,495,433,516,508,593,510,671,418,549,401,549,387" shape="poly">
+    <area target="" alt="jeju" title="jeju" href="jj_day1?dateinfo=3&location_id=49#jjd3" coords="343,639,416,639,409,610,345,612,233,578,0,581,0,686,243,683,251,601" shape="poly">
+    <area target="" alt="seoul" title="seoul" href="" coords="0,17,245,121" shape="rect">
+    <area target="" alt="chungnam" title="chungnam" href="" coords="0,159,247,264" shape="rect">
+    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="1,298,243,402" shape="rect">
+    <area target="" alt="jeonnam" title="jeonnam" href="" coords="2,438,247,542" shape="rect">
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=3&location_id=42" coords="751,33,999,136" shape="rect">
+    <area target="" alt="chungbuk" title="chungbuk" href="" coords="753,208,999,320" shape="rect">
+    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
+    <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
+							</map>					
 						</div>
 					</div>
 				</div>
@@ -169,9 +213,28 @@
 				<div class="container">
 					<div class="row">
 						<div class="hs-text" id="kr_day4">
-							<!-- style="display : block ; text-align : center ;" -->
+							
 							<h2 class="date4_value" ></h2>
-							<img src="img/krb4.png" usemap="#image-kr">						
+							<img src="img/krb4.png" usemap="#image-kr4">		
+							<map name="image-kr4">						
+								<area target="" alt="seoul" title="seoul" href="" coords="447,74,372,114,433,228,473,236,527,164,502,152,513,122,486,86" shape="poly">
+    <area target="" alt="chungnam" title="chungnam" href="" coords="466,242,398,216,353,246,403,338,499,346" shape="poly">
+    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="402,342,518,350,523,361,491,429,446,424,420,406,395,425,391,414,379,411" shape="poly">
+    <area target="" alt="jeonnam" title="jeonnam" href="" coords="373,416,336,522,406,554,513,513,492,437,448,430,421,413,394,430" shape="poly">    
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=4&location_id=42" coords="457,68,597,32,685,230,679,282,649,244,621,221,609,229,549,201,509,206,534,162,511,150,521,120,487,78" shape="poly">	
+    <area target="" alt="chungbuk" title="chungbuk" href="" coords="505,212,477,242,500,338,521,346,538,329,521,315,528,289,517,280,565,249,575,256,596,231,549,207" shape="poly">
+    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="601,234,577,261,564,257,527,279,533,290,528,314,546,332,525,347,533,367,553,384,553,394,627,407,669,411,683,294,624,227" shape="poly">
+    <area target="" alt="gyungnam" title="gyungnam" href="" coords="524,366,495,433,516,508,593,510,671,418,549,401,549,387" shape="poly">
+    <area target="" alt="jeju" title="jeju" href="jj_day1?dateinfo=4&location_id=49" coords="343,639,416,639,409,610,345,612,233,578,0,581,0,686,243,683,251,601" shape="poly">
+    <area target="" alt="seoul" title="seoul" href="" coords="0,17,245,121" shape="rect">
+    <area target="" alt="chungnam" title="chungnam" href="" coords="0,159,247,264" shape="rect">
+    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="1,298,243,402" shape="rect">
+    <area target="" alt="jeonnam" title="jeonnam" href="" coords="2,438,247,542" shape="rect">
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=4&location_id=42" coords="751,33,999,136" shape="rect">
+    <area target="" alt="chungbuk" title="chungbuk" href="" coords="753,208,999,320" shape="rect">
+    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
+    <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
+							</map>							
 						</div>
 					</div>
 				</div>
@@ -183,7 +246,26 @@
 						<div class="hs-text " id="kr_day5">
 							<!-- style="display : block ; text-align : center ;" -->
 							<h2 class="date5_value" ></h2>
-							<img src="img/krb4.png" usemap="#image-kr">						
+							<img src="img/krb4.png" usemap="#image-kr5">		
+							<map name="image-kr5">						
+								<area target="" alt="seoul" title="seoul" href="" coords="447,74,372,114,433,228,473,236,527,164,502,152,513,122,486,86" shape="poly">
+    <area target="" alt="chungnam" title="chungnam" href="" coords="466,242,398,216,353,246,403,338,499,346" shape="poly">
+    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="402,342,518,350,523,361,491,429,446,424,420,406,395,425,391,414,379,411" shape="poly">
+    <area target="" alt="jeonnam" title="jeonnam" href="" coords="373,416,336,522,406,554,513,513,492,437,448,430,421,413,394,430" shape="poly">    
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=5&location_id=42" coords="457,68,597,32,685,230,679,282,649,244,621,221,609,229,549,201,509,206,534,162,511,150,521,120,487,78" shape="poly">	
+    <area target="" alt="chungbuk" title="chungbuk" href="" coords="505,212,477,242,500,338,521,346,538,329,521,315,528,289,517,280,565,249,575,256,596,231,549,207" shape="poly">
+    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="601,234,577,261,564,257,527,279,533,290,528,314,546,332,525,347,533,367,553,384,553,394,627,407,669,411,683,294,624,227" shape="poly">
+    <area target="" alt="gyungnam" title="gyungnam" href="" coords="524,366,495,433,516,508,593,510,671,418,549,401,549,387" shape="poly">
+    <area target="" alt="jeju" title="jeju" href="jj_day1?dateinfo=5&location_id=49" coords="343,639,416,639,409,610,345,612,233,578,0,581,0,686,243,683,251,601" shape="poly">
+    <area target="" alt="seoul" title="seoul" href="" coords="0,17,245,121" shape="rect">
+    <area target="" alt="chungnam" title="chungnam" href="" coords="0,159,247,264" shape="rect">
+    <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="1,298,243,402" shape="rect">
+    <area target="" alt="jeonnam" title="jeonnam" href="" coords="2,438,247,542" shape="rect">
+    <area target="" alt="kangwon" title="kangwon" href="kw_day1?dateinfo=5&location_id=42" coords="751,33,999,136" shape="rect">
+    <area target="" alt="chungbuk" title="chungbuk" href="" coords="753,208,999,320" shape="rect">
+    <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
+    <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
+							</map>						
 						</div>
 					</div>
 				</div>

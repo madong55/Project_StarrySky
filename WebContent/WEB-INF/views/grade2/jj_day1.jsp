@@ -85,25 +85,102 @@
  <jsp:include page="/WEB-INF/views/include/starry_top.jsp"></jsp:include>
  </header>
  
-<%-- <c:import url="${root}/include/starry_top.jsp"></c:import> --%>
     
     <!-- Hero Section Begin -->
     <section class="hero-section">
         <div class="hs-slider owl-carousel">
      <!-- hs-slider  -->
-			<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
+			<div class="hs-item set-bg" data-setbg="img/header-bg.jpg" id="jjd1">
 				<div class="container">
 					<div class="row">
 						<div class="hs-text">
-
 							<h2 class="date1_value" ></h2>
 				
-						<a href="map">	<img src="img/map_grade2/jjb2.png" ></a>
+						<img src="img/map_grade2/jjb2.png" usemap="#image-jj1">
+<map name="image-jj1">
+    <area target="" alt="" title="jejuci" href="map?dateinfo=1&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
+    <area target="" alt="" title="seogui" href="map?dateinfo=1&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
+</map>
 							
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			
+			<div class="hs-item set-bg" data-setbg="img/header-bg.jpg" id="jjd2">
+				<div class="container">
+					<div class="row">
+						<div class="hs-text">
+							<h2 class="date2_value" ></h2>
+				
+						<img src="img/map_grade2/jjb2.png" usemap="#image-jj2">
+<map name="image-jj2">
+    <area target="" alt="" title="jejuci" href="map?dateinfo=2&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
+    <area target="" alt="" title="seogui" href="map?dateinfo=2&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
+</map>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="hs-item set-bg" data-setbg="img/header-bg.jpg" >
+				<div class="container">
+					<div class="row">
+						<div class="hs-text">
+							<h2 class="date3_value" ></h2>
+				
+						<img src="img/map_grade2/jjb2.png" usemap="#image-jj3">
+<map name="image-jj3">
+    <area target="" alt="" title="jejuci" href="map?dateinfo=3&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
+    <area target="" alt="" title="seogui" href="map?dateinfo=3&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
+</map>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+		<div class="hs-item set-bg" data-setbg="img/header-bg.jpg" >
+				<div class="container">
+					<div class="row">
+						<div class="hs-text">
+							<h2 class="date4_value" ></h2>
+				
+						<img src="img/map_grade2/jjb2.png" usemap="#image-jj4">
+<map name="image-jj4">
+    <area target="" alt="" title="jejuci" href="map?dateinfo=4&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
+    <area target="" alt="" title="seogui" href="map?dateinfo=4&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
+</map>
+							
+						</div>
+					</div>
+				</div>
+			</div>	
+			
+			
+			<div class="hs-item set-bg" data-setbg="img/header-bg.jpg" >
+				<div class="container">
+					<div class="row">
+						<div class="hs-text">
+							<h2 class="date5_value" ></h2>
+				
+						<img src="img/map_grade2/jjb2.png" usemap="#image-jj5">
+<map name="image-jj5">
+    <area target="" alt="" title="jejuci" href="map?dateinfo=5&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
+    <area target="" alt="" title="seogui" href="map?dateinfo=5&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
+</map>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			
             </div>  
     </section>
     <!-- Hero Section End -->
@@ -115,14 +192,15 @@
 
 
     <!-- Categories Section Begin -->
+   
     <jsp:include page="/WEB-INF/views/include/main_recommended.jsp"></jsp:include>
-    
+    </div>
     <!-- Categories Section End -->
 
 
        <!-- Footer Section Begin -->
  
-    <jsp:include page="/WEB-INF/views/include/starry_footer.jsp"></jsp:include>   
+    <jsp:include page="/WEB-INF/views/include/starry_footer.jsp" ></jsp:include>   
  
     <!-- Footer Section End -->
 
