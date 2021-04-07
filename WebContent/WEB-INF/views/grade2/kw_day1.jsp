@@ -120,6 +120,23 @@
     <area target="" alt="donghae" title="donghae" href="" coords="749,441,764,490,713,494,713,466,739,466" shape="poly">
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=1&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
+
+<div style="display:flex; position:absolute; top: 46%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
 						</div>
 					</div>
 				</div>
@@ -155,6 +172,23 @@
     <area target="" alt="donghae" title="donghae" href="" coords="749,441,764,490,713,494,713,466,739,466" shape="poly">
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=2&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
+
+						<div style="display:flex; position:absolute; top: 46%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
 						</div>
 					</div>
 				</div>
@@ -190,6 +224,24 @@
     <area target="" alt="donghae" title="donghae" href="" coords="749,441,764,490,713,494,713,466,739,466" shape="poly">
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=3&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
+
+<div style="display:flex; position:absolute; top: 46%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+
 						</div>
 					</div>
 				</div>
@@ -225,6 +277,23 @@
     <area target="" alt="donghae" title="donghae" href="" coords="749,441,764,490,713,494,713,466,739,466" shape="poly">
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=4&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
+
+<div style="display:flex; position:absolute; top: 46%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+
 						</div>
 					</div>
 				</div>
@@ -261,6 +330,23 @@
     <area target="" alt="donghae" title="donghae" href="" coords="749,441,764,490,713,494,713,466,739,466" shape="poly">
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=5&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
+
+<div style="display:flex; position:absolute; top: 46%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
 						</div>
 					</div>
 				</div>

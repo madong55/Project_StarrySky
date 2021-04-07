@@ -34,6 +34,7 @@
 .placeinfo .jibun {color:#999;font-size:11px;margin-top:0;}
 </style>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6b0eb32a824c5ad645c902d56294c254&libraries=services,clusterer,drawing"></script>
+
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 </head>
 <body style="padding-top: 120px;">
@@ -69,7 +70,7 @@
         </li>  
          
     </ul>
-</div>
+</div> 
 </div>
 
 </div>
@@ -122,7 +123,8 @@ var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}),
  
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
-        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+        center: new kakao.maps.LatLng( 38.106256, 127.7032812), // 지도의 중심좌표
+      //  center: new kakao.maps.LatLng( ${param.x_coord}, ${param.y_coord}), // 지도의 중심좌표
         level: 5 // 지도의 확대 레벨
     };  
 

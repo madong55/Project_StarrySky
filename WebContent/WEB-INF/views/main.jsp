@@ -136,7 +136,67 @@
     <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 
-							</map>							
+							</map>
+							
+							<!-- 날씨아이콘 배치-->
+							<!-- 서울 -->
+							<div style="display:flex; position:absolute; top: 20%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+								<!-- 충남 -->
+								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 제주 -->
+								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 강원 -->
+								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 충북 -->
+								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경북 -->
+								<div style="display:flex; position:absolute; top:66%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경남 -->
+								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+								
+														
 							</div>
 					</div>
 				</div>
@@ -171,6 +231,62 @@
     <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 							</map>
+								<div style="display:flex; position:absolute; top: 20%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+								<!-- 충남 -->
+								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 제주 -->
+								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 강원 -->
+								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 충북 -->
+								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경북 -->
+								<div style="display:flex; position:absolute; top:66%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경남 -->
+								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+							
 						</div>
 					</div>
 				</div>
@@ -203,7 +319,63 @@
     <area target="" alt="chungbuk" title="chungbuk" href="" coords="753,208,999,320" shape="rect">
     <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
-							</map>					
+							</map>	
+							
+								<div style="display:flex; position:absolute; top: 20%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+								<!-- 충남 -->
+								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 제주 -->
+								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 강원 -->
+								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 충북 -->
+								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경북 -->
+								<div style="display:flex; position:absolute; top:66%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경남 -->
+								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>				
 						</div>
 					</div>
 				</div>
@@ -234,7 +406,64 @@
     <area target="" alt="chungbuk" title="chungbuk" href="" coords="753,208,999,320" shape="rect">
     <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
-							</map>							
+							</map>	
+							
+								<div style="display:flex; position:absolute; top: 20%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+								<!-- 충남 -->
+								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 제주 -->
+								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 강원 -->
+								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 충북 -->
+								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경북 -->
+								<div style="display:flex; position:absolute; top:66%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경남 -->
+								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+													
 						</div>
 					</div>
 				</div>
@@ -265,39 +494,73 @@
     <area target="" alt="chungbuk" title="chungbuk" href="" coords="753,208,999,320" shape="rect">
     <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
-							</map>						
+							</map>	
+							
+								<div style="display:flex; position:absolute; top: 20%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+								<!-- 충남 -->
+								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 제주 -->
+								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						
+						<!-- 강원 -->
+								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 충북 -->
+								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경북 -->
+								<div style="display:flex; position:absolute; top:66%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+						<!-- 경남 -->
+								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
+						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
+						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
+						<span> <h4>3.5</h4></span> 
+						</div>
+										
 						</div>
 					</div>
 				</div>
 			</div>
                 
+            
                 
-                	<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
-				<div class="container">
-				
-					<div class="row">
-					
-					
-					
-						<div class="hs-text">
-							<h2 class="date5_value" ></h2>
-						
-							<img src="img/krb3.png" usemap="#image-kr"/>
 
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		
-						
-					
-
-			
-            
-            </div>  
-            
-            	
+            </div>        	
     </section>
     <!-- Hero Section End -->
 
@@ -309,6 +572,9 @@
     <jsp:include page="/WEB-INF/views/include/main_recommended.jsp"></jsp:include>
     
     <!-- Categories Section End -->
+
+
+	${param.icon }
 
        <!-- Footer Section Begin -->
  

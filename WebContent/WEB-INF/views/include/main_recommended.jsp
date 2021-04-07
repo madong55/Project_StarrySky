@@ -24,7 +24,7 @@
             
               <c:forEach var='saleAllProductList' items="${saleAllProductList }">
                 <div class="cs-item">
-                    <div class="cs-pic set-bg" data-setbg="product_thumbnail/${saleAllProductList.product_thumbnail}"></div>
+                    <div class="cs-pic set-bg" data-setbg="shop/img/product/details/${saleAllProductList.product_category_id }/product_${saleAllProductList.product_id }_1.png"></div>
                     <div class="cs-text">
                       <h5>
                       <a href="${root }/shop/product/product_details?product_category_id=${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}">${saleAllProductList.product_name }</a>

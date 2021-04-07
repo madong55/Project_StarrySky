@@ -28,11 +28,11 @@
                     <div class="logo">
 					<c:choose>
 						<c:when test="${PresentPageCheckBean.presentPage == true }">
-							<a href="${root }/shop/index"> <img src="img/logo.png" alt="">
+							<a href="${root }/shop/index"> <img src="img/logos/pinklogo.png" width="170px" height="24px" alt="">
 							</a>
 						</c:when>
 						<c:otherwise>
-							<a href="${root }/main"> <img src="img/logo.png" alt="">
+							<a href="${root }/main"> <img src="img/logos/pinklogo.png" width="170px" height="24px"  alt="">
 							</a>
 						</c:otherwise>
 					</c:choose>
