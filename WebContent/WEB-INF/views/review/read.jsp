@@ -57,7 +57,7 @@
 							
 							
 							<div class="form-group">
-								<label for="recommnd_product">추천상품</label>
+								<label for="recommnd_product">추천 상품</label>
 								<input path="recommnd_product" class="form-control" value="${readReviewBean.recommnd_product }" disabled="disabled" />
 							</div>
 	

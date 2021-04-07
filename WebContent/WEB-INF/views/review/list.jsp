@@ -47,14 +47,15 @@
 						<th class="text-center d-none d-md-table-cell">작성 날짜</th>
 					</tr>
 				</thead>
+				
 				<tbody>
 					<c:forEach var='obj' items="${reviewList }">
 					<tr>
 						<td class="text-center d-none d-md-table-cell">${obj.review_num }</td>
 						<td class="text-center d-none d-md-table-cell">${obj.location2_name }</td>
 						<td><a href='${root }review/read?review_num=${obj.review_num}'>${obj.review_subject }</a></td>
-						<td class="text-center d-none d-md-table-cell">${obj.user_nickname }</td>
 						<td class="text-center d-none d-md-table-cell">${obj.review_score }</td>
+						<td class="text-center d-none d-md-table-cell">${obj.user_nickname }</td>
 						<td class="text-center d-none d-md-table-cell">${obj.review_date }</td>
 					</tr>
 					</c:forEach>

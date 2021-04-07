@@ -71,7 +71,7 @@
 							<form:hidden path="user_nickname"/>
 							<form:hidden path="user_email"/>
 							
-								<form:select path="location2_name">
+								<form:select path="location2_id">
 									<c:forEach items='${location2List}' var='obj'>
 										<form:option value="${obj.location2_id}">${obj.location2_name}</form:option>
 									</c:forEach>
@@ -91,7 +91,7 @@
 							</div>
 
 							<div class="form-group">
-								<form:label path="recommnd_product">추천상품</form:label>
+								<form:label path="recommnd_product">추천 상품</form:label>
 								<form:input path="recommnd_product" class="form-control"></form:input>
 							</div>
 							

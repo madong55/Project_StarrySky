@@ -21,33 +21,32 @@ import kr.co.starrysky.beans.Location2Bean;
 import kr.co.starrysky.beans.ReviewBean;
 import kr.co.starrysky.beans.ReviewPageBean;
 import kr.co.starrysky.beans.UserBean;
-import kr.co.starrysky.service.ReveiwService;
+import kr.co.starrysky.service.LocationService;
+import kr.co.starrysky.service.ReviewService;
 
 @Controller
 @RequestMapping("/review")
 public class ReviewController {
 	
 	@Autowired
-	private ReveiwService reviewService;
-	
-	private 
+	private ReviewService reviewService;
 
+	@Autowired
+	private LocationService locationService;
+	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
 	
 	@GetMapping("/list")
 	public String list(@ModelAttribute("reviewListBean") ReviewBean reviewListBean, 
-					   //@RequestParam("location2_id") int location2_id, @RequestParam("location2_name") int location2_name,
 					   @RequestParam(value = "page", defaultValue = "1") int page, Model model) {
 
-		List<ReviewBean> reviewList = reviewService.getReviewList(page); // 안에 넣는거 맞는지 확인
+		List<ReviewBean> reviewList = reviewService.getReviewList(page);
 		model.addAttribute("reviewList", reviewList);
 		
 		ReviewPageBean reviewPageBean = reviewService.getReviewCnt(page);
 		model.addAttribute("reviewPageBean", reviewPageBean);
-		
-		//model.addAttribute("location2_id", location2_id);
-		//model.addAttribute("location2_name", location2_name);
+
 		model.addAttribute("page", page);
 
 		return "review/list";
@@ -55,7 +54,6 @@ public class ReviewController {
 	
 	@GetMapping("/list_star")
 	public String list_star(@ModelAttribute("reviewListBean") ReviewBean reviewListBean,
-							//@RequestParam("location2_id") int location2_id, @RequestParam("location2_name") int location2_name,
 							@RequestParam(value = "review_score", defaultValue = "0") int review_score,
 							@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
 		
@@ -66,7 +64,6 @@ public class ReviewController {
 		ReviewPageBean reviewPageBean = reviewService.getReviewCnt(page);
 		model.addAttribute("reviewPageBean",reviewPageBean);
 		
-		//model.addAttribute("location2_id",location2_id);
 		model.addAttribute("page", page);
 
 		return "review/list_star";
@@ -77,8 +74,7 @@ public class ReviewController {
 			   		   @RequestParam("location2_id") int location2_id, 
 			   		   @RequestParam("location2_name") int location2_name,
 			   		   @RequestParam("location1_id") int location1_id,
-			   		  // @RequestParam(value = "review_score", defaultValue = "0") int review_score,
-					  // @ModelAttribute("readReviewBean") ReviewBean readReviewBean,
+			   		   @RequestParam(value = "review_score", defaultValue = "0") int review_score,
 			   		   Model model) {
 
 		model.addAttribute("review_num", review_num);
@@ -95,17 +91,13 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/write")
-	public String write(@ModelAttribute("writeReviewBean") ReviewBean writeReviewBean, //@ModelAttribute("loginUserBean") UserBean loginUserBean, 
-			Model model) {
-		writeReviewBean.setUser_nickname(loginUserBean.getUser_nickname());
-		System.out.println("write controller user nickname : " + writeReviewBean.getUser_nickname());
+	public String write(@ModelAttribute("writeReviewBean") ReviewBean writeReviewBean, Model model) {
 		
+		writeReviewBean.setUser_nickname(loginUserBean.getUser_nickname());
 		writeReviewBean.setUser_email(loginUserBean.getUser_email());
 		
 		// 지역명 리스트 가지고 오게
 		List<Location2Bean> location2List = reviewService.getLocation2List();
-		
-		
 		model.addAttribute("location2List", location2List);
 		
 		return "review/write";
@@ -113,25 +105,12 @@ public class ReviewController {
 	}
 	
 	@PostMapping("/write_pro")
-	public String write_pro(@ModelAttribute("writeReviewBean") ReviewBean writeReviewBean,  //@ModelAttribute("loginUserBean") UserBean loginUserBean, 
-							Model model) {
+	public String write_pro(@ModelAttribute("writeReviewBean") ReviewBean writeReviewBean, Model model) {
 		
-		
-		/*
-		 * List<Location2Bean> location2List = reviewService.getLocation2List();
-		 * model.addAttribute("location2List", location2List);
-		 */
-		
-		//model.addAttribute("loginUserBean",loginUserBean);
-		/*
-		 * if (result.hasErrors()) { List<ObjectError> err = result.getAllErrors();
-		 * for(ObjectError e : err) { System.out.println(e); }
-		 * 
-		 * return "review/write"; }
-		 */
-		System.out.println("writeReviewBean.getLocation1_id()" + writeReviewBean.getLocation1_id());
-		System.out.println("writeReviewBean.getLocation2_id()" + writeReviewBean.getLocation2_id());
-		
+		Location2Bean l2b = locationService.expandLocationKey(String.valueOf(writeReviewBean.getLocation2_id()));
+		writeReviewBean.setLocation1_id(l2b.getLocation1_id());
+		writeReviewBean.setLocation2_name(l2b.getLocation2_name());
+	
 		reviewService.addReview(writeReviewBean);
 		
 		return "review/write_success";

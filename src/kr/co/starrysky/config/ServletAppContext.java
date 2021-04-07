@@ -6,6 +6,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -27,6 +28,7 @@ import kr.co.starrysky.interceptor.CheckLoginInterceptor;
 import kr.co.starrysky.interceptor.TopMenuInterceptor;
 import kr.co.starrysky.mapper.LocationMapper;
 import kr.co.starrysky.mapper.ProductMapper;
+import kr.co.starrysky.mapper.ReviewMapper;
 import kr.co.starrysky.mapper.UserMapper;
 import kr.co.starrysky.mapper.WeatherMapper;
 
@@ -61,6 +63,9 @@ public class ServletAppContext implements WebMvcConfigurer{
 	@Resource(name="presentPageCheckBean")
 	private PresentPageCheckBean presentPageCheckBean;
 	
+	//@Autowired
+	//private QnABoardService qnaBoardService;
+	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		// TODO Auto-generated method stub
@@ -77,6 +82,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 		registry.addResourceHandler("/user/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/shop/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/shop/product/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/review/**").addResourceLocations("/resources/");
 		//registry.addResourceHandler("/shop/index").addResourceLocations("file:////var/lib/tomcat8/webapps/ROOT/resources/");
 		//registry.addResourceHandler("/shop/product/product_list").addResourceLocations("file:////var/lib/tomcat8/webapps/ROOT/resources/");
 	}
@@ -128,6 +134,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 		return factoryBean;
 	}
 	
+	@Bean
+	public MapperFactoryBean<ReviewMapper> getReviewMapper(SqlSessionFactory factory) throws Exception {
+		MapperFactoryBean<ReviewMapper> factoryBean = new MapperFactoryBean<ReviewMapper>(ReviewMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		WebMvcConfigurer.super.addInterceptors(registry);
@@ -140,6 +153,11 @@ public class ServletAppContext implements WebMvcConfigurer{
 		InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
 		reg2.addPathPatterns("/user/modify","/user/logout","/shop/product/shopping_cart","/shop/product/shopping_cart_from_details");
 		//reg2.excludePathPatterns("/board/main");
+		
+		//문의 게시판에서 수정, 삭제 권한 없는 회원이 들어오면 진입을 막고 바로 다른 곳으로 보내버리는 인터셉터
+		/*CheckWriterInterceptor checkWriterInterceptor = new CheckWriterInterceptor(loginUserBean, qnaBoardService);
+		InterceptorRegistration reg3 = registry.addInterceptor(checkWriterInterceptor);
+		reg3.addPathPatterns("/shop/board/modify", "/review/modify", "/review/delete");*/
 	}
 	
 	@Bean
