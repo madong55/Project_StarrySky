@@ -16,7 +16,6 @@ public class LocationService {
 	@Autowired
 	private LocationDao locationDao;
 
-	
 	public Location2Bean expandLocationKey(String location2_id){
 		return locationDao.expandLocationKey(location2_id);
 	}
@@ -51,10 +50,12 @@ public class LocationService {
 	}
 	
 	public List<String> getLocation1IdList(){
+		System.out.println(locationDao.getLocation1List().size());
 		return locationDao.getLocation1List();
 	}
 	
 	public List<String> getLocation2IdList(){
+		System.out.println(locationDao.getLocation2List().size());
 		return locationDao.getLocation2List();
 	}
 	
@@ -63,6 +64,8 @@ public class LocationService {
 		
 		list.addAll(getLocation1IdList());
 		list.addAll(getLocation2IdList());
+		
+		System.out.println("service list size : "+list.size());
 		
 		return list;
 	}

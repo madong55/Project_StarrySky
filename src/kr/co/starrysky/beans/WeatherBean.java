@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class WeatherBean {
 
-	private int location1_key;
-	private int location2_key;
+	private int location1_id;
+	private int location2_id;
 	private String forecast_date;
 	
 	//WeatherIcon
@@ -232,17 +232,18 @@ public class WeatherBean {
 	public void setWind_speed_unit_type(int wind_speed_unit_type) {
 		this.wind_speed_unit_type = wind_speed_unit_type;
 	}
-	public int getLocation1_key() {
-		return location1_key;
+	
+	public int getLocation1_id() {
+		return location1_id;
 	}
-	public void setLocation1_key(int location1_key) {
-		this.location1_key = location1_key;
+	public void setLocation1_id(int location1_id) {
+		this.location1_id = location1_id;
 	}
-	public int getLocation2_key() {
-		return location2_key;
+	public int getLocation2_id() {
+		return location2_id;
 	}
-	public void setLocation2_key(int location2_key) {
-		this.location2_key = location2_key;
+	public void setLocation2_id(int location2_id) {
+		this.location2_id = location2_id;
 	}
 	public String getForecast_date() {
 		return forecast_date;
