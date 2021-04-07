@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.ApplicationScope;
@@ -15,11 +16,16 @@ import kr.co.starrysky.beans.ShoppingCartBean;
 import kr.co.starrysky.beans.UserBean;
 import kr.co.starrysky.beans.WeatherBean;
 import kr.co.starrysky.beans.WeatherKey;
+import kr.co.starrysky.beans.WeatherStarBean;
+import kr.co.starrysky.service.WeatherService;
 
 //프로젝트 작업시 사용할 bean을 정의하는 클래스
 @Configuration
 public class RootAppContext {
 
+	@Autowired
+	public WeatherService weatherService;
+	
 	@Bean("loginUserBean")
 	@SessionScope
 	public UserBean loginUserBean() {
@@ -40,9 +46,17 @@ public class RootAppContext {
 	
 	@Bean("weatherList")
 	@ApplicationScope
-	public Map<WeatherKey, WeatherBean> weatherList(){
+	public Map<WeatherKey, WeatherStarBean> weatherStarList(){
 		//쿼리 만들어서 고쳐야 함.
-		return new HashMap<WeatherKey, WeatherBean>();
+		Map<WeatherKey, WeatherStarBean> weather_map; 
+		
+		WeatherKey wk = null;
+		
+		WeatherStarBean wsb = null;
+		
+		
+		
+		return new HashMap<WeatherKey, WeatherStarBean>();
 	}
 	
 }

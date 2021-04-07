@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Update;
 
 import kr.co.starrysky.beans.StarIndicatorBean;
 import kr.co.starrysky.beans.WeatherBean;
+import kr.co.starrysky.beans.WeatherStarBean;
 
 public interface WeatherMapper {
 
@@ -38,4 +39,9 @@ public interface WeatherMapper {
 	
 	@Update("UPDATE star_indicator set star_indicator_data=#{star_indicator_data}")
 	void updateStarIndicator(@Param("star_indicator_data")String star_indicator_data);
+	
+	@Select("select * from (select * from weather where location2_id=#{location2_id} and location1_id=#{location1_id} order by forecast_date desc) a1, star_indicator\n"
+			+ "where rownum<=5 and star_indicator.forecast_date=a1.forecast_date and star_indicator.location1_id=a1.location1_id and star_indicator.location2_id=a1.location2_id \n"
+			+ "order by star_indicator.forecast_date;")
+	List<WeatherStarBean> getRecent5Forecast(@Param("location2_id")String location2_id, @Param("location1_id")String location1_id);
 }
