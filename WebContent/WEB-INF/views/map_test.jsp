@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-    <title>카테고리별 장소 검색하기</title>
+    <title>${param.location_name}</title>
     <style>
 .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap {position:relative;width:100%;height:600px;} /* 지도사이즈 조절 */
@@ -56,8 +56,9 @@
 	<h1>${param.location_name}  </h1>
 	<br/>
 	<h3 style="margin-bottom:30px;">날씨 대기상태 월령 빛 구름</h3>
-<%-- 	${weather_map.get("44").get(1).getStar_indicator_data()}
-	 --%>
+ 	<%-- ${weather_map.get(param.location_id).get(0).getMoon_age()} --%>
+ 	
+	 
 <div class="map_wrap">
 
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
@@ -104,17 +105,42 @@ var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}),
     /* function coordSetter() { //좌표지정기
     	
      	double x_coord=0;
-    	double y-coord=0;
+    	double y_coord=0;
     	if(${param.location_id}==224209){
-    		x-coord= 33.4855624;
-    		y-coord=126.5276597;
+    		x_coord= 33.4855624;
+    		y_coord=126.5276597;
     	}
 	} */
     
+var x_coord=0;
+var y_coord=0;	
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
     	
-        center: new kakao.maps.LatLng(  33.4855624,126.5276597), // 지도의 중심좌표
+		<c:choose>
+		<c:when test= "${param.location_id==224209}">
+		<c:set var="x_coord" value="33.4855624" />
+		<c:set var="y_coord" value="126.5276597" />		
+		</c:when>
+		<c:when test= "${param.location_id==224210}">
+		<c:set var="x_coord" value="33.2534452" />
+		<c:set var="y_coord" value="126.5577805" />		
+		</c:when>
+		<c:when test= "${param.location_id==223576}">/* 정선 */
+		<c:set var="x_coord" value="37.3809354" />
+		<c:set var="y_coord" value="128.6657715" />		
+		</c:when>
+		<c:when test= "${param.location_id==223565}">/* 화천 */
+		<c:set var="x_coord" value="38.106256" />
+		<c:set var="y_coord" value="127.7032812" />		
+		</c:when>
+		<c:when test= "${param.location_id==223554}">/* 춘천 */
+		<c:set var="x_coord" value="37.8734109" />
+		<c:set var="y_coord" value="127.728008" />		
+		</c:when>
+		</c:choose>
+		
+        center: new kakao.maps.LatLng(${x_coord},${y_coord}), // 지도의 중심좌표
       //  center: new kakao.maps.LatLng( ${param.x_coord}, ${param.y_coord}), // 지도의 중심좌표
         level: 5 // 지도의 확대 레벨
     };  
