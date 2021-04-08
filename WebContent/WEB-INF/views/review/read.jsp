@@ -52,10 +52,7 @@
 								<textarea id="review_contents" name="review_contents" class="form-control" rows="10" style="resize: none" 
 										  disabled="disabled">${readReviewBean.review_contents }</textarea>
 							</div>
-							
-							<!-- 별점 읽기 -->
-							
-							
+								
 							<div class="form-group">
 								<label for="recommnd_product">추천 상품</label>
 								<input path="recommnd_product" class="form-control" value="${readReviewBean.recommnd_product }" disabled="disabled" />
@@ -64,7 +61,7 @@
 							<c:if test="${readReviewBean.review_image !=null }">
 								<div class="form-group">
 									<label id="review_file">첨부 이미지</label>
-									<img src='${root}review/review_upload/${readReviewBean.review_image}' width="100%" />
+									<img src='${root}review_upload/${readReviewBean.review_image}' width="100%" />
 								</div>
 							</c:if>
 
@@ -72,8 +69,8 @@
 								<div class="text-right">
 									<a href="${root }review/list" class="btn btn-primary">목록 보기</a>
 									<c:if test="${loginUserBean.user_email == readReviewBean.user_email }">
-										<a href="${root }review/modify?review_num=${review_num}" class="btn btn-info">수정하기</a>
-										<a href="${root }review/delete?review_num=${review_num}" class="btn btn-danger">삭제하기</a>
+										<a href="${root }review/modify?review_num=${readReviewBean.review_num}&location2_id=${readReviewBean.location2_id}&location1_id=${readReviewBean.location1_id}" class="btn btn-info">수정하기</a>
+										<a href="${root }review/delete?review_num=${readReviewBean.review_num}&location2_id=${readReviewBean.location2_id}&location1_id=${readReviewBean.location1_id}" class="btn btn-danger">삭제하기</a>
 									</c:if>
 								</div>
 							</div>

@@ -63,9 +63,9 @@ public class ReviewDao {
 		
 	}
 	
-	public void deleteReviewInfo(int review_num, int location2_id, int location1_id) {
+	public void deleteReviewInfo(int review_num) {
 		
-		reviewMapper.deleteReviewInfo(review_num, location2_id, location1_id);
+		reviewMapper.deleteReviewInfo(review_num);
 		
 	}
 	

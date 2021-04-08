@@ -141,7 +141,7 @@
 							<div class="form-group">
 								<div class="text-right">
 									<form:button class='btn btn-primary'>수정 완료</form:button>
-									<a href="${root }review/read?review_num=${review_num}" class="btn btn-info">취소</a>
+									<a href="${root }review/read?review_num=${modifyReviewBean.review_num}&location2_id=${modifyReviewBean.location2_id}&location1_id=${modifyReviewBean.location1_id}" class="btn btn-info">취소</a>
 								</div>
 							</div>
 						</form:form>

@@ -98,13 +98,13 @@
 
 							<div class="form-group">
 								<form:label path="review_file">첨부 이미지</form:label>
-								<form:input class="form-control" multiple="multiple" type="file" path="review_file" accept="review/image/*" />
-								 <%-- <form:input type="file" path="review_image1" class="form-control" accept="review/image/*" /> --%>
+								<%--<form:input class="form-control" multiple="multiple" type="file" path="review_file" accept="review/image/*" /> --%>
+								 <form:input type="file" path="review_file" class="form-control" accept="image/*" />
 							</div>
 							
 				<%-- 	<div class="form-group">
                         <form:label path="review_file">첨부 이미지</form:label> 
-                        <form:input type="file" path="review_image" class="form-control" accept="review/image/*" />
+                        <form:input type="file" path="review_image" class="form-control" accept="image/*" />
                      </div> --%>
          
 							<div>

@@ -3,5 +3,5 @@
 <c:set var='root' value='${pageContext.request.contextPath}/'/>
 <script>
 	alert('수정되었습니다')
-	location.href = '${root}review/read?review_num=${review_num}'
+	location.href = '${root}review/list'
 </script>

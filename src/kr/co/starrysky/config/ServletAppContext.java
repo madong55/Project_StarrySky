@@ -1,10 +1,8 @@
 package kr.co.starrysky.config;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -34,7 +32,7 @@ import kr.co.starrysky.beans.PresentPageCheckBean;
 import kr.co.starrysky.beans.UserBean;
 import kr.co.starrysky.beans.WeatherStarBean;
 import kr.co.starrysky.interceptor.CheckLoginInterceptor;
-import kr.co.starrysky.interceptor.CheckReadInterceptor;
+import kr.co.starrysky.interceptor.CheckReviewWriterInterceptor;
 import kr.co.starrysky.interceptor.CheckWriterInterceptor;
 import kr.co.starrysky.interceptor.TopMenuInterceptor;
 import kr.co.starrysky.mapper.LocationMapper;
@@ -45,6 +43,7 @@ import kr.co.starrysky.mapper.UserMapper;
 import kr.co.starrysky.mapper.WeatherMapper;
 import kr.co.starrysky.service.LocationService;
 import kr.co.starrysky.service.QnABoardService;
+import kr.co.starrysky.service.ReviewService;
 import kr.co.starrysky.service.WeatherService;
 
 //Spring MVC 프로젝트에 관련된 설정을 하는 클래스
@@ -84,6 +83,10 @@ public class ServletAppContext implements WebMvcConfigurer{
 	
 	@Autowired
 	private QnABoardService qnaBoardService;
+
+	@Autowired
+	private ReviewService reviewBoardService;
+	
 	
 	@Bean("weatherService")
 	@ApplicationScope
@@ -229,17 +232,27 @@ public class ServletAppContext implements WebMvcConfigurer{
 		CheckLoginInterceptor checkLoginInterceptor = new CheckLoginInterceptor(loginUserBean);
 		
 		InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
-		reg2.addPathPatterns("/user/modify","/user/logout","/shop/product/shopping_cart","/shop/product/shopping_cart_from_details","/shop/board/*");
+		reg2.addPathPatterns("/user/modify","/user/logout","/shop/product/shopping_cart",
+				"/shop/product/shopping_cart_from_details","/shop/board/*","/review/write","/review/read");
 		reg2.excludePathPatterns("/shop/index","/shop/board/main"); // 비로그인 상태여도 보이게
 		
 		//문의 게시판에서 수정, 삭제 권한 없는 회원이 들어오면 진입을 막고 바로 다른 곳으로 보내버리는 인터셉터
 		CheckWriterInterceptor checkWriterInterceptor = new CheckWriterInterceptor(loginUserBean, qnaBoardService);
 		InterceptorRegistration reg3 = registry.addInterceptor(checkWriterInterceptor);
-		reg3.addPathPatterns("/shop/board/modify", "/review/modify", "/review/delete");
+		reg3.addPathPatterns("/shop/board/modify"); //, "/shop/board/delete"
+		reg3.excludePathPatterns("/review/mdify","/review/delete","/review/read");
 		
-		CheckReadInterceptor checkReadInterceptor = new  CheckReadInterceptor(loginUserBean, qnaBoardService);
-		InterceptorRegistration reg4 = registry.addInterceptor(checkReadInterceptor);
+		CheckReviewWriterInterceptor checkReviewWriterInterceptor = new CheckReviewWriterInterceptor(loginUserBean, reviewBoardService);
+		InterceptorRegistration reg4 = registry.addInterceptor(checkReviewWriterInterceptor);
+		reg4.addPathPatterns("/review/modify", "/review/delete");
+		
+		/*
+		CheckReadInterceptor checkReadInterceptor = new
+		CheckReadInterceptor(loginUserBean, qnaBoardService); InterceptorRegistration
+		reg4 = registry.addInterceptor(checkReadInterceptor);
 		reg4.addPathPatterns("/shop/board/read");
+		reg4.excludePathPatterns("/review/*");
+		 */
 	}
 	
 	@Bean

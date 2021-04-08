@@ -3,6 +3,6 @@
 <c:set var="root" value="${pageContext.request.contextPath }/" />      
 <script>
 	alert('저장되었습니다')
-	location.href = '${root}review/read'
+	location.href = '${root}review/list'
 </script>
 
