@@ -67,27 +67,21 @@ public class RootAppContext {
 		
 		Location2Bean l2b = new Location2Bean();
 		
-		WeatherStarBean wsb = new WeatherStarBean();
-		
 		List<WeatherStarBean> wsb_list;
 		
 		for(String s : location_id_list) {
 			if(locationService().isLocation2Id(s)&&!s.equals("0")) {
 				l2b = locationService().expandLocationKey(s);
+				wsb_list = weatherService().getRecent5Forecast(String.valueOf(l2b.getLocation2_id()),String.valueOf(l2b.getLocation1_id()));
 				
-				//weather_map.put(s, );
+				weather_map.put(s, wsb_list);
+				
+				
+			}else {
+				wsb_list = weatherService().getRecent5Forecast("0", s);
+				weather_map.put(s, wsb_list); 
 			}
-			
-			//wsb_list = weatherService().getRecent5Forecast(String.valueOf(bean.getLocation2_id()), String.valueOf(bean.getLocation1_id()));
-			/*
-			for(WeatherStarBean sbean : wsb_list) {
-				wk.setLocation1_key(sbean.getLocation1_id());
-				wk.setLocation2_key(sbean.getLocation2_id());
-				wk.setForecast_date(sbean.getForecast_date());
 				
-				weather_map.put(wk, sbean);
-			*/
-			
 		}
 		
 		return weather_map;
