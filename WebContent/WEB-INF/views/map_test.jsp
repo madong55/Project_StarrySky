@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,10 +50,10 @@
  <jsp:include page="include/starry_top.jsp"></jsp:include>
  </header>
  
-<div class="container">
+<div class="container" style="width:75%">
 <div class="row">
 <div class="col-lg-12" style="text-align: center; " >
-	<h1>지역이름</h1>
+	<h1>지역이름/  </h1>
 	<br/>
 	<h3 style="margin-bottom:30px;">날씨 대기상태 월령 빛 구름</h3>
 	
@@ -63,7 +64,7 @@
         <li id="AD5" data-order="0"> 
             <span class="category_bg bank"></span>
             숙박
-        </li>       
+        </li>
         <li id="FD6" data-order="1"> 
             <span class="category_bg mart"></span>
             식사
@@ -75,44 +76,22 @@
 
 </div>
 </div>
-
-<div class="container">
+ <div class="container">
 <div class="row">
 <div class="col-lg-12" style="text-align: center; margin-top: 30px; margin-bottom: 30px;" >
-<table border="1" style="width:100%; height:800px;">
-<tr>	
-<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
-</tr>
-<tr>	
-<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
-</tr>
-<tr>	
-<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
-</tr>
-<tr>	
-<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
-</tr>
-<tr>	
-<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
-</tr>
-<tr>	
-<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
-</tr>
-<tr>	
-<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
-</tr>
-<tr>	
-<td>글번호?</td><td>제목</td><td>작성자</td><td>날짜</td>
-</tr>
-
-</table>
-
-
- </div>
-
+<iframe src="review/list" style="width:100%; height:700px; border:0px;"></iframe>
 </div>
 </div>
+</div>
+
+
     <jsp:include page="/WEB-INF/views/include/starry_footer.jsp"></jsp:include>   
+
+
+
+
+
+
 
 <script>
 //마커를 클릭했을 때 해당 장소의 상세정보를 보여줄 커스텀오버레이입니다
