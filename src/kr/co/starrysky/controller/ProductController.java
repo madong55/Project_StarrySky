@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.starrysky.beans.PresentPageCheckBean;
 import kr.co.starrysky.beans.ProductBean;
 import kr.co.starrysky.beans.ProductTypeBean;
 import kr.co.starrysky.beans.ShoppingCartBean;
@@ -23,6 +24,9 @@ import kr.co.starrysky.service.ProductService;
 @Controller
 @RequestMapping("/shop/product")
 public class ProductController {
+	
+	@Resource(name="presentPageCheckBean")
+	private PresentPageCheckBean presentPageCheckBean;
 	
 	@Resource(name="loginUserBean")
 	private UserBean loginUserBean;
@@ -48,7 +52,7 @@ public class ProductController {
 	
 	@GetMapping("/product_list")
 	public String product_list(Model model) {
-		
+		presentPageCheckBean.setPresentPage(true);
 		//상품카테고리
 		List<ProductTypeBean> productTypeList = productService.getProductType();
 		model.addAttribute("productTypeList", productTypeList);
@@ -103,6 +107,8 @@ public class ProductController {
 	public String shop_shopDetails(@RequestParam("product_id") String product_id,
 								   @RequestParam("product_category_id") String product_category_id,
 			                       Model model) {
+		presentPageCheckBean.setPresentPage(true);
+		
 		//제품상세정보
 		ProductBean detailsProductBean = productService.getProductInfo(product_id);
 		model.addAttribute("detailsProductBean", detailsProductBean);
@@ -119,6 +125,8 @@ public class ProductController {
 	public String shopping_cart_from_details(@RequestParam("product_id") String product_id,
 											 @RequestParam("product_temp_quantity") int product_temp_quantity,
 											 Model model) {
+		presentPageCheckBean.setPresentPage(true);
+		
 		//유저정보 불러오기
 		String user_email = loginUserBean.getUser_email();
 		
@@ -169,6 +177,7 @@ public class ProductController {
 	
 	@GetMapping("/shopping_cart")
 	public String shop_shopingCart(Model model) {
+		presentPageCheckBean.setPresentPage(true);
 		
 		userShoppingCartList = productService.getShoppingCartInfo(loginUserBean.getUser_email());
 		model.addAttribute("userShoppingCartList", userShoppingCartList);
