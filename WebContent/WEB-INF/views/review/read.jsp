@@ -55,7 +55,7 @@
 								
 							<div class="form-group">
 								<label for="recommnd_product">추천 상품</label>
-								<input path="recommnd_product" class="form-control" value="${readReviewBean.recommnd_product }" disabled="disabled" />
+								<input id="recommnd_product" name="recommnd_product" class="form-control" value="${readReviewBean.recommnd_product }" disabled="disabled" />
 							</div>
 	
 							<c:if test="${readReviewBean.review_image !=null }">
