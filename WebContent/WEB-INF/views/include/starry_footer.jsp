@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-   <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }/"/>
 
   <footer class="footer-section">
         <div class="container">
@@ -16,7 +17,7 @@
                             
                             <li>사업자등록번호 111-11-11111</li>
                             <li>서울특별시 종로구 종로12길 15</li>
-                          <li>   5층(관철동 13-13)</li>
+                          	<li>   5층(관철동 13-13)	</li>
                           	<li>starrysky@supportmail.com</li>
                           
                         </ul>
@@ -28,8 +29,9 @@
                     <div class="fs-widget">
                         <h5>quick links</h5>
                         <ul>
-                            <li><a href="/">Starry Sky Home</a></li>
-                            <li><a href="shop_index">Starry Shop</a></li>
+                            <li><a href="${root }main">Starry Sky Home</a></li>
+                            <li><a href="${root }shop/index">Starry Shop</a></li>
+                            <li><a href="${root }shop/board/main">Q & A</a></li>
                         </ul>
                         
                     </div>

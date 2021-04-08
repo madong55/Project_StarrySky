@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-   <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
+   <c:set var="root" value="${pageContext.request.contextPath }/"></c:set>
    
 <!DOCTYPE html>
 <html lang="zxx">
@@ -71,7 +71,6 @@
                         <a href="order/checkout">/shop_shop-checkout</a> <br />
                         <a href="shop_blog">/shop_blog</a> <br />
                         <a href="shop_blog-details">/shop_blog-details</a> <br />
-                        <a href="shop_board_main">/shop_board_main</a> <br/>
                         
                         <!--     <a href="#" class="primary-btn">SHOP NOW</a> -->
                         </div>
