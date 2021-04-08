@@ -51,6 +51,10 @@ public  interface ReviewMapper {
 	@Select("select * from review_board_table")
 	List<ReviewBean>getAllReviewList();
 	
+	//임시 메인리뷰정보 호출(닉네임으로 검색)
+	@Select("select * from review_board_table where user_nickname = '별죠하'")
+	List<ReviewBean> getTempMainReviewInfo();
+	
 	//--------------------------------------------------------------------------------------------------------------------
 
 	// 리뷰 읽어오는 메소드

@@ -49,12 +49,7 @@
 										<li><a href="${root }/user/modify">내 정보 수정</a></li>
 										<li><a href="${root }/user/logout">로그아웃</a></li>
 									</ul></li>
-								<li><a href="#">MY STAR</a>
-									<ul class="dropdown">
-										<li><a href="./gallery.html">선호지역</a></li>
-										<!-- 유저 DB의 선호지역을 반복문으로 삽입 -->
-										<li><a href="./portfolio-details.html">좋아한 게시물</a></li>
-									</ul></li>
+							
 
 							</c:when>
 							<c:otherwise>
@@ -78,24 +73,7 @@
 					</ul>
 				</nav>
 
-				<div id="mobile-menu-wrap"><div class="slicknav_menu"><a href="#" aria-haspopup="true" role="button" tabindex="0" class="slicknav_btn slicknav_collapsed" style="outline: none;"><span class="slicknav_menutxt">MENU</span><span class="slicknav_icon"><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span><span class="slicknav_icon-bar"></span></span></a><nav class="slicknav_nav slicknav_hidden" aria-hidden="true" role="menu" style="display: none;">
-                        <ul>
-                            <li class="active"><a href="./index.html" role="menuitem">Home</a></li>
-                            <li><a href="./about.html" role="menuitem">About</a></li>
-                            <li><a href="./services.html" role="menuitem">Services</a></li>
-                            <li><a href="./pricing.html" role="menuitem">Pricing</a></li>
-                            <li><a href="./portfolio.html" role="menuitem">Portfolio</a></li>
-                            <li><a href="./blog.html" role="menuitem">Blog</a></li>
-                            <li class="slicknav_collapsed slicknav_parent"><a href="#" role="menuitem" aria-haspopup="true" tabindex="-1" class="slicknav_item slicknav_row" style="outline: none;"><a href="#">Pages</a>
-                                <span class="slicknav_arrow">►</span></a><ul class="dropdown slicknav_hidden" role="menu" aria-hidden="true" style="display: none;">
-                                    <li><a href="./gallery.html" role="menuitem" tabindex="-1">Gallery</a></li>
-                                    <li><a href="./portfolio-details.html" role="menuitem" tabindex="-1">Portfolio Details</a></li>
-                                    <li><a href="./blog-details.html" role="menuitem" tabindex="-1">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./contact.html" role="menuitem">Contact</a></li>
-                        </ul>
-                    </nav></div></div>
+			
                 </div>
                 </div>
             </div>

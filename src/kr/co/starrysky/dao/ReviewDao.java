@@ -75,5 +75,7 @@ public class ReviewDao {
 		
 	}
 	
-	
+	public List<ReviewBean> getTempMainReviewInfo(){
+		return reviewMapper.getTempMainReviewInfo();
+	}
 }

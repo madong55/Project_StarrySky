@@ -10,7 +10,7 @@
                      <div class="fs-about">
                         <div class="fa-logo">
                             <a href="${root }">
-                                <img src="img/f-logo.png" alt="">
+                                <img src="img/logos/yellologo.png" style="width:170px;height:auto;" >
                             </a>
                         </div>
                         <ul>

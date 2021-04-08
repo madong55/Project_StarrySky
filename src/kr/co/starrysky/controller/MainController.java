@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import kr.co.starrysky.beans.PresentPageCheckBean;
 import kr.co.starrysky.beans.ProductBean;
+import kr.co.starrysky.beans.ReviewBean;
 import kr.co.starrysky.beans.WeatherStarBean;
 import kr.co.starrysky.service.LocationService;
 import kr.co.starrysky.service.ProductService;
+import kr.co.starrysky.service.ReviewService;
 import kr.co.starrysky.service.WeatherService;
 
 @Controller
@@ -30,6 +32,9 @@ public class MainController {
 	
 	@Autowired
 	private LocationService locationService;
+	
+	@Autowired
+	private ReviewService reviewService;
 	
 	@Resource(name="presentPageCheckBean")
 	private PresentPageCheckBean presentPageCheckBean;
@@ -62,6 +67,10 @@ public class MainController {
 			}
 		}
 	}
+	
+	List<ReviewBean> tempMainReviewBean = reviewService.getTempMainReviewInfo();
+	model.addAttribute("tempMainReviewBean", tempMainReviewBean);
+	
 	return "main";
 	}
 

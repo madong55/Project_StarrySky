@@ -53,10 +53,11 @@
 <div class="container" style="width:75%">
 <div class="row">
 <div class="col-lg-12" style="text-align: center; " >
-	<h1>지역이름/  </h1>
+	<h1>${param.location_name}  </h1>
 	<br/>
 	<h3 style="margin-bottom:30px;">날씨 대기상태 월령 빛 구름</h3>
-	
+<%-- 	${weather_map.get("44").get(1).getStar_indicator_data()}
+	 --%>
 <div class="map_wrap">
 
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
@@ -100,9 +101,20 @@ var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}),
     markers = [], // 마커를 담을 배열입니다
     currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
  
+    /* function coordSetter() { //좌표지정기
+    	
+     	double x_coord=0;
+    	double y-coord=0;
+    	if(${param.location_id}==224209){
+    		x-coord= 33.4855624;
+    		y-coord=126.5276597;
+    	}
+	} */
+    
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
-        center: new kakao.maps.LatLng( 38.106256, 127.7032812), // 지도의 중심좌표
+    	
+        center: new kakao.maps.LatLng(  33.4855624,126.5276597), // 지도의 중심좌표
       //  center: new kakao.maps.LatLng( ${param.x_coord}, ${param.y_coord}), // 지도의 중심좌표
         level: 5 // 지도의 확대 레벨
     };  

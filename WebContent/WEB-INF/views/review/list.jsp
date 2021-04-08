@@ -15,11 +15,8 @@
 </head>
 <body>	
 
-	<header>
-		<jsp:include page="/WEB-INF/views/include/starry_top.jsp" />
-	</header>
-	
-<div class="container" style="margin-top:100px">
+
+<div class="container" >
 	<div class="card shadow">
 		<div class="card-body" >
 			<h4 class="card-title">리뷰 게시판</h4>
@@ -116,7 +113,7 @@
 	</div>
 </div>
 
-	  <jsp:include page="/WEB-INF/views/include/starry_footer.jsp"/>   
+	
 
 </body>
 </html>

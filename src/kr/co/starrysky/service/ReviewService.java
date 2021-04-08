@@ -144,4 +144,8 @@ public class ReviewService {
 	      return review_image;
 	   }
 	
+	public List<ReviewBean> getTempMainReviewInfo(){
+		return reviewDao.getTempMainReviewInfo();
+	}
+	
 }

@@ -95,5 +95,5 @@ public class QnABoardService {
 		return qnaBoardDao.getProductList();
 
 	}
-
+	
 }
