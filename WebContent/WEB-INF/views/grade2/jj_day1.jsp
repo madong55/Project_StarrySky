@@ -98,21 +98,51 @@
 				
 						<img src="img/map_grade2/jjb2.png" usemap="#image-jj1">
 <map name="image-jj1">
-    <area target="" alt="" title="jejuci" href="map?dateinfo=1&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
-    <area target="" alt="" title="seogui" href="map?dateinfo=1&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
+    <area target="" alt="" title="jejuci" href="map?location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
+    <area target="" alt="" title="seogui" href="map?location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
 </map>
-							
-							<div style="display:flex; position:absolute; top: 26%; left: 5%; ">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+							<!-- 제주시 -->
+							<div style="display:flex; position:absolute; top: 27%; left: 7%; ">
+						<a href="map?location_id=224209">
+						<c:set var="icon">${weather_map.get("224209").get(0).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224209">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224209">
+						<span> <h4>X ${weather_map.get("224209").get(0).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 					
-						<div style="display:flex;position:absolute;top: 80%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+					<!-- 서귀포시 -->
+						<div style="display:flex;position:absolute;top: 76%;right: 9%;">
+							<a href="map?location_id=224210">
+						<c:set var="icon">${weather_map.get("224210").get(0).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224210">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224210">
+						<span> <h4>X ${weather_map.get("224210").get(0).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+					
 						
 							
 						</div>
@@ -132,17 +162,47 @@
     <area target="" alt="" title="jejuci" href="map?dateinfo=2&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
     <area target="" alt="" title="seogui" href="map?dateinfo=2&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
 </map>
-							<div style="display:flex; position:absolute; top: 26%; left: 5%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+					<!-- 제주시 -->
+							<div style="display:flex; position:absolute; top: 27%; left: 7%; ">
+						<a href="map?location_id=224209">
+						<c:set var="icon">${weather_map.get("224209").get(1).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224209">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224209">
+						<span> <h4>X ${weather_map.get("224209").get(1).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 					
-						<div style="display:flex;position:absolute;top: 80%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+					<!-- 서귀포시 -->
+						<div style="display:flex;position:absolute;top: 76%;right: 9%;">
+							<a href="map?location_id=224210">
+						<c:set var="icon">${weather_map.get("224210").get(1).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224210">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224210">
+						<span> <h4>X ${weather_map.get("224210").get(1).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 								
 						</div>
 					</div>
@@ -160,18 +220,47 @@
     <area target="" alt="" title="jejuci" href="map?dateinfo=3&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
     <area target="" alt="" title="seogui" href="map?dateinfo=3&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
 </map>
-									<div style="display:flex; position:absolute; top: 26%; left: 5%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+							<!-- 제주시 -->
+							<div style="display:flex; position:absolute; top: 27%; left: 7%; ">
+						<a href="map?location_id=224209">
+						<c:set var="icon">${weather_map.get("224209").get(2).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224209">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224209">
+						<span> <h4>X ${weather_map.get("224209").get(2).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 					
-						<div style="display:flex;position:absolute;top: 80%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						
+					<!-- 서귀포시 -->
+						<div style="display:flex;position:absolute;top: 76%;right: 9%;">
+							<a href="map?location_id=224210">
+						<c:set var="icon">${weather_map.get("224210").get(2).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224210">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224210">
+						<span> <h4>X ${weather_map.get("224210").get(2).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -189,17 +278,47 @@
     <area target="" alt="" title="jejuci" href="map?dateinfo=4&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
     <area target="" alt="" title="seogui" href="map?dateinfo=4&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
 </map>
-									<div style="display:flex; position:absolute; top: 26%; left: 5%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+					<!-- 제주시 -->
+							<div style="display:flex; position:absolute; top: 27%; left: 7%; ">
+						<a href="map?location_id=224209">
+						<c:set var="icon">${weather_map.get("224209").get(3).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224209">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224209">
+						<span> <h4>X ${weather_map.get("224209").get(3).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 					
-						<div style="display:flex;position:absolute;top: 80%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+					<!-- 서귀포시 -->
+						<div style="display:flex;position:absolute;top: 76%;right: 9%;">
+							<a href="map?location_id=224210">
+						<c:set var="icon">${weather_map.get("224210").get(3).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224210">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224210">
+						<span> <h4>X ${weather_map.get("224210").get(3).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 						
 						</div>
 					</div>
@@ -218,17 +337,47 @@
     <area target="" alt="" title="jejuci" href="map?dateinfo=5&location_id=224209" coords="96,386,161,413,256,339,358,333,629,262,653,245,710,242,866,170,769,86,581,94,437,134,390,148,266,63,31,66,32,163,258,180,92,338" shape="poly">
     <area target="" alt="" title="seogui" href="map?dateinfo=5&location_id=224210" coords="94,393,85,418,201,529,257,477,545,476,656,434,709,469,716,555,955,561,958,465,721,442,689,430,789,386,885,205,861,180,713,247,656,249,632,268,362,339,258,343,163,420" shape="poly">
 </map>
-									<div style="display:flex; position:absolute; top: 26%; left: 5%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+						<!-- 제주시 -->
+							<div style="display:flex; position:absolute; top: 27%; left: 7%; ">
+						<a href="map?location_id=224209">
+						<c:set var="icon">${weather_map.get("224209").get(4).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224209">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224209">
+						<span> <h4>X ${weather_map.get("224209").get(4).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 					
-						<div style="display:flex;position:absolute;top: 80%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+					<!-- 서귀포시 -->
+						<div style="display:flex;position:absolute;top: 76%;right: 9%;">
+							<a href="map?location_id=224210">
+						<c:set var="icon">${weather_map.get("224210").get(4).getIcon()}</c:set>	
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="map?location_id=224210">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="map?location_id=224210">
+						<span> <h4>X ${weather_map.get("224210").get(4).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 						
 						</div>
 					</div>

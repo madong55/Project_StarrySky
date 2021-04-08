@@ -1,6 +1,9 @@
 package kr.co.starrysky.controller;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,13 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.starrysky.beans.ProductBean;
+import kr.co.starrysky.beans.WeatherStarBean;
 import kr.co.starrysky.service.ProductService;
 
 @Controller
 public class DaysController {
 @Autowired
 private ProductService productService;
-
+@Resource(name="weatherMap")
+private Map<String, List<WeatherStarBean>> weatherMap;
 
 	//강원도2단계
 	@GetMapping("/kw_day1")
@@ -25,6 +30,7 @@ private ProductService productService;
 		model.addAttribute("saleAllProductList", saleAllProductList);
 		model.addAttribute("dateinfo", dateinfo);
 		model.addAttribute("location_id", location_id);		
+		model.addAttribute("weather_map", weatherMap);
 		
 		return "grade2/kw_day1";
 	}
@@ -37,7 +43,7 @@ private ProductService productService;
 		model.addAttribute("saleAllProductList", saleAllProductList);
 		model.addAttribute("dateinfo", dateinfo);
 		model.addAttribute("location_id", location_id);		
-	
+		model.addAttribute("weather_map", weatherMap);
 		return "grade2/jj_day1";
 	}
 	

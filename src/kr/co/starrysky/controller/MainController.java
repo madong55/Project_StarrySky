@@ -55,6 +55,7 @@ public class MainController {
 		for(int i=0; i<5; i++) {
 			try {
 				System.out.println("weather_map exists-"+ i + ": "+weatherMap.get(temp).get(i).getLocation1_id()+","+weatherMap.get(temp).get(i).getLocation2_id());
+				
 			}catch(Exception e) {
 				
 				System.out.println("error");
