@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
      <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+        <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
+     
 <section class="categories-section">
         <div class="container">
             <div class="row">
@@ -24,18 +26,19 @@
             
               <c:forEach var='saleAllProductList' items="${saleAllProductList }">
                 <div class="cs-item">
-                    <div class="cs-pic set-bg" data-setbg="shop/img/product/details/${saleAllProductList.product_category_id }/product_${saleAllProductList.product_id }_1.png"></div>
+                    <div class="cs-pic set-bg" data-setbg="shop/product/shop/img/product/details/${saleAllProductList.product_category_id }/product_${saleAllProductList.product_id }_1.png"></div>
                     <div class="cs-text">
                       <h5>
                       <a href="${root }/shop/product/product_details?product_category_id=${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}">${saleAllProductList.product_name }</a>
 						</h5>
+						
 						                        		<span>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_price }" /></span>
 						                        	<h2>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_sale_price }" /></h2>
 					
 											
-                    </div>
+                    <!-- </div> -->
                 </div>
-                <!-- </div> -->
+                </div>
                 </c:forEach>
  
  								<%-- <c:forEach var='saleAllProductList'
