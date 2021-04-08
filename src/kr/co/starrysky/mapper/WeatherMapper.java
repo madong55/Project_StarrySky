@@ -37,8 +37,8 @@ public interface WeatherMapper {
 			+" values(#{location1_id}, #{location2_id}, #{forecast_date}, #{star_indicator_data})")
 	void insertStarIndicator(StarIndicatorBean bean); 
 	
-	@Update("UPDATE star_indicator set star_indicator_data=#{star_indicator_data}")
-	void updateStarIndicator(@Param("star_indicator_data")String star_indicator_data);
+	@Update("UPDATE star_indicator set star_indicator_data=#{star_indicator_data} where location1_id=#{location1_id} and location2_id=#{location2_id} and forecast_date=#{forecast_date}")
+	void updateStarIndicator(StarIndicatorBean bean);
 	
 	@Select("select * from (select * from weather where location2_id=#{location2_id} and location1_id=#{location1_id} order by forecast_date desc) a1, star_indicator"
 			+ " where rownum<=5 and star_indicator.forecast_date=a1.forecast_date and star_indicator.location1_id=a1.location1_id and star_indicator.location2_id=a1.location2_id"

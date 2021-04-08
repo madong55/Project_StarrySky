@@ -48,8 +48,8 @@ public class WeatherDao {
 		weatherMapper.insertStarIndicator(bean);
 	}
 	
-	public void updateStarIndicator(String star_indicator_data) {
-		weatherMapper.updateStarIndicator(star_indicator_data);
+	public void updateStarIndicator(StarIndicatorBean bean) {
+		weatherMapper.updateStarIndicator(bean);
 	}
 	
 	

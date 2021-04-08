@@ -97,6 +97,7 @@ public class WeatherScheduler {
 				for(int i=0;i<5;i++) {
 					
 					stargazing_data = objGson.fromJson(star_list_json.get(i).toString(), StargazingInfo.class);
+				
 					
 					DailyForecast df = forecast_data.getDailyForecasts().get(i);
 					
@@ -131,7 +132,10 @@ public class WeatherScheduler {
 					bean.setMoon_age(df.getMoon().getAge().intValue());
 					bean.setMoon_rise(df.getMoon().getRise());
 					bean.setMoon_set(df.getMoon().getSet());
-					sbean.setStar_indicator_data((String.valueOf(stargazing_data.getValue().floatValue()/2)));
+					Float f = stargazing_data.getValue()/2;
+					System.out.println("f:"+f);
+					sbean.setStar_indicator_data((String.valueOf(stargazing_data.getValue()/2.0)));
+					System.out.println("sbean star " + sbean.getStar_indicator_data());
 					//
 					
 					if(df.getNight().getRain().getValue()>0) {
@@ -178,11 +182,12 @@ public class WeatherScheduler {
 						
 						
 					}
+					System.out.println("sbean.getStar indiator : "+sbean.getStar_indicator_data());
 					try{
-						weatherService.insertStarIndicator(sbean);
+						weatherService.updateStarIndicator(sbean);
 						}
 					catch(Exception e) {
-						weatherService.updateStarIndicator(sbean.getStar_indicator_data());
+						weatherService.insertStarIndicator(sbean);
 						e.printStackTrace();
 					}
 				}
