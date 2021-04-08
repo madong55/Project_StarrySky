@@ -55,6 +55,15 @@
 			+ dt5.getDate();
 	
 
+	/*날씨아이콘이 한자리면 앞에 0 붙여야 함*/
+ /* 	var icon= "<c:out value='${weather_map.get("44").get(0).getStar_indicator_data()}' />"
+ if (icon<10){
+	 icon=text("0"+icon);
+ }else {
+	 icon=text(icon);
+ }
+	 */
+	
 	
 	$(document).ready(function(){
 		/* $("#kangwon1").hide(); 
@@ -138,34 +147,53 @@
 
 							</map>
 							
+							
 							<!-- 날씨아이콘 배치-->
 							<!-- 서울 -->
-							<div style="display:flex; position:absolute; top: 20%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+							<div style="display:flex; position:absolute; margin-top:5px; top: 20%; left: 4%;">
+						<span>
+						<c:set var="icon">${weather_map.get("11").get(0).getIcon()}</c:set>
+<%-- 						<c:set var="icon" value='${weather_map.get("11").get(0).getIcon()}'></c:set> --%>
+						<c:if test="${ icon<10}">
+						${icon }="0"+${icon }
+						</c:if>
+						<img src="https://developer.accuweather.com/sites/default/files/${weather_map.get("11").get(0).getIcon()}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+						</span> 
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						<span> <h4>X ${weather_map.get("11").get(0).getStar_indicator_data()}</h4></span> 
 						</div>
 								<!-- 충남 -->
-								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<c:set var="icon">${weather_map.get("44").get(0).getIcon()}</c:set>
+								<%-- <c:set var="icon" value='${weather_map.get("44").get(0).getIcon()}'></c:set> --%>			
+				<c:if test="${ icon<10}">
+						${icon }=(String)0${icon }
+						</c:if>			
+								<div style="display:flex; position:absolute; margin-top:5px; top: 38%; left: 4%;">
+						<span>
+						<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+						</span> 
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						<span> <h4>X ${weather_map.get("44").get(0).getStar_indicator_data()}</h4></span> 
+					<span style="color:red;">0${icon }</span>
+				
+					
+
 						</div>
 						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
@@ -231,32 +259,32 @@
     <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 							</map>
-								<div style="display:flex; position:absolute; top: 20%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 20%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 								<!-- 충남 -->
-								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 38%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
@@ -321,32 +349,32 @@
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 							</map>	
 							
-								<div style="display:flex; position:absolute; top: 20%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 20%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 								<!-- 충남 -->
-								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 38%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
@@ -408,32 +436,32 @@
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 							</map>	
 							
-								<div style="display:flex; position:absolute; top: 20%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 20%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 								<!-- 충남 -->
-								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 38%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
@@ -496,32 +524,32 @@
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 							</map>	
 							
-								<div style="display:flex; position:absolute; top: 20%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 20%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 								<!-- 충남 -->
-								<div style="display:flex; position:absolute; top: 38%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 38%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
 						</div>
 						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 2%;">
+								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
 						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
 						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
 						<span> <h4>3.5</h4></span> 
@@ -574,8 +602,8 @@
     <!-- Categories Section End -->
 
 
-	${param.icon }
-
+<%-- 	${weather_map.get("42").get(0).getIcon()}
+${weather_map.get("49")} --%>
        <!-- Footer Section Begin -->
  
     <jsp:include page="/WEB-INF/views/include/starry_footer.jsp"></jsp:include>   
