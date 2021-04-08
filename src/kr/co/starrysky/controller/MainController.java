@@ -46,7 +46,21 @@ public class MainController {
 	model.addAttribute("saleAllProductList", saleAllProductList);
 	model.addAttribute("weather_map", weatherMap);
 	
+	Set<String> key_set = weatherMap.keySet();
 	
+	Iterator<String> it = key_set.iterator();
+	
+	while(it.hasNext()) {
+		String temp = it.next();
+		for(int i=0; i<5; i++) {
+			try {
+				System.out.println("weather_map exists-"+ i + ": "+weatherMap.get(temp).get(i).getLocation1_id()+","+weatherMap.get(temp).get(i).getLocation2_id());
+			}catch(Exception e) {
+				
+				System.out.println("error");
+			}
+		}
+	}
 	return "main";
 	}
 

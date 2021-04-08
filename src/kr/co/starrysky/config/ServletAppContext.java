@@ -131,16 +131,6 @@ public class ServletAppContext implements WebMvcConfigurer{
 				
 		}
 		
-		Set<String> key_set = weather_map.keySet();
-		
-		Iterator<String> it = key_set.iterator();
-		
-		while(it.hasNext()) {
-			for(int i=0; i<5; i++) {
-				System.out.println("weather_map created-"+ i + ": "+weather_map.get(it.next()).get(i).toString());
-			}
-			
-		}
 		
 		return weather_map;
 	}
