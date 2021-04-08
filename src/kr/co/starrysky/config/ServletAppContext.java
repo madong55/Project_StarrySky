@@ -1,5 +1,11 @@
 package kr.co.starrysky.config;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javax.annotation.Resource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -14,6 +20,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.web.context.annotation.ApplicationScope;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
@@ -22,8 +29,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import kr.co.starrysky.beans.Location2Bean;
 import kr.co.starrysky.beans.PresentPageCheckBean;
 import kr.co.starrysky.beans.UserBean;
+import kr.co.starrysky.beans.WeatherStarBean;
 import kr.co.starrysky.interceptor.CheckLoginInterceptor;
 import kr.co.starrysky.interceptor.CheckReadInterceptor;
 import kr.co.starrysky.interceptor.CheckWriterInterceptor;
@@ -34,7 +43,9 @@ import kr.co.starrysky.mapper.QnABoardMapper;
 import kr.co.starrysky.mapper.ReviewMapper;
 import kr.co.starrysky.mapper.UserMapper;
 import kr.co.starrysky.mapper.WeatherMapper;
+import kr.co.starrysky.service.LocationService;
 import kr.co.starrysky.service.QnABoardService;
+import kr.co.starrysky.service.WeatherService;
 
 //Spring MVC 프로젝트에 관련된 설정을 하는 클래스
 //(servlet-context에서 <annotation-driven/>와 같음)
@@ -65,11 +76,74 @@ public class ServletAppContext implements WebMvcConfigurer{
 	@Resource(name="loginUserBean")
 	private UserBean loginUserBean;
 	
+	@Resource(name="weatherMap")
+	private Map<String, List<WeatherStarBean>> weatherMap;
+	
 	@Resource(name="presentPageCheckBean")
 	private PresentPageCheckBean presentPageCheckBean;
 	
 	@Autowired
 	private QnABoardService qnaBoardService;
+	
+	@Bean("weatherService")
+	@ApplicationScope
+	public WeatherService weatherService() {
+		return new WeatherService();
+	};
+	
+	@Bean("locationService")
+	@ApplicationScope
+	public LocationService locationService() {
+		return new LocationService();
+	};
+	
+	@Bean("weatherMap")
+	@ApplicationScope
+	public Map<String, List<WeatherStarBean>> weatherMap(){
+		
+		Map<String, List<WeatherStarBean>> weather_map = new HashMap<>(); 
+		
+		
+		List<String> location_id_list = locationService().getAllLocationIdList();
+		
+		
+		Location2Bean l2b = new Location2Bean();
+		
+		List<WeatherStarBean> wsb_list;
+		
+		for(String s : location_id_list) {
+			if(locationService().isLocation2Id(s)&&!s.equals("0")) {
+				l2b = locationService().expandLocationKey(s);
+				wsb_list = weatherService().getRecent5Forecast(String.valueOf(l2b.getLocation2_id()),String.valueOf(l2b.getLocation1_id()));
+				
+				System.out.println("weather map making... location id : "+ s +", list size is "+ wsb_list.size());
+				
+				weather_map.put(s, wsb_list);
+				
+				
+			}else {
+				wsb_list = weatherService().getRecent5Forecast("0", s);
+				
+				System.out.println("weather map making... location id : "+ s +", list size is "+ wsb_list.size());
+				
+				weather_map.put(s, wsb_list); 
+			}
+				
+		}
+		
+		Set<String> key_set = weather_map.keySet();
+		
+		Iterator<String> it = key_set.iterator();
+		
+		while(it.hasNext()) {
+			for(int i=0; i<5; i++) {
+				System.out.println("weather_map created-"+ i + ": "+weather_map.get(it.next()).get(i).toString());
+			}
+			
+		}
+		
+		return weather_map;
+	}
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
