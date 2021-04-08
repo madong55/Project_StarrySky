@@ -22,7 +22,7 @@ import kr.co.starrysky.dao.ReviewDao;
 @PropertySource("/WEB-INF/properties/option.properties")
 public class ReviewService {
 	
-	@Value("${path.reviewupload}")
+	@Value("${path.aws_reviewupload}")
 	private String path_reviewupload;
 
 	@Autowired

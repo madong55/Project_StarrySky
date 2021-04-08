@@ -61,7 +61,7 @@
 							<c:if test="${readReviewBean.review_image !=null }">
 								<div class="form-group">
 									<label id="review_file">첨부 이미지</label>
-									<img src='${root}review_upload/${readReviewBean.review_image}' width="100%" />
+									<img src="${root}reviewupload/${readReviewBean.review_image}" width="100%" />
 								</div>
 							</c:if>
 
