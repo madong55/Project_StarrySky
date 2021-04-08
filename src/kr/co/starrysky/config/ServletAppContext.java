@@ -242,7 +242,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 		
 		InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
 		reg2.addPathPatterns("/user/modify","/user/logout","/shop/product/shopping_cart","/pay/**",
-				"/shop/product/shopping_cart_from_details","/shop/board/*","/review/write","/review/read");
+				"/shop/product/shopping_cart_from_details","/shop/board/*");
 		reg2.excludePathPatterns("/shop/index","/shop/board/main"); // 비로그인 상태여도 보이게
 		
 		//문의 게시판에서 수정, 삭제 권한 없는 회원이 들어오면 진입을 막고 바로 다른 곳으로 보내버리는 인터셉터

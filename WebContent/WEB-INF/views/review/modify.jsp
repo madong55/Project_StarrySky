@@ -14,7 +14,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+ 
 	<header>
 		<jsp:include page="/WEB-INF/views/include/starry_top.jsp" />
 	</header>

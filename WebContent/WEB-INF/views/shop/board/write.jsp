@@ -56,7 +56,7 @@
 											<div class="text-right">
 												<form:button class="btn btn-primary"
 													style=" background-color: #666666; border-color: #666666">작성하기</form:button>
-												<a href="${root }shop/main?page=${page}"
+												<a href="${root }shop/main?"
 													class="btn btn-info">취소</a>
 											</div>
 										</div>
@@ -73,8 +73,7 @@
 
 										<div class="form-group">
 											<form:label path="qna_subject">제 목</form:label>
-											<form:input path="qna_subject" class="form-control"
-												value="[답변] " />
+											<form:input path="qna_subject" class="form-control" />
 											<form:errors path="qna_subject" style="color:red"></form:errors>
 										</div>
 
@@ -89,7 +88,7 @@
 											<div class="text-right">
 												<form:button class="btn btn-primary"
 													style=" background-color: #666666; border-color: #666666">작성하기</form:button>
-												<a href="${root }shop/main?page=${page}"
+												<a href="${root }shop/main"
 													class="btn btn-info">취소</a>
 											</div>
 										</div>
