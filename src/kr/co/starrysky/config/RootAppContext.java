@@ -25,11 +25,17 @@ import kr.co.starrysky.service.WeatherService;
 @Configuration
 public class RootAppContext {
 
-	@Autowired
-	public WeatherService weatherService;
+	@Bean("weatherService")
+	@ApplicationScope
+	public WeatherService weatherService() {
+		return new WeatherService();
+	};
 	
-	@Autowired
-	public LocationService locationService;
+	@Bean("locationService")
+	@ApplicationScope
+	public LocationService locationService() {
+		return new LocationService();
+	};
 	
 	@Bean("loginUserBean")
 	@SessionScope
@@ -51,28 +57,37 @@ public class RootAppContext {
 	
 	@Bean("weatherMap")
 	@ApplicationScope
-	public Map<WeatherKey, WeatherStarBean> weatherMap(){
+	public Map<String, List<WeatherStarBean>> weatherMap(){
 		//쿼리 만들어서 고쳐야 함.
-		Map<WeatherKey, WeatherStarBean> weather_map = new HashMap<>(); 
+		Map<String, List<WeatherStarBean>> weather_map = new HashMap<>(); 
 		
-		WeatherKey wk = new WeatherKey();
+		
+		List<String> location_id_list = locationService().getAllLocationIdList();
+		
+		
+		Location2Bean l2b = new Location2Bean();
 		
 		WeatherStarBean wsb = new WeatherStarBean();
 		
-		List<Location2Bean> l2b_list = locationService.getLocation2BeanList();
-		
 		List<WeatherStarBean> wsb_list;
 		
-		for(Location2Bean bean : l2b_list) {
-			wsb_list = weatherService.getRecent5Forecast(String.valueOf(bean.getLocation2_id()), String.valueOf(bean.getLocation1_id()));
+		for(String s : location_id_list) {
+			if(locationService().isLocation2Id(s)&&!s.equals("0")) {
+				l2b = locationService().expandLocationKey(s);
+				
+				//weather_map.put(s, );
+			}
 			
+			//wsb_list = weatherService().getRecent5Forecast(String.valueOf(bean.getLocation2_id()), String.valueOf(bean.getLocation1_id()));
+			/*
 			for(WeatherStarBean sbean : wsb_list) {
 				wk.setLocation1_key(sbean.getLocation1_id());
 				wk.setLocation2_key(sbean.getLocation2_id());
 				wk.setForecast_date(sbean.getForecast_date());
 				
 				weather_map.put(wk, sbean);
-			}
+			*/
+			
 		}
 		
 		return weather_map;
