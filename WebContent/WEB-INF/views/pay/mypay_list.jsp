@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <c:set var='root' value="${pageContext.request.contextPath }/"/>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <style type="text/css">
 .card-title {
-  padding-top: 10.5rem;
+  padding-top: 3.5rem;
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
@@ -29,7 +29,7 @@
   text-align : center;
   font-size: 4rem;
   font-weight: 700;
-  height: 400px;
+  height: 100px;
   width: 100%;
   
 }
@@ -78,7 +78,9 @@ border-radius: 0.3rem;
 </style>
 </head>
 <body>
-
+<header>
+<jsp:include page="/WEB-INF/views/include/starry_top.jsp" /> 
+</header>
 
 <div class="card-title" style="font-family: onb;"><div class="user">결제내역</div></div>
 <!-- 게시글 리스트 -->
@@ -91,9 +93,9 @@ border-radius: 0.3rem;
 					<tr>
 						<th class="text-center d-none d-md-table-cell">결제일자</th>
 						<!-- <th class="w-50">제목</th> -->
-						<th class="text-center d-none d-md-table-cell">결제방식</th><!-- 확인용으로 넣어둔것  -->
-						<th class="text-center d-none d-md-table-cell">결제수량</th>
-						<th class="text-center d-none d-md-table-cell">결제금액</th>
+						<th class="text-center d-none d-md-table-cell">걸제 상품명</th>
+						<th class="text-center d-none d-md-table-cell">결제 수량</th>
+						<th class="text-center d-none d-md-table-cell">결제 금액</th>
 						
 					</tr>
 				</thead>
@@ -101,9 +103,9 @@ border-radius: 0.3rem;
 				<c:forEach var="pay" items="${payList}">
 					<tr>
 						<td class="text-center d-none d-md-table-cell">${pay.pay_date} </td>
-						<td class="text-center d-none d-md-table-cell">${pay.pay_method}</td>
+						<td class="text-center d-none d-md-table-cell">${pay.product_name}</td>
 						<td class="text-center d-none d-md-table-cell">${pay.pay_amount}</td>
-						<td class="text-center d-none d-md-table-cell">${pay.pay_sum}</td>
+						<td class="text-center d-none d-md-table-cell">&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${pay.pay_sum}"/></td>
 			
 					</tr>
 				</c:forEach>

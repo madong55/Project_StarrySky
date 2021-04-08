@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Starry Shop</title>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -16,7 +16,7 @@
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url('/A_T_Turtle/image/¸ŞÀÎ»ó´Ü_¾îµÓ.jpg');
+  background-image: url('/A_T_Turtle/image/ë©”ì¸ìƒë‹¨_ì–´ë‘¡.jpg');
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -50,7 +50,7 @@ color: white;
 text-shadow: 5px 5px 5px gray;
 font-family: onb;
 }
-.wrap {
+ .wrap {
 	/* position: absolute; */
 	/* top: 50%; */
 	/*  left: 50%;  */
@@ -58,7 +58,7 @@ font-family: onb;
 	/* margin-left: 5%; */
 	 margin-bottom: 5%; 
 	text-align: center;
-}
+} 
 a {
 	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
 	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
@@ -70,7 +70,7 @@ a {
 	max-width: 180px;
 	text-decoration: none;
 	border-radius: 4px;
-	padding: 20px 30px;
+	
 }  
 a.button {
 	color: rgba(0, 0, 0, 100);
@@ -104,15 +104,18 @@ a.button3:hover {
 
 </style>
 <body>
+<jsp:include page="/WEB-INF/views/include/starry_top.jsp" /> 
 
-
-<div class="card-title" ><div class="pay" >»óÇ° ±¸¸Å</div></div> -->
+<div class="card-title" >
+<!-- <div class="pay" >ìƒí’ˆ êµ¬ë§¤</div> -->
+</div>
 <div class="container" >
-		<div class="card-body" style="margin-top:-2%; font-size:21px; font-family:onb;">
+		<div class="card-body" style="margin-top:-30%; font-size:21px; font-family:onb;">
 		<div align="center">
-		<h3 style="margin-top:20px; margin-bottom: 3%;">°áÁ¦¹æ½ÄÀ» ¼±ÅÃÇØÁÖ¼¼¿ä</h3>
-  		<a href="input_card" class="button" style="margin-bottom: 2%;">Ä«µå°áÁ¦</a>
-  		<a href="input_cash" class="button2" style="margin-bottom: 2%;">¹«ÅëÀå ÀÔ±İ</a>
+		<h3 style="margin-top:20px; margin-bottom: 3%;">ê²°ì œë°©ì‹ì„ ì„ íƒí•´ì£¼ì„¸ìš”</h3>
+  		<a style="padding: 20px 30px; margin: 20px" href="input_card?product_name=${param.product_name }&product_category_id=${param.product_category_id }&product_id=${param.product_id }&product_price=${param.product_price}&product_temp_quantity=${product_temp_quantity}" class="button" style="margin-bottom: 2%;">ì¹´ë“œê²°ì œ</a>
+  		 
+  		<a style="padding: 20px 30px;" href="input_cash?product_name=${param.product_name }&product_category_id=${param.product_category_id }&product_id=${param.product_id }&product_price=${param.product_price}&product_temp_quantity=${product_temp_quantity}" class="button2" style="margin-bottom: 2%;">ë¬´í†µì¥ ì…ê¸ˆ</a>
 		</div>
 
 </div>

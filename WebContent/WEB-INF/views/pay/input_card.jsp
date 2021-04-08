@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카드결제</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -119,21 +122,22 @@ src:url("${root}font/ONL.ttf") format("truetype");
 <body onload="init();">
 <%-- <c:import url="/WEB-INF/views/include/top_menu.jsp"/>
 <div class="card-title" ><div class="pay">카드결제</div></div> --%>
-
+<jsp:include page="/WEB-INF/views/include/starry_top.jsp" /> 
 
 <div class="container">
 <div class="row">
+
     <div class="col-sm-12 text-center" >
     <div class="col-sm-3"></div>
      
-    <div class="col-sm-6" style="margin-top: 8%; ">
-    <br/><h2>카드결제</h2><br>
+    <div class="col-sm-6" style="margin-top: 5%; ">
+    <!-- <br/><h2>카드결제</h2><br> -->
 
  <form action="input_pro" name="form" method="post">
  <table class="table table-boardered">
             <tr>
-                <th>아이디</th>
-                <td><input type="text" class="form-control" name='pay_id' value="${id}" style="text-align:center;" readonly="readonly"/></td>        
+                <th style="width:15%">이메일</th>
+                <td><input type="text" class="form-control" name='pay_id' value="${id }" style="text-align:center;" readonly="readonly"/></td>        
             </tr>
             <tr>
                 <th>결제일</th>
@@ -157,11 +161,27 @@ src:url("${root}font/ONL.ttf") format("truetype");
                 <th>카드번호</th>
                 <td><input type="text" class="form-control" name='pay_number'/></td>        
             </tr>
+            	
+            <tr>
+            	<th>이미지</th>
+                <td>
+                <img src="${root }/shop/product/shop/img/product/details/${product_category_id }/product_${product_id }_1.png" alt="">
+                </td>
+            </tr>
+            <tr>
+                <th>상품명</th>
+                <td><input type="text" class="form-control" name='product_name' value="${product_name }"/></td>        
+            </tr>
+			<tr>
+                <th>가격</th>
+                <td><input type="text" class="form-control" name='product_price' readonly="readonly" value="${product_price}"/></td>        
+            </tr>
 			<tr>
                 <th>수량</th>
-                <td><input type="hidden" name='sell_price' value="5000"/>
-                	<input type="text" name='pay_amount' value="1" size="3" onchange="change();"/>
-					<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"></td>        
+                <td><input type="hidden" name='sell_price' value="${product_price }"/>
+                	<input type="button" value="-" onclick="del();">
+                	<input type="text" name='pay_amount' value="${product_temp_quantity }" size="3" onchange="change();"/>
+					<input type="button" value="+" onclick="add();"></td>        
             </tr>
             <tr>
                 <th>총 금액</th>

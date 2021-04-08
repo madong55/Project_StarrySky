@@ -121,17 +121,22 @@
                         </c:choose>
                         
                         <p>${detailsProductBean.product_details }</p>
-            			<form action="${root }/shop/product/shopping_cart_from_details?product_temp_quantity=${param.product_temp_quantity}">
+            			<%-- <form action="${root }/shop/product/shopping_cart_from_details?product_temp_quantity=${param.product_temp_quantity}"> --%>
+            			<form action="${root }/pay/mypay?product_temp_quantity=${param.product_temp_quantity}">
                         <input type="hidden" name="product_id" value="${detailsProductBean.product_id}"/>
+                        <input type="hidden" name="product_category_id" value="${detailsProductBean.product_category_id}"/>
+                        <input type="hidden" name="product_name" value="${detailsProductBean.product_name}"/>
+                        <input type="hidden" name="product_price" value="${detailsProductBean.product_price}"/>
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
                                     <input type="text" value="1" name="product_temp_quantity" id="product_temp_quantity">
+                                    
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" value="장바구니" class="primary-btn">
-                        <a href="shop_checkout" class="primary-btn">바로 구매</a>
+                        <!-- <input type="submit" value="장바구니" class="primary-btn"> -->
+                        <input type="submit" value="구매하기" class="primary-btn">
                         </form>
                        
                         <%-- <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
@@ -231,7 +236,7 @@
 										data-setbg="shop/img/product/details/${similarProductList.product_category_id }/product_${similarProductList.product_id }_1.png">
 										<div class="product__discount__percent">-${Math.round((1-similarProductList.product_sale_price/similarProductList.product_price)*100) }%</div>
 										<ul class="product__item__pic__hover">
-											<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+											<li><a href="javascript:void(0);"><i class="fa fa-shopping-cart"></i></a></li>
 										</ul>
 									</div>
 									<div class="product__discount__item__text">

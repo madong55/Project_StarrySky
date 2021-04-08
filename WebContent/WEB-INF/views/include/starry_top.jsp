@@ -45,9 +45,8 @@
 							<c:when test="${loginUserBean.userLogin == true }">
 								<li><a href="#">MY PAGE</a>
 									<ul class="dropdown">
-										<li><a href="">내 게시물 조회</a></li>
-										<li><a href="">결제 내역</a></li>
-										<li><a href="${root }/user/modify">내 정보</a></li>
+										<li><a href="${root }/pay/mypay_list">결제 내역</a></li>
+										<li><a href="${root }/user/modify">내 정보 수정</a></li>
 										<li><a href="${root }/user/logout">로그아웃</a></li>
 									</ul></li>
 								<li><a href="#">MY STAR</a>

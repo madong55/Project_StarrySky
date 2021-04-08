@@ -3,6 +3,7 @@ package kr.co.starrysky.beans;
 
 public class PayBean {
 	
+	private String product_name;
 	private String pay_id;
 	private String pay_date;
 	private String pay_method;
@@ -11,6 +12,13 @@ public class PayBean {
 	private String pay_amount;
 	private String pay_sum;
 	
+	
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
 	public String getPay_id() {
 		return pay_id;
 	}

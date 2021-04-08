@@ -3,7 +3,31 @@
        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
      <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
         <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
-     
+<head>     
+<style>
+product__discount__item__text:text-align: center;
+	{padding-top: 20px;}
+a:link{color:black;}
+a:visited{color:black;}
+a:hover{color:black;}
+a:active{color:black;}
+
+.cs-item .product__discount__percent {
+	height: 45px;
+	width: 45px;
+	background: #dd2222;
+	border-radius: 50%;
+	font-size: 14px;
+	color: #ffffff;
+	line-height: 45px;
+	text-align: center;
+	position: absolute;
+	left: 15px;
+	top: 15px;
+}
+</style>  
+</head>
+<body>   
 <section class="categories-section">
         <div class="container">
             <div class="row">
@@ -25,19 +49,19 @@
             <div class="categories-slider owl-carousel">
             
               <c:forEach var='saleAllProductList' items="${saleAllProductList }">
-                <div class="cs-item">
-                    <div class="cs-pic set-bg" data-setbg="shop/product/shop/img/product/details/${saleAllProductList.product_category_id }/product_${saleAllProductList.product_id }_1.png"></div>
-                    <div class="cs-text">
+                <div class="cs-item" style="background: #FFFFFF;">
+                    <div class="cs-pic set-bg" style="cursor:pointer;" onclick="location.href='${root }/shop/product/product_details?product_category_id=${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}'"
+                    data-setbg="shop/product/shop/img/product/details/${saleAllProductList.product_category_id }/product_${saleAllProductList.product_id }_1.png"></div>
+                    <div class="product__discount__percent">-${Math.round((1-saleAllProductList.product_sale_price/saleAllProductList.product_price)*100) }%</div>
+                    <div class="product__discount__item__text">
                       <h5>
                       <a href="${root }/shop/product/product_details?product_category_id=${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}">${saleAllProductList.product_name }</a>
 						</h5>
-						
-						                        		<span>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_price }" /></span>
-						                        	<h2>&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_sale_price }" /></h2>
-					
-											
-                    <!-- </div> -->
-                </div>
+						<div class="product__item__price" style="text-align: center; padding-top: 20px; font-weight:bold">
+						&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_sale_price }" />
+						<del style="font-size: 14px; color: #b2b2b2; display: block; margin-bottom: 4px;">&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_price }" /></del>
+                    	</div>
+                	</div>
                 </div>
                 </c:forEach>
  
@@ -101,3 +125,4 @@
              
         </div>
     </section>
+    </body>

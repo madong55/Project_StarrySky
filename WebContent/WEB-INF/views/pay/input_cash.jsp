@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
+<c:set var="root2" value="${param.pay }"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,19 +81,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <body onload="init();">
-
+<jsp:include page="/WEB-INF/views/include/starry_top.jsp" /> 
 <div class="container">
     <div class="row">
     <div class="col-sm-12 text-center" >
     <div class="col-sm-3"></div>
      
-    <div class="col-sm-6" style="margin-top: 10%; ">
-    <h2>무통장입금</h2><br>
+    <div class="col-sm-6" style="margin-top: 5%; ">
+    <!-- <h2>무통장입금</h2><br> -->
 
  <form action="input_pro" name="form" method="post">
- <table class="table table-boardered">
+ <table class="table table-boardered" >
             <tr>
-                <th>아이디</th>
+                <th style="width:15%">이메일</th>
                  <td><input type="text" class="form-control" name='pay_id' value="${id}" style="text-align:center;" readonly="readonly"/></td>        
             </tr>
             
@@ -104,17 +107,32 @@ document.addEventListener("DOMContentLoaded", function() {
             </tr>
             <tr>
                 <th>계좌안내</th>
-                <td>농협 1111-11-1111</td>        
+                <td>신한 158648-26-3358, 예금주 StarrySky</td>        
+            </tr>
+             <tr>
+                <th>이미지</th>
+                <td>
+                <img src="${root }/shop/product/shop/img/product/details/${product_category_id }/product_${product_id }_1.png" alt="">
+                </td>        
+            </tr>
+             <tr>
+                <th>상품명</th>
+                <td><input type="text" class="form-control" name='product_name' value="${product_name }"/></td>        
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td><input type="text" class="form-control" name='product_price' readonly="readonly" value="${product_price}"/></td>        
             </tr>
             <tr>
                 <th>수량</th>
-                <td><input type="hidden" name='sell_price' value="5000"/>
-                	<input type="text" name='pay_amount' value="1" size="3" onchange="change();"/>
-					<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"></td>        
+                <td><input type="hidden" name='sell_price' value="${product_price }"/>
+                <input type="button" value=" - " onclick="del();">
+                	<input type="text" name='pay_amount' value="${product_temp_quantity }" size="3" onchange="change();"/>
+					<input type="button" value=" + " onclick="add();"></td>        
             </tr>
             <tr>
                 <th>총 금액</th>
-                <td><input type="text" class="form-control" name='pay_sum' size="11" readonly/></td>        
+                <td><input type="text" class="form-control" size="11" name="pay_sum" readonly="readonly"/></td>        
             </tr>
             <tr>
                 <td colspan="2">

@@ -36,6 +36,7 @@ import kr.co.starrysky.interceptor.CheckReviewWriterInterceptor;
 import kr.co.starrysky.interceptor.CheckWriterInterceptor;
 import kr.co.starrysky.interceptor.TopMenuInterceptor;
 import kr.co.starrysky.mapper.LocationMapper;
+import kr.co.starrysky.mapper.PayMapper;
 import kr.co.starrysky.mapper.ProductMapper;
 import kr.co.starrysky.mapper.QnABoardMapper;
 import kr.co.starrysky.mapper.ReviewMapper;
@@ -154,6 +155,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 		registry.addResourceHandler("/user/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/shop/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/shop/product/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/pay/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/review/**").addResourceLocations("/resources/");
 		registry.addResourceHandler("/shop/board/**").addResourceLocations("/resources/");
 		//registry.addResourceHandler("/shop/index").addResourceLocations("file:////var/lib/tomcat8/webapps/ROOT/resources/");
@@ -221,6 +223,13 @@ public class ServletAppContext implements WebMvcConfigurer{
 		return factoryBean;
 	}
 	
+	@Bean
+	public MapperFactoryBean<PayMapper> getPayMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<PayMapper> factoryBean = new MapperFactoryBean<PayMapper>(PayMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		WebMvcConfigurer.super.addInterceptors(registry);
@@ -232,7 +241,7 @@ public class ServletAppContext implements WebMvcConfigurer{
 		CheckLoginInterceptor checkLoginInterceptor = new CheckLoginInterceptor(loginUserBean);
 		
 		InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
-		reg2.addPathPatterns("/user/modify","/user/logout","/shop/product/shopping_cart",
+		reg2.addPathPatterns("/user/modify","/user/logout","/shop/product/shopping_cart","/pay/**",
 				"/shop/product/shopping_cart_from_details","/shop/board/*","/review/write","/review/read");
 		reg2.excludePathPatterns("/shop/index","/shop/board/main"); // 비로그인 상태여도 보이게
 		

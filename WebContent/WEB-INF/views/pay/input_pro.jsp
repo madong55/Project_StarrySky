@@ -8,7 +8,7 @@
 </head>
 <script>
 alert('구매완료');
-history.go(-2);
+location.href="../pay/mypay_list"
 </script>
 <body>
 </body>
