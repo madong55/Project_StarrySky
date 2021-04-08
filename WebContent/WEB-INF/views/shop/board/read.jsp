@@ -35,12 +35,7 @@
 							<label for="qna_date">작성 날짜</label> 
 							<input type="text" id="qna_date" name="qna_date" class="form-control" value="${readQaAContentBean.qna_date }" disabled="disabled" />
 						</div>
-
-						<%-- <div class="form-group">
-						<label for="product_id">상품명</label>
-						<input type="text" id="product_id" name="product_id" class="form-control" value="${readQaAContentBean.product_id }" disabled="disabled"/>
-						</div> --%>
-
+						
 						<div class="form-group">
 							<label for="qna_subject">제목</label> 
 							<input type="text" id="qna_subject" name="qna_subject" class="form-control" value="${readQaAContentBean.qna_subject }" disabled="disabled" />
@@ -56,7 +51,7 @@
 								<c:choose>
 									<c:when test="${loginUserBean.user_email == 'admin01@gmail.com' }"><!-- 계정을 안나눴으니 일단 하드코딩 해놓고 나중에 고치기 -->
 										<a href="${root }shop/board/main" class="btn btn-primary">목록 보기</a>
-										<a href="${root }shop/board/reply_modify?qna_num=${qna_num}" class="btn btn-info">답변하기</a><!-- 관리자는 관리자 본인 글에 답글이 안뜨게 -->
+										<a href="${root }shop/board/write?qna_num=${qna_num}" class="btn btn-info">답변하기</a><!-- 관리자는 관리자 본인 글에 답글이 안뜨게 -->
 										<a href="${root }shop/board/delete?qna_num=${qna_num}" class="btn btn-danger">삭제하기</a>
 									</c:when>
 

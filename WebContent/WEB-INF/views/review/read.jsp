@@ -16,10 +16,6 @@
 </head>
 <body>
 
-	<header>
-		<jsp:include page="/WEB-INF/views/include/starry_top.jsp" />
-	</header>
-
 	<div class="container" style="margin-top: 100px">
 		<div class="row">
 			<div class="col-sm-3"></div>
@@ -55,13 +51,13 @@
 								
 							<div class="form-group">
 								<label for="recommnd_product">추천 상품</label>
-								<input path="recommnd_product" class="form-control" value="${readReviewBean.recommnd_product }" disabled="disabled" />
+								<input id="recommnd_product" name="recommnd_product" class="form-control" value="${readReviewBean.recommnd_product }" disabled="disabled" />
 							</div>
 	
 							<c:if test="${readReviewBean.review_image !=null }">
 								<div class="form-group">
 									<label id="review_file">첨부 이미지</label>
-									<img src='${root}review_upload/${readReviewBean.review_image}' width="100%" />
+									<img src='${root}reviewupload/${readReviewBean.review_image}' width="100%" />
 								</div>
 							</c:if>
 
@@ -81,8 +77,6 @@
 			<div class="col-sm-3"></div>
 		</div>
 	</div>
-
-	<jsp:include page="/WEB-INF/views/include/starry_footer.jsp" />
 
 </body>
 </html>
