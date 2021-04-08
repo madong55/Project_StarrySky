@@ -43,6 +43,7 @@ import kr.co.starrysky.service.QnABoardService;
 @EnableWebMvc
 //스캔할 패키지를 지정한다.
 @ComponentScan("kr.co.starrysky.controller")
+@ComponentScan("kr.co.starrysky.beans")
 @ComponentScan("kr.co.starrysky.service")
 @ComponentScan("kr.co.starrysky.dao")
 @PropertySource("/WEB-INF/properties/db.properties")
