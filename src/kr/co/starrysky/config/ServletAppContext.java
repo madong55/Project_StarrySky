@@ -172,8 +172,8 @@ public class ServletAppContext implements WebMvcConfigurer{
 		InterceptorRegistration reg3 = registry.addInterceptor(checkWriterInterceptor);
 		reg3.addPathPatterns("/shop/board/modify", "/review/modify", "/review/delete");
 		
-		CheckReadInterceptor checkReadInterceptor = new  CheckReadInterceptor(loginUserBean, qnaBoardService); InterceptorRegistration
-		reg4 = registry.addInterceptor(checkReadInterceptor);
+		CheckReadInterceptor checkReadInterceptor = new  CheckReadInterceptor(loginUserBean, qnaBoardService);
+		InterceptorRegistration reg4 = registry.addInterceptor(checkReadInterceptor);
 		reg4.addPathPatterns("/shop/board/read");
 	}
 	
