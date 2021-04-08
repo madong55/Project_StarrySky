@@ -121,26 +121,76 @@
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=1&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
 
-<div style="display:flex; position:absolute; top: 46%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+<!-- 화천 -->
+<div style="display:flex; position:absolute; top: 47%; left: 4%;">
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223565").get(0).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223565").get(0).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 춘천 -->
+						<div style="display:flex; position:absolute; top: 67%; left: 4%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223554").get(0).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223554").get(0).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 정선 -->
+						<div style="display:flex;position:absolute;top: 38%;right: 9%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223576").get(0).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223576").get(0).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+				
+						
 						
 						</div>
 					</div>
 				</div>
 			</div>
+			
 			
 			<!-- 2일차 -->
 			<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
@@ -173,21 +223,67 @@
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=2&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
 
-						<div style="display:flex; position:absolute; top: 46%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+						<div style="display:flex; position:absolute; top: 47%; left: 4%;">
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223565").get(1).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223565").get(1).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 춘천 -->
+						<div style="display:flex; position:absolute; top: 67%; left: 4%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223554").get(1).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223554").get(1).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 정선 -->
+						<div style="display:flex;position:absolute;top: 38%;right: 9%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223576").get(1).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223576").get(1).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 						
 						</div>
 					</div>
@@ -225,21 +321,67 @@
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=3&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
 
-<div style="display:flex; position:absolute; top: 46%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+<div style="display:flex; position:absolute; top: 47%; left: 4%;">
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223565").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223565").get(2).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 춘천 -->
+						<div style="display:flex; position:absolute; top: 67%; left: 4%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223554").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223554").get(2).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 정선 -->
+						<div style="display:flex;position:absolute;top: 38%;right: 9%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223576").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223576").get(2).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 						
 
 						</div>
@@ -278,21 +420,67 @@
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=4&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
 
-<div style="display:flex; position:absolute; top: 46%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+<div style="display:flex; position:absolute; top: 47%; left: 4%;">
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223565").get(3).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223565").get(3).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 춘천 -->
+						<div style="display:flex; position:absolute; top: 67%; left: 4%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223554").get(3).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223554").get(3).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 정선 -->
+						<div style="display:flex;position:absolute;top: 38%;right: 9%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223576").get(3).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223576").get(3).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 
 						</div>
 					</div>
@@ -331,21 +519,67 @@
     <area target="" alt="jeongsun" title="jeongsun" href="map?dateinfo=5&location_id=223576" coords="712,152,962,255" shape="rect">
 </map>
 
-<div style="display:flex; position:absolute; top: 46%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex; position:absolute; top: 66%; left: 2%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<div style="display:flex;position:absolute;top: 37%;right: 7%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
+<div style="display:flex; position:absolute; top: 47%; left: 4%;">
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223565").get(4).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223565").get(4).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 춘천 -->
+						<div style="display:flex; position:absolute; top: 67%; left: 4%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223554").get(4).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223554").get(4).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
+						
+						<!-- 정선 -->
+						<div style="display:flex;position:absolute;top: 38%;right: 9%;">
+							<a href="kw_day1?dateinfo=1&location_id=42">
+						<c:set var="icon">${weather_map.get("223576").get(4).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+							</a>
+						<a href="kw_day1?dateinfo=1&location_id=42">
+						<span> <h4>X ${weather_map.get("223576").get(4).getStar_indicator_data()}</h4></span> 
+							</a>
+							</div>
 						
 						</div>
 					</div>

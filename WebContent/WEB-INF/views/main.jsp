@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+   	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+   	
      <c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -55,16 +57,11 @@
 			+ dt5.getDate();
 	
 
-	/*날씨아이콘이 한자리면 앞에 0 붙여야 함*/
- /* 	var icon= "<c:out value='${weather_map.get("44").get(0).getStar_indicator_data()}' />"
- if (icon<10){
-	 icon=text("0"+icon);
- }else {
-	 icon=text(icon);
- }
+	
+	
+	/*  var forecast_date1= ${ weather_map.get("11").get(0).getForecast_date()};
+	 var forecast_date1_value=forecast_date1.substring(0,9);
 	 */
-	
-	
 	$(document).ready(function(){
 		/* $("#kangwon1").hide(); 
 		
@@ -92,7 +89,6 @@
 		$(".date3_value").text(date3);
 		$(".date4_value").text(date4);
 		$(".date5_value").text(date5);
-
 	});
 	/* h2안에 스크립트를 넣는게 아니라 h2에 클래스를 줘서 클래스에 따라 값을 뿌려야 한다 */
 	
@@ -112,8 +108,6 @@
  <jsp:include page="include/starry_top.jsp"></jsp:include>
  </header>
  
-<%-- <c:import url="${root}/include/starry_top.jsp"></c:import> --%>
-    
     <!-- Hero Section Begin -->
     <section class="hero-section">
         <div class="hs-slider owl-carousel">
@@ -124,9 +118,9 @@
 						<div class="hs-text" id="kr_day1">
 
 							<h2 class="date1_value" ></h2>
-							
+				
 							<img src="img/krb4.png" usemap="#image-kr1">
-							<map name="image-kr1">
+							     <map name="image-kr1">
 							<area target="" alt="seoul" title="seoul" href="" coords="447,74,372,114,433,228,473,236,527,164,502,152,513,122,486,86" shape="poly">
     <area target="" alt="chungnam" title="chungnam" href="" coords="466,242,398,216,353,246,403,338,499,346" shape="poly">
     <area target="" alt="jeonbuk" title="jeonbuk" href="" coords="402,342,518,350,523,361,491,429,446,424,420,406,395,425,391,414,379,411" shape="poly">
@@ -147,81 +141,189 @@
 
 							</map>
 							
-							
 							<!-- 날씨아이콘 배치-->
 							<!-- 서울 -->
 							<div style="display:flex; position:absolute; margin-top:5px; top: 20%; left: 4%;">
+						<c:set var="icon">${weather_map.get("11").get(0).getIcon()}</c:set>	
+							<a href="#">	
 						<span>
-						<c:set var="icon">${weather_map.get("11").get(0).getIcon()}</c:set>
-<%-- 						<c:set var="icon" value='${weather_map.get("11").get(0).getIcon()}'></c:set> --%>
-						<c:if test="${ icon<10}">
-						${icon }="0"+${icon }
-						</c:if>
-						<img src="https://developer.accuweather.com/sites/default/files/${weather_map.get("11").get(0).getIcon()}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->	
+							
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
 						</span> 
+						</a>
+						<a href="#">
 						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a>
+						<a href="#">
 						<span> <h4>X ${weather_map.get("11").get(0).getStar_indicator_data()}</h4></span> 
-						</div>
-								<!-- 충남 -->
-								<c:set var="icon">${weather_map.get("44").get(0).getIcon()}</c:set>
-								<%-- <c:set var="icon" value='${weather_map.get("44").get(0).getIcon()}'></c:set> --%>			
-				<c:if test="${ icon<10}">
-						${icon }=(String)0${icon }
-						</c:if>			
-								<div style="display:flex; position:absolute; margin-top:5px; top: 38%; left: 4%;">
-						<span>
-						<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
-						</span> 
-						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
-						<span> <h4>X ${weather_map.get("44").get(0).getStar_indicator_data()}</h4></span> 
-					<span style="color:red;">0${icon }</span>
-				
-					
-
-						</div>
-						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+							</a>
 						</div>
 						
+								<!-- 충남 -->							
+								<div style="display:flex; position:absolute; margin-top:5px; top: 38%; left: 4%;">
+								<a href="">						
+								<c:set var="icon">${weather_map.get("44").get(0).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>	
+						<a href="">
+						
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("44").get(0).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+					
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("45").get(0).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>
+						<a href=""><span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("45").get(0).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
+								<a href="">
+								<c:set var="icon">${weather_map.get("46").get(0).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a> <a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a> <a href="">
+						<span> <h4>X ${weather_map.get("45").get(0).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+									<div style="display:flex; position:absolute; top: 91%; left: 4%;">
+									<a href="jj_day1?location_id=49">
+								<c:set var="icon">${weather_map.get("49").get(0).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="jj_day1?location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="jj_day1?location_id=49"><span> <h4>X ${weather_map.get("49").get(0).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						
 						<!-- 강원 -->
-								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+					
+								<div style="display:flex; position:absolute; top: 23%; right: 4%;">
+									<a href="kw_day1?dateinfo=1&location_id=49">
+						<c:set var="icon">${weather_map.get("42").get(0).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+								</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span> <h4>X ${weather_map.get("42").get(0).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 충북 -->
-								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top: 45%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("43").get(0).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("43").get(0).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 경북 -->
-								<div style="display:flex; position:absolute; top:66%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top:67%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("47").get(0).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+					</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("47").get(0).getStar_indicator_data()}</h4></span> 
+					</a>
 						</div>
+						
 						<!-- 경남 -->
-								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top: 89%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("48").get(0).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("48").get(0).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 								
 														
@@ -259,63 +361,193 @@
     <area target="" alt="gyungbuk" title="gyungbuk" href="" coords="753,389,999,493" shape="rect">
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 							</map>
-								<div style="display:flex; position:absolute; top: 20%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-								<!-- 충남 -->
-								<div style="display:flex; position:absolute; top: 38%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<!-- 날씨아이콘 배치-->
+							<!-- 서울 -->
+							<div style="display:flex; position:absolute; margin-top:5px; top: 20%; left: 4%;">
+						<c:set var="icon">${weather_map.get("11").get(1).getIcon()}</c:set>	
+							<a href="#">	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->	
+							
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>
+						<a href="#">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a>
+						<a href="#">
+						<span> <h4>X ${weather_map.get("11").get(1).getStar_indicator_data()}</h4></span> 
+							</a>
 						</div>
 						
+								<!-- 충남 -->							
+								<div style="display:flex; position:absolute; margin-top:5px; top: 38%; left: 4%;">
+								<a href="">						
+								<c:set var="icon">${weather_map.get("44").get(1).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>	
+						<a href="">
+						
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("44").get(1).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+					
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("45").get(1).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>
+						<a href=""><span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("45").get(1).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
+								<a href="">
+								<c:set var="icon">${weather_map.get("46").get(1).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a> <a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a> <a href="">
+						<span> <h4>X ${weather_map.get("45").get(1).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+									<div style="display:flex; position:absolute; top: 91%; left: 4%;">
+									<a href="jj_day1?location_id=49">
+								<c:set var="icon">${weather_map.get("49").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="jj_day1?location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="jj_day1?location_id=49"><span> <h4>X ${weather_map.get("49").get(1).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						
 						<!-- 강원 -->
-								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+					
+								<div style="display:flex; position:absolute; top: 23%; right: 4%;">
+									<a href="kw_day1?dateinfo=1&location_id=49">
+						<c:set var="icon">${weather_map.get("42").get(1).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+								</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span> <h4>X ${weather_map.get("42").get(1).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 충북 -->
-								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top: 45%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("43").get(1).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("43").get(1).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 경북 -->
-								<div style="display:flex; position:absolute; top:66%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top:67%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("47").get(1).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+					</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("47").get(1).getStar_indicator_data()}</h4></span> 
+					</a>
 						</div>
+						
 						<!-- 경남 -->
-								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top: 89%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("48").get(1).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("48").get(1).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
-							
-						</div>
+								
+														
+							</div>
 					</div>
 				</div>
 			</div>
@@ -349,62 +581,192 @@
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 							</map>	
 							
-								<div style="display:flex; position:absolute; top: 20%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-								<!-- 충남 -->
-								<div style="display:flex; position:absolute; top: 38%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+						<!-- 서울 -->
+							<div style="display:flex; position:absolute; margin-top:5px; top: 20%; left: 4%;">
+						<c:set var="icon">${weather_map.get("11").get(2).getIcon()}</c:set>	
+							<a href="#">	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->	
+							
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>
+						<a href="#">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a>
+						<a href="#">
+						<span> <h4>X ${weather_map.get("11").get(2).getStar_indicator_data()}</h4></span> 
+							</a>
 						</div>
 						
+								<!-- 충남 -->							
+								<div style="display:flex; position:absolute; margin-top:5px; top: 38%; left: 4%;">
+								<a href="">						
+								<c:set var="icon">${weather_map.get("44").get(2).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>	
+						<a href="">
+						
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("44").get(2).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+					
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("45").get(2).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>
+						<a href=""><span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("45").get(2).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
+								<a href="">
+								<c:set var="icon">${weather_map.get("46").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a> <a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a> <a href="">
+						<span> <h4>X ${weather_map.get("45").get(2).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+									<div style="display:flex; position:absolute; top: 91%; left: 4%;">
+									<a href="jj_day1?location_id=49">
+								<c:set var="icon">${weather_map.get("49").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="jj_day1?location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="jj_day1?location_id=49"><span> <h4>X ${weather_map.get("49").get(2).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						
 						<!-- 강원 -->
-								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+					
+								<div style="display:flex; position:absolute; top: 23%; right: 4%;">
+									<a href="kw_day1?dateinfo=1&location_id=49">
+						<c:set var="icon">${weather_map.get("42").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+								</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span> <h4>X ${weather_map.get("42").get(2).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 충북 -->
-								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top: 45%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("43").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("43").get(2).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 경북 -->
-								<div style="display:flex; position:absolute; top:66%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top:67%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("47").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+					</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("47").get(2).getStar_indicator_data()}</h4></span> 
+					</a>
 						</div>
+						
 						<!-- 경남 -->
-								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>				
+								<div style="display:flex; position:absolute; top: 89%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("48").get(2).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("48").get(2).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
+								
+														
+							</div>
 					</div>
 				</div>
 			</div>
@@ -436,66 +798,196 @@
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 							</map>	
 							
-								<div style="display:flex; position:absolute; top: 20%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-								<!-- 충남 -->
-								<div style="display:flex; position:absolute; top: 38%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+							<!-- 날씨아이콘 배치-->
+							<!-- 서울 -->
+							<div style="display:flex; position:absolute; margin-top:5px; top: 20%; left: 4%;">
+						<c:set var="icon">${weather_map.get("11").get(3).getIcon()}</c:set>	
+							<a href="#">	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->	
+							
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>
+						<a href="#">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a>
+						<a href="#">
+						<span> <h4>X ${weather_map.get("11").get(3).getStar_indicator_data()}</h4></span> 
+							</a>
 						</div>
 						
+								<!-- 충남 -->							
+								<div style="display:flex; position:absolute; margin-top:5px; top: 38%; left: 4%;">
+								<a href="">						
+								<c:set var="icon">${weather_map.get("44").get(3).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>	
+						<a href="">
+						
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("44").get(3).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+					
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("45").get(3).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>
+						<a href=""><span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("45").get(3).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
+								<a href="">
+								<c:set var="icon">${weather_map.get("46").get(3).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a> <a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a> <a href="">
+						<span> <h4>X ${weather_map.get("45").get(3).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+									<div style="display:flex; position:absolute; top: 91%; left: 4%;">
+									<a href="jj_day1?location_id=49">
+								<c:set var="icon">${weather_map.get("49").get(3).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="jj_day1?location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="jj_day1?location_id=49"><span> <h4>X ${weather_map.get("49").get(3).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						
 						<!-- 강원 -->
-								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+					
+								<div style="display:flex; position:absolute; top: 23%; right: 4%;">
+									<a href="kw_day1?dateinfo=1&location_id=49">
+						<c:set var="icon">${weather_map.get("42").get(3).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+								</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span> <h4>X ${weather_map.get("42").get(3).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 충북 -->
-								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top: 45%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("43").get(3).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("43").get(3).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 경북 -->
-								<div style="display:flex; position:absolute; top:66%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top:67%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("47").get(3).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+					</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("47").get(3).getStar_indicator_data()}</h4></span> 
+					</a>
 						</div>
+						
 						<!-- 경남 -->
-								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top: 89%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("48").get(3).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("48").get(3).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
-													
-						</div>
+								
+														
+							</div>
 					</div>
 				</div>
-			</div>  
+			</div>
                 
                 	<div class="hs-item set-bg" data-setbg="img/header-bg.jpg">
 				<div class="container">
@@ -524,67 +1016,197 @@
     <area target="" alt="gyungnam" title="gyungnam" href="" coords="757,559,998,663" shape="rect">
 							</map>	
 							
-								<div style="display:flex; position:absolute; top: 20%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-								<!-- 충남 -->
-								<div style="display:flex; position:absolute; top: 38%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<!-- 전북 -->
-								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
-						</div>
-						<!-- 전남 -->
-								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+							<!-- 서울 -->
+							<div style="display:flex; position:absolute; margin-top:5px; top: 20%; left: 4%;">
+						<c:set var="icon">${weather_map.get("11").get(4).getIcon()}</c:set>	
+							<a href="#">	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->	
+							
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>
+						<a href="#">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a>
+						<a href="#">
+						<span> <h4>X ${weather_map.get("11").get(4).getStar_indicator_data()}</h4></span> 
+							</a>
 						</div>
 						
+								<!-- 충남 -->							
+								<div style="display:flex; position:absolute; margin-top:5px; top: 38%; left: 4%;">
+								<a href="">						
+								<c:set var="icon">${weather_map.get("44").get(4).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>	
+						<a href="">
+						
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("44").get(4).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+					
+						<!-- 전북 -->
+								<div style="display:flex; position:absolute; top: 56%; left: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("45").get(4).getIcon()}</c:set>	
+						<span>
+						<!-- 아이콘10보다작을때 앞에 0붙임 -->				
+						<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>							
+						</span> 
+						</a>
+						<a href=""><span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("45").get(4).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						<!-- 전남 -->
+								<div style="display:flex; position:absolute; top: 73%; left: 4%;">
+								<a href="">
+								<c:set var="icon">${weather_map.get("46").get(4).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a> <a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a> <a href="">
+						<span> <h4>X ${weather_map.get("45").get(4).getStar_indicator_data()}</h4></span> 
+						</a>
+						</div>
+						
+						
 						<!-- 제주 -->
-								<div style="display:flex; position:absolute; top: 91%; left: 4%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+									<div style="display:flex; position:absolute; top: 91%; left: 4%;">
+									<a href="jj_day1?location_id=49">
+								<c:set var="icon">${weather_map.get("49").get(4).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="jj_day1?location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="jj_day1?location_id=49"><span> <h4>X ${weather_map.get("49").get(4).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						
 						<!-- 강원 -->
-								<div style="display:flex; position:absolute; top: 22%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+					
+								<div style="display:flex; position:absolute; top: 23%; right: 4%;">
+									<a href="kw_day1?dateinfo=1&location_id=49">
+						<c:set var="icon">${weather_map.get("42").get(4).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+								</a><a href="kw_day1?dateinfo=1&location_id=49">
+						<span> <h4>X ${weather_map.get("42").get(4).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 충북 -->
-								<div style="display:flex; position:absolute; top: 44%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top: 45%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("43").get(4).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("43").get(4).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
 						<!-- 경북 -->
-								<div style="display:flex; position:absolute; top:66%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top:67%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("47").get(4).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+					</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("47").get(4).getStar_indicator_data()}</h4></span> 
+					</a>
 						</div>
+						
 						<!-- 경남 -->
-								<div style="display:flex; position:absolute; top: 88%; right: 3%;">
-						<span><img src="img/logo.png"  style="width:70px; height:40px; margin-right: 10px; "></span> 
-						<span><img src="img/logo.png"  style=" width:70px; height:40px;margin-right: 10px; "></span> 
-						<span> <h4>3.5</h4></span> 
+								<div style="display:flex; position:absolute; top: 89%; right: 4%;">
+								<a href="">
+						<c:set var="icon">${weather_map.get("48").get(4).getIcon()}</c:set>	
+							<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose> 
+						</a><a href="">
+						<span><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; "></span> 
+						</a><a href="">
+						<span> <h4>X ${weather_map.get("48").get(4).getStar_indicator_data()}</h4></span> 
+						</a>
 						</div>
-										
-						</div>
+								
+														
+							</div>
 					</div>
 				</div>
 			</div>
-                
+           
+							
             
                 
 
@@ -601,10 +1223,6 @@
     
     <!-- Categories Section End -->
 
-
-<%-- 	${weather_map.get("42").get(0).getIcon()}
-${weather_map.get("49")} --%>
-       <!-- Footer Section Begin -->
  
     <jsp:include page="/WEB-INF/views/include/starry_footer.jsp"></jsp:include>   
  
