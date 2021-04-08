@@ -45,17 +45,17 @@
 							</div>
 
 							<div class="form-group">
-								<form:label path="qna_date">작성날짜</form:label>
+								<form:label path="qna_date">작성 날짜</form:label>
 								<form:input path="qna_date" class='form-control' readonly='true' />
 							</div>
 							<div class="form-group">
-								<form:label path="qna_subject">제목</form:label>
+								<form:label path="qna_subject">제 목</form:label>
 								<form:input path="qna_subject" class='form-control' />
 								<form:errors path="qna_subject" style='color:red' />
 							</div>
 
 							<div class="form-group">
-								<form:label path="qna_contents">내용</form:label>
+								<form:label path="qna_contents">내 용</form:label>
 								<form:textarea path="qna_contents" class="form-control" rows="10" style="resize:none" />
 								<form:errors path="qna_contents" style='color:red' />
 							</div>

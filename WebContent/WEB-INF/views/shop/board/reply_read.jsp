@@ -25,6 +25,8 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
+				<c:choose>
+				<c:when test="${loginUserBean.user_email == 'admin01@gmail.com' }">
 					<div class="form-group">
 						<label for="user_nickname">작성자</label>
 						<input type="text" id="user_nickname" name="user_nickname" class="form-control" value="${readQaAContentBean.user_nickname }" disabled="disabled"/>
@@ -59,6 +61,44 @@
 							</c:if>
 						</div>
 					</div>
+					</c:when>
+					<c:otherwise>
+					<div class="form-group">
+						<label for="user_nickname">작성자</label>
+						<input type="text" id="user_nickname" name="user_nickname" class="form-control" value="${readQaAContentBean.user_nickname }" disabled="disabled"/>
+					</div>
+					
+					<div class="form-group">
+						<label for="qna_date">작성 날짜</label>
+						<input type="text" id="qna_date" name="qna_date" class="form-control" value="${readQaAContentBean.qna_date }" disabled="disabled"/>
+					</div>
+					
+					<div class="form-group">
+						<label for="product_id">상품명</label>
+						<input type="text" id="product_id" name="product_id" class="form-control" value="${readQaAContentBean.product_id }" disabled="disabled"/>
+					</div>
+					
+					<div class="form-group">
+						<label for="qna_subject">제목</label>
+						<input type="text" id="qna_subject" name="qna_subject" class="form-control" value="${readQaAContentBean.qna_subject }" disabled="disabled"/>
+					</div>
+					
+					<div class="form-group">
+						<label for="qna_contents">내용</label>
+						<textarea id="qna_contents" name="qna_contents" class="form-control" rows="10" style="resize:none" disabled="disabled">${readQaAContentBean.qna_contents }</textarea>
+					</div>
+					
+					<div class="form-group">
+						<div class="text-right">
+							<a href="${root }shop/board/main" class="btn btn-primary">목록 보기</a>
+							<c:if test="${loginUserBean.user_nickname == readQaAContentBean.user_nickname }">
+							<a href="${root }shop/board/reply_modify?qna_num=${qna_num}" class="btn btn-info">수정</a>
+							<a href="${root }shop/board/delete?qna_num=${qna_num}" class="btn btn-danger">삭제</a>
+							</c:if>
+						</div>
+					</div>
+					</c:otherwise>
+				</c:choose>
 				</div>
 			</div>
 		</div>
