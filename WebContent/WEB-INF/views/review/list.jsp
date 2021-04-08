@@ -40,7 +40,6 @@
 				<thead>
 					<tr>
 						<th class="text-center d-none d-md-table-cell">글 번호</th>
-						<th class="text-center d-none d-md-table-cell">지역명</th>
 						<th class="w-50 text-center">제 목</th>
 						<th class="text-center d-none d-md-table-cell">별 점</th>
 						<th class="text-center d-none d-md-table-cell">작성자</th>
@@ -52,8 +51,7 @@
 					<c:forEach var='obj' items="${reviewList }">
 					<tr>
 						<td class="text-center d-none d-md-table-cell">${obj.review_num }</td>
-						<td class="text-center d-none d-md-table-cell">${obj.location2_name }</td>
-						<td><a href='${root }review/read?review_num=${obj.review_num}'>${obj.review_subject }</a></td>
+						<td><a href='${root }review/read?review_num=${obj.review_num}&location2_id=${obj.location2_id}&location1_id=${obj.location1_id}'>${obj.review_subject }</a></td>
 						<td class="text-center d-none d-md-table-cell">${obj.review_score }</td>
 						<td class="text-center d-none d-md-table-cell">${obj.user_nickname }</td>
 						<td class="text-center d-none d-md-table-cell">${obj.review_date }</td>

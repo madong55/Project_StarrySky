@@ -2,23 +2,21 @@ package kr.co.starrysky.beans;
 
 import javax.validation.constraints.NotBlank;
 
-
-
 // QnA 게시글에 대한 정보를 저장
 public class QnAContentBean {
 	
-	private String product_id; // 상품명
+	private String product_id; // 상품ID
 
 	private int qna_num; // 게시물 번호
 	
-	//@NotBlank // not null -> 아무것도  안쓰고 입력하려고 하면 유효성 검사에 걸리게 //multipart는 얘를 읽지 못함
+	@NotBlank 
 	private String qna_subject;  // 글 제목
 	
-	//@NotBlank
+	@NotBlank
 	private String qna_contents; // 글 내용
 	
 	private String user_nickname; // 글 쓴 사람
-	private String user_email; //user_name 을 content_write_name을 바꾸려고 하는
+	private String user_email; // 글 쓴 사람 아이디(->이메일)
 	private String qna_date; // 날짜 자동
 
 	private int ref; // 게시글 관련

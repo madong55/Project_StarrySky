@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
@@ -14,17 +15,17 @@ import kr.co.starrysky.beans.ReviewBean;
 
 public  interface ReviewMapper {
 	
-	@SelectKey(statement = "select review_seq.nextval from dual", keyProperty = "review_num", before = true, resultType = int.class)
+	@SelectKey(statement = "select review_seq.nextval from dual", keyProperty = "review_num", before = false, resultType = int.class)
 	//--------------------------------------------------------------------------------------------------------------------
 	// -> 지역별 게시판 안에 들어와서의 글 목록 방법
 	// 글 번호 순서대로 글 목록 읽어오는 메소드(기본)
-	@Select("select review_num, review_subject, review_score, user_nickname, to_char(review_date, 'yyyy-mm-dd') as review_date " +
+	@Select("select * " +
 			"from review_board_table " + 
 			"order by review_num desc")
 	List<ReviewBean> getReviewList(RowBounds rowBounds);
 	
 	// 별점으로 글 목록 출력하는 메소드
-	@Select("select review_num, review_subject, review_score, user_nickname, to_char(review_date, 'yyyy-mm-dd') as review_date " + 
+	@Select("select * " + 
 			"from review_board_table " + 
 			"order by review_score desc") 
 	List<ReviewBean> getReviewList_star(RowBounds rowBounds);
@@ -46,11 +47,11 @@ public  interface ReviewMapper {
 	void addReview(ReviewBean writeReviewBean);
 	
 	// 리뷰 읽어오는 메소드
-	@Select("select location2_name, user_nickname, review_num, to_char(review_date, 'yyyy-mm-dd') as review_date, " +
-			"review_subject, review_contents, review_image, recommnd_product " +
+	@Select("select * " +
 			"from review_board_table" +
-			"where review_num=${review_num} and location2_id=#{location2_id} and location1_id=#{location1_id}")
-	ReviewBean getReviewInfo(int review_num, int location2_id, int location1_id);
+			" where review_num=#{review_num} and location2_id=#{location2_id} and location1_id=#{location1_id}")
+	ReviewBean getReviewInfo(@Param("review_num") int review_num, @Param("location2_id") int location2_id, @Param("location1_id") int location1_id);
+	
 	
 	// 리뷰 수정하는 메소드
 	@Update("update review_board_table " +

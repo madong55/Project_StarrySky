@@ -16,7 +16,7 @@
 <script>
    //제이쿼리 작동
    $(document).ready(function() {
-      var star_score;
+      var star_score=1;
       
       //라디오버튼 클릭 시 이벤트 발생
       $("input:radio[name=star]").click(function() {
@@ -43,15 +43,15 @@
             star_score = '10';
          }
          //document.form태그의name값.input태그의name값.value=star_score
-         document.write.star_score.value = star_score;
+         //document.write.star_score.value = star_score;
+         console.log(star_score);
+         $(".star_score").val(star_score);
       });
    });
    
    
 </script>
 
-
-<link rel="stylesheet" href="${root}resources/review/reviewstar.css" type="text/css" />
 </head>
 <body>
 
@@ -111,64 +111,66 @@
 								<br /> 별점 <br />
 								<div class="startRadio">
 									<label class="startRadio__box"> 
-									<input type="radio" name="star" id=""> 
+									<input type="radio" name="star" id="" value="1"> 
 									<span class="startRadio__img"><span class="blind">별 1개</span></span>
 									</label> 
 									
 									<label class="startRadio__box"> 
-									<input type="radio" name="star" id=""> 
+									<input type="radio" name="star" id="" value="2"> 
 									<span class="startRadio__img">
 									<span class="blind">별 1.5개</span></span>
 									</label> 
 									
 									<label class="startRadio__box"> 
-									<input type="radio" name="star" id=""> 
+									<input type="radio" name="star" id="" value="3"> 
 									<span class="startRadio__img">
 									<span class="blind">별 2개</span></span>
 									</label> 
 									
 									<label class="startRadio__box"> 
-									<input type="radio" name="star" id=""> 
+									<input type="radio" name="star" id="" value="4"> 
 									<span class="startRadio__img">
 									<span class="blind">별 2.5개</span></span>
 									</label> 
 									
 									<label class="startRadio__box"> 
-									<input type="radio" name="star" id=""> 
+									<input type="radio" name="star" id="" value="5"> 
 									<span class="startRadio__img">
 									<span class="blind">별 3개</span></span>
 									</label> 
 									
 									<label class="startRadio__box"> 
-									<input type="radio" name="star" id=""> 
+									<input type="radio" name="star" id="" value="6"> 
 									<span class="startRadio__img"><span class="blind">별 3.5개</span></span>
 									</label> 
 									
 									<label class="startRadio__box"> 
-									<input type="radio" name="star" id=""> 
+									<input type="radio" name="star" id="" value="7"> 
 									<span class="startRadio__img">
 									<span class="blind">별 4개</span></span>
 									</label> 
 									
 									<label class="startRadio__box"> 
-									<input type="radio" name="star" id=""> 
+									<input type="radio" name="star" id="" value="8"> 
 									<span class="startRadio__img">
 									<span class="blind">별 4.5개</span></span>
 									</label> 
 									
 									<label class="startRadio__box"> 
-									<input type="radio" name="star" id=""> 
+									<input type="radio" name="star" id="" value="9"> 
 									<span class="startRadio__img">
 									<span class="blind">별 5개</span></span>
 									</label> 
 									
-									<label class="startRadio__box"> <input type="radio" name="star" id=""> 
+									<label class="startRadio__box"> 
+									<input type="radio" name="star" id="" value="10"> 
 									<span class="startRadio__img">
 									<span class="blind">별 5.5개</span></span>
 									</label>
 								</div>
 							</div>
 
+							<form:hidden path="review_score" class="star_score" value=""></form:hidden>
 							<div class="form-group">
 								<div class="text-right">
 									<form:button class="btn btn-info" style="background-color: #666666; border-color: #666666" >작성하기</form:button>

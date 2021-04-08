@@ -1,6 +1,5 @@
 package kr.co.starrysky.controller;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,8 +37,7 @@ public class ReviewController {
 	private UserBean loginUserBean;
 	
 	@GetMapping("/list")
-	public String list(@ModelAttribute("reviewListBean") ReviewBean reviewListBean, 
-					   @RequestParam(value = "page", defaultValue = "1") int page, Model model) {
+	public String list(@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
 
 		List<ReviewBean> reviewList = reviewService.getReviewList(page);
 		model.addAttribute("reviewList", reviewList);
@@ -53,8 +51,7 @@ public class ReviewController {
 	}
 	
 	@GetMapping("/list_star")
-	public String list_star(@ModelAttribute("reviewListBean") ReviewBean reviewListBean,
-							@RequestParam(value = "review_score", defaultValue = "0") int review_score,
+	public String list_star(@RequestParam(value = "review_score", defaultValue = "1") int review_score,
 							@RequestParam(value = "page", defaultValue = "1") int page, Model model) {
 		
 		// 별점 개수대로 오게
@@ -70,18 +67,24 @@ public class ReviewController {
 	}
 
 	@GetMapping("/read")
-	public String read(@RequestParam("review_num") int review_num, 
-			   		   @RequestParam("location2_id") int location2_id, 
-			   		   @RequestParam("location2_name") int location2_name,
-			   		   @RequestParam("location1_id") int location1_id,
-			   		   @RequestParam(value = "review_score", defaultValue = "0") int review_score,
+	public String read(@RequestParam("review_num")Integer review_num, 
+			   		   @RequestParam("location2_id")Integer location2_id, 
+			   		   @RequestParam("location1_id")Integer location1_id, 
+			   		   //@RequestParam(value = "review_score", defaultValue = "1") int review_score,
 			   		   Model model) {
 
-		model.addAttribute("review_num", review_num);
-		//model.addAttribute("location2_name", location2_name);
+		System.out.println("review_num on controller read : " + review_num);
+		
+		/*
+		 * model.addAttribute("review_num", review_num);
+		 * model.addAttribute("location2_id", location2_id);
+		 * model.addAttribute("location1_id", location1_id);
+		 */
 		///model.addAttribute("review_score", review_score);
 		
 		ReviewBean readReviewBean=reviewService.getReviewInfo(review_num, location2_id, location1_id);
+		
+		System.out.println("readReviewBean.getLocation2_name():"+readReviewBean.getLocation2_name());
 		
 		model.addAttribute("readReviewBean",readReviewBean);
 		model.addAttribute("loginUserBean",loginUserBean);
@@ -105,34 +108,25 @@ public class ReviewController {
 	}
 	
 	@PostMapping("/write_pro")
-	public String write_pro(@ModelAttribute("writeReviewBean") ReviewBean writeReviewBean, Model model) {
+	public String write_pro(@Valid @ModelAttribute("writeReviewBean") ReviewBean writeReviewBean, BindingResult result, Model model) {
 		
 		Location2Bean l2b = locationService.expandLocationKey(String.valueOf(writeReviewBean.getLocation2_id()));
 		writeReviewBean.setLocation1_id(l2b.getLocation1_id());
 		writeReviewBean.setLocation2_name(l2b.getLocation2_name());
-	
+		
 		reviewService.addReview(writeReviewBean);
+		
+		if(result.hasErrors()) {
+			return "review/write";
+		}
+		System.out.println("review write_pro review_num : "+writeReviewBean.getReview_num());
 		
 		return "review/write_success";
 		
 	}
 	
 	@GetMapping("/modify")
-	public String modify(@RequestParam("review_num") int review_num, @RequestParam(value = "review_score", defaultValue = "0") int review_score,
-						 @RequestParam("location2_id") int location2_id, @RequestParam("location2_name") int location2_name,
-						 @RequestParam("location1_id") int location1_id,
-						 @ModelAttribute("modifyReviewBean") ReviewBean modifyReviewBean, Model model) {
-		
-		model.addAttribute("review_num", review_num);
-		model.addAttribute("review_score", review_score);
-		model.addAttribute("location2_id", location2_id);
-		model.addAttribute("location2_name", location2_name);
-		
-		// 게시글 하나의 정보 가져오기
-		ReviewBean tempReviewBean = reviewService.getReviewInfo(review_num,location2_id, location1_id);
-		
-		// form:form으로 받아서 모델로 넘겨줄 경우 get,set 필요 없음..?
-		modifyReviewBean.setUser_nickname(tempReviewBean.getUser_nickname());
+	public String modify(@ModelAttribute("modifyReviewBean") ReviewBean modifyReviewBean, Model model) {
 		
 		// 지역명 리스트 가지고 오게
 		List<Location2Bean> location2List = reviewService.getLocation2List();
@@ -164,8 +158,10 @@ public class ReviewController {
 	}
 
 	@GetMapping("/delete")
-	public String delete(@RequestParam("review_num") int review_num, @RequestParam("location2_id") int location2_id, 
-						 @RequestParam("location1_id") int location1_id, Model model) {
+	public String delete(@RequestParam("review_num") int review_num, 
+						 @RequestParam("location2_id") int location2_id, 
+						 @RequestParam("location2_id") int location1_id, 
+						 Model model) {
 		
 		reviewService.deleteReviewInfo(review_num, location2_id, location1_id);
 		

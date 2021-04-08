@@ -36,7 +36,7 @@ public class ShopController{
 	
 	//이동?
 	@GetMapping("/shop_board_main")
-	public String shop_board_main() {
+	public String shop_BoardMain() {
 		return "shop/board/main";
 		
 	}

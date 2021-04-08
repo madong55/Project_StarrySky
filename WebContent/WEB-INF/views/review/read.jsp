@@ -41,10 +41,10 @@
 								<label for="location2_name">지역명</label>
 								<input type="text" id="location2_name" name="location2_name" class="form-control" value="${readReviewBean.location2_name }" disabled="disabled" />
 							</div>
-
+							
 							<div class="form-group">
 								<label for="review_subject">제목</label>
-								<input type="text" id="review_subject" name="review_subject" value="${readReviewBean.review_contents }" disabled="disabled" />
+								<input type="text" id="review_subject" name="location2_name" class="form-control" value="${readReviewBean.review_subject }" disabled="disabled" />
 							</div>
 
 							<div class="form-group">
@@ -71,7 +71,7 @@
 							<div class="form-group">
 								<div class="text-right">
 									<a href="${root }review/list" class="btn btn-primary">목록 보기</a>
-									<c:if test="${loginUserBean.user_id == readReviewBean.user_id }">
+									<c:if test="${loginUserBean.user_email == readReviewBean.user_email }">
 										<a href="${root }review/modify?review_num=${review_num}" class="btn btn-info">수정하기</a>
 										<a href="${root }review/delete?review_num=${review_num}" class="btn btn-danger">삭제하기</a>
 									</c:if>
