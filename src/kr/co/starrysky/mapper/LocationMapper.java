@@ -12,6 +12,9 @@ public interface LocationMapper {
 	@Select("select * from location2 where location2_id=#{location2_id}")
 	Location2Bean expandLocationKey(String location2_id);
 	
+	@Select("select * from location2")
+	List<Location2Bean> getLocation2BeanList();
+	
 	@Select("seelct * from location1 where location1_id=#{location1_id}")
 	Location1Bean getLocation1Data(String location1_id);
 	

@@ -28,11 +28,11 @@
                     <div class="logo">
 					<c:choose>
 						<c:when test="${PresentPageCheckBean.presentPage == true }">
-							<a href="${root }/shop/index"> <img src="img/logos/pinklogo.png" width="170px" height="24px" alt="">
+							<a href="${root }/shop/index"> <img src="img/logos/yellologo.png" width="170px" height="24px" alt="">
 							</a>
 						</c:when>
 						<c:otherwise>
-							<a href="${root }/main"> <img src="img/logos/pinklogo.png" width="170px" height="24px"  alt="">
+							<a href="${root }/main"> <img src="img/logos/yellologo.png" width="170px" height="24px"  alt="">
 							</a>
 						</c:otherwise>
 					</c:choose>
@@ -62,7 +62,7 @@
 
 								<li><a href="${root }/user/login" class="nav-link">Sign
 										In</a></li>
-								<li><a href="${root }/user/join" class="nav-link">Sing
+								<li><a href="${root }/user/join" class="nav-link">Sign
 										Up</a></li>
 
 							</c:otherwise>

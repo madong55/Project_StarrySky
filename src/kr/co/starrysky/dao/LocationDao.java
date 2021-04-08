@@ -22,6 +22,10 @@ public class LocationDao {
 		return locationMapper.expandLocationKey(location2_id);
 	}
 	
+	public List<Location2Bean> getLocation2BeanList(){
+		return locationMapper.getLocation2BeanList();
+	}
+	
 	public Location1Bean getLocation1Data(String location1_id) {
 		return locationMapper.getLocation1Data(location1_id);
 	}

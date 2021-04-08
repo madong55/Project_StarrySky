@@ -4,20 +4,26 @@ import java.sql.Date;
 
 public class WeatherKey {
 	
-	private int location_key;
-	private Date forecast_date;
+	private int location1_key;
+	private int location2_key;
+	private String forecast_date;
 	
-	public int getLocation_key() {
-		return location_key;
+	public int getLocation1_key() {
+		return location1_key;
 	}
-	public void setLocation_key(int location_key) {
-		this.location_key = location_key;
+	public void setLocation1_key(int location1_key) {
+		this.location1_key = location1_key;
 	}
-	
-	public Date getForecast_date() {
+	public int getLocation2_key() {
+		return location2_key;
+	}
+	public void setLocation2_key(int location2_key) {
+		this.location2_key = location2_key;
+	}
+	public String getForecast_date() {
 		return forecast_date;
 	}
-	public void setForecast_date(Date forecast_date) {
+	public void setForecast_date(String forecast_date) {
 		this.forecast_date = forecast_date;
 	}
 	

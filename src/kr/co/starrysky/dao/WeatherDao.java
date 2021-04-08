@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.starrysky.beans.StarIndicatorBean;
 import kr.co.starrysky.beans.WeatherBean;
+import kr.co.starrysky.beans.WeatherStarBean;
 import kr.co.starrysky.mapper.WeatherMapper;
 
 @Repository
@@ -50,5 +51,11 @@ public class WeatherDao {
 	public void updateStarIndicator(String star_indicator_data) {
 		weatherMapper.updateStarIndicator(star_indicator_data);
 	}
+	
+	
+	public List<WeatherStarBean> getRecent5Forecast(String location2_id, String location1_id){
+		return weatherMapper.getRecent5Forecast(location2_id, location1_id);
+	}
+	
 	
 }
