@@ -36,6 +36,9 @@
 </style>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6b0eb32a824c5ad645c902d56294c254&libraries=services,clusterer,drawing"></script>
 
+<!-- 한글나눔고딕 -->
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700" rel="stylesheet">
+
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 </head>
 <body style="padding-top: 120px;">
@@ -53,15 +56,61 @@
 <div class="container" style="width:75%">
 <div class="row">
 <div class="col-lg-12" style="text-align: center; " >
-	<h1>${param.location_name}  </h1> <h2>${weather_map.get(param.location_id).get(0).getHeadline()}</h2>
+	<span><h1>${param.location_name}  </h1> <h2>: ${weather_map.get(param.location_id).get(0).getHeadline()}</h2></span>
 	<br/>
-	<h3 style="margin-bottom:30px;">날씨 대기상태 월령 빛 구름</h3>
- 	${weather_map.get(param.location_id).get(0).getMoon_age()}
- 	
-	<!--  [남석현] [오전 8:32] 헤드라인 강수량 강수확률 최저/최대기온 선셋 
-[남석현] [오전 8:36] 날씨아이콘+ㅕㄹ점
-[남석현] [오전 8:36] 그림큼직하게
-	  -->
+	<div align="center" style="margin-bottom: 30px; text-align: center;">
+	<table border="2"   bordercolor="gray" align="center" width="100%">
+<tr bgcolor="#FFE169">
+<td>강수확률</td>
+<td>강수량</td>
+<td>날씨</td>
+<td>별지수</td>
+<td>밤 최저기온</td>
+<td>밤 최고기온</td>
+<td>일몰시간</td>
+</tr>
+
+<tr>
+<td>${weather_map.get(param.location_id).get(0).getRain_probability()}%</td>
+<td>${weather_map.get(param.location_id).get(0).getRain_value()} </td>
+<td> <c:set var="icon" value="${weather_map.get(param.location_id).get(0).getIcon()}" />
+	 				<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px; ">
+					</c:otherwise>
+						</c:choose>	</td>
+<td><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; ">X ${weather_map.get(param.location_id).get(0).getStar_indicator_data()}</td>
+<td>${weather_map.get(param.location_id).get(0).getTem_min_value()}</td>
+<td>${weather_map.get(param.location_id).get(0).getTem_max_value()}</td>
+
+<td>${weather_map.get(param.location_id).get(0).getSun_set()}</td>
+</tr>
+
+	 </table>
+	 </div>
+	 	<%--  강수확률: ${weather_map.get(param.location_id).get(0).getRain_probability()}% /
+	 	강수량: ${weather_map.get(param.location_id).get(0).getRain_value()} /
+	 	날씨: <c:set var="icon" value="${weather_map.get(param.location_id).get(0).getIcon()}" />
+	 				<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>	
+		/ 
+	 	별지수:${weather_map.get(param.location_id).get(0).getStar_indicator_data()} / 
+	 	밤 최저기온 :${weather_map.get(param.location_id).get(0).getTem_min_value()} /
+	 밤 최고기온:	${weather_map.get(param.location_id).get(0).getTem_max_value()} /
+	 <br>
+	 	일몰시간:${weather_map.get(param.location_id).get(0).getSun_set()}
+<!-- 	 	</h3> -->
+	 --%>
+	
 <div class="map_wrap">
 
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
