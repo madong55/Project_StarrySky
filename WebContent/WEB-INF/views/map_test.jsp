@@ -62,17 +62,17 @@
 	<table border="2"   bordercolor="gray" align="center" width="100%">
 <tr bgcolor="#FFE169">
 <td>강수확률</td>
-<td>강수량</td>
+<td>풍속</td>
 <td>날씨</td>
 <td>별지수</td>
 <td>밤 최저기온</td>
 <td>밤 최고기온</td>
-<td>일몰시간</td>
+<td>구름 양</td>
 </tr>
 
 <tr>
 <td>${weather_map.get(param.location_id).get(0).getRain_probability()}%</td>
-<td>${weather_map.get(param.location_id).get(0).getRain_value()} </td>
+<td>${weather_map.get(param.location_id).get(0).getWind_speed_value()} </td>
 <td> <c:set var="icon" value="${weather_map.get(param.location_id).get(0).getIcon()}" />
 	 				<c:choose>
 					<c:when test="${ icon<10}">
@@ -86,7 +86,7 @@
 <td>${weather_map.get(param.location_id).get(0).getTem_min_value()}</td>
 <td>${weather_map.get(param.location_id).get(0).getTem_max_value()}</td>
 
-<td>${weather_map.get(param.location_id).get(0).getSun_set()}</td>
+<td>${weather_map.get(param.location_id).get(0).getCloud_cover()}</td>
 </tr>
 
 	 </table>
