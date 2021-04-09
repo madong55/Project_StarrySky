@@ -53,12 +53,15 @@
 <div class="container" style="width:75%">
 <div class="row">
 <div class="col-lg-12" style="text-align: center; " >
-	<h1>${param.location_name}  </h1>
+	<h1>${param.location_name}  </h1> <h2>${weather_map.get(param.location_id).get(0).getHeadline()}</h2>
 	<br/>
 	<h3 style="margin-bottom:30px;">날씨 대기상태 월령 빛 구름</h3>
- 	<%-- ${weather_map.get(param.location_id).get(0).getMoon_age()} --%>
+ 	${weather_map.get(param.location_id).get(0).getMoon_age()}
  	
-	 
+	<!--  [남석현] [오전 8:32] 헤드라인 강수량 강수확률 최저/최대기온 선셋 
+[남석현] [오전 8:36] 날씨아이콘+ㅕㄹ점
+[남석현] [오전 8:36] 그림큼직하게
+	  -->
 <div class="map_wrap">
 
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
