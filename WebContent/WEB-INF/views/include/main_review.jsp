@@ -90,7 +90,7 @@ function resizeIframe(obj) {
                         <img src="${root}reviewupload/${tempMainReviewBean.review_image}" >
                          
                          <h3>${tempMainReviewBean.review_subject }</h3>
-                       	 <p>${tempMainReviewBean.review_contents }</p>
+                       	 <p>${tempMainReviewBean.review_contents.substring(1, 120) }</p>
                     </a>
                           <div id="layerPopup_${tempMainReviewBean.review_num }" style="display:none; position:absolute; z-index:99; overflow:hidden " ><!-- style="display:none; z-index:99;position:absolute;" --> 
                           

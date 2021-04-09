@@ -213,7 +213,7 @@
 						<c:when test="${similarProductList.product_sale_price == null }">
 							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix ${similarProductList.product_category_id }">
 								<div class="featured__item">
-									<div class="product__item__pic set-bg" style="cursor:pointer;" onclick="location.href=${root }/shop/product/product_details?product_category_id='${similarProductList.product_category_id}&product_id=${similarProductList.product_id}';"
+									<div class="product__item__pic set-bg" style="cursor:pointer;" onclick="location.href='${root }/shop/product/product_details?product_category_id=${similarProductList.product_category_id}&product_id=${similarProductList.product_id}'"
 										data-setbg="shop/img/product/details/${similarProductList.product_category_id }/product_${similarProductList.product_id }_1.png">
 										
 										<ul class="product__item__pic__hover">
@@ -232,7 +232,7 @@
 						<c:otherwise>
 							<div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 mix ${similarProductList.product_category_id }">
 								<div class="product__discount__item">
-									<div class="product__discount__item__pic set-bg" style="cursor:pointer;" onclick="location.href=${root }/shop/product/product_details?product_category_id='${similarProductList.product_category_id}&product_id=${similarProductList.product_id}';"
+									<div class="product__discount__item__pic set-bg" style="cursor:pointer;" onclick="location.href='${root }/shop/product/product_details?product_category_id=${similarProductList.product_category_id}&product_id=${similarProductList.product_id}'"
 										data-setbg="shop/img/product/details/${similarProductList.product_category_id }/product_${similarProductList.product_id }_1.png">
 										<div class="product__discount__percent">-${Math.round((1-similarProductList.product_sale_price/similarProductList.product_price)*100) }%</div>
 										<ul class="product__item__pic__hover">

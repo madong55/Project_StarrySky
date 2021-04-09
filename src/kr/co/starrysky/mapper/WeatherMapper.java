@@ -35,7 +35,7 @@ public interface WeatherMapper {
 	
 	@Insert("insert into star_indicator(location1_id, location2_id, forecast_date, star_indicator_data)"
 			+" values(#{location1_id}, #{location2_id}, #{forecast_date}, #{star_indicator_data})")
-	void insertStarIndicator(StarIndicatorBean bean); 
+	void insertStarIndicator(StarIndicatorBean bean);
 	
 	@Update("UPDATE star_indicator set star_indicator_data=#{star_indicator_data} where location1_id=#{location1_id} and location2_id=#{location2_id} and forecast_date=#{forecast_date}")
 	void updateStarIndicator(StarIndicatorBean bean);

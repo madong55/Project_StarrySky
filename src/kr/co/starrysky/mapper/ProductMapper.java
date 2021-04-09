@@ -54,7 +54,7 @@ public interface ProductMapper {
 	//상품 상세페이지
 	@Select("select product_name, product_category_id, product_id, product_price, product_sale_price, product_quantity, product_thumbnail, product_details, product_thumbnail2, product_thumbnail3, product_thumbnail4, product_thumbnail5, product_details2 "
 			+ "from product_list where product_id = #{product_id}")
-	ProductBean getProductInfo(String product_id);
+	ProductBean getProductInfo(@Param("product_id")String product_id);
 	
 	//장바구니에 들어있는지 체크
 	@Select("SELECT PRODUCT_TEMP_QUANTITY FROM SHOPPING_CART WHERE USER_EMAIL = #{user_email} AND PRODUCT_ID = #{product_id}")

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.starrysky.beans.Location2Bean;
+import kr.co.starrysky.beans.ProductBean;
 import kr.co.starrysky.beans.ReviewBean;
 import kr.co.starrysky.beans.ReviewPageBean;
 import kr.co.starrysky.beans.UserBean;
 import kr.co.starrysky.service.LocationService;
+import kr.co.starrysky.service.ProductService;
 import kr.co.starrysky.service.ReviewService;
 
 @Controller
@@ -32,6 +33,9 @@ public class ReviewController {
 
 	@Autowired
 	private LocationService locationService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
@@ -84,6 +88,13 @@ public class ReviewController {
 		
 		model.addAttribute("readReviewBean",readReviewBean);
 		model.addAttribute("loginUserBean",loginUserBean);
+		
+		//상품정보 리뷰페이지에 넣기
+		String product_id = readReviewBean.getRecommnd_product();
+		System.out.println(product_id);
+		ProductBean productBean = productService.getProductInfo(readReviewBean.getRecommnd_product());
+		
+		model.addAttribute("productBean",productBean);
 		
 		return "review/read";
 		
