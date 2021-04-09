@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-    <title>카테고리별 장소 검색하기</title>
+    <title>${param.location_name}</title>
     <style>
 .map_wrap, .map_wrap * {margin:0; padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
 .map_wrap {position:relative;width:100%;height:600px;} /* 지도사이즈 조절 */
@@ -36,6 +36,9 @@
 </style>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6b0eb32a824c5ad645c902d56294c254&libraries=services,clusterer,drawing"></script>
 
+<!-- 한글나눔고딕 -->
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700" rel="stylesheet">
+
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 </head>
 <body style="padding-top: 120px;">
@@ -53,11 +56,61 @@
 <div class="container" style="width:75%">
 <div class="row">
 <div class="col-lg-12" style="text-align: center; " >
-	<h1>${param.location_name}  </h1>
+	<span><h1>${param.location_name}  </h1> <h2>: ${weather_map.get(param.location_id).get(0).getHeadline()}</h2></span>
 	<br/>
-	<h3 style="margin-bottom:30px;">날씨 대기상태 월령 빛 구름</h3>
-<%-- 	${weather_map.get("44").get(1).getStar_indicator_data()}
+	<div align="center" style="margin-bottom: 30px; text-align: center;">
+	<table border="2"   bordercolor="gray" align="center" width="100%">
+<tr bgcolor="#FFE169">
+<td>강수확률</td>
+<td>강수량</td>
+<td>날씨</td>
+<td>별지수</td>
+<td>밤 최저기온</td>
+<td>밤 최고기온</td>
+<td>일몰시간</td>
+</tr>
+
+<tr>
+<td>${weather_map.get(param.location_id).get(0).getRain_probability()}%</td>
+<td>${weather_map.get(param.location_id).get(0).getRain_value()} </td>
+<td> <c:set var="icon" value="${weather_map.get(param.location_id).get(0).getIcon()}" />
+	 				<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px; ">
+					</c:otherwise>
+						</c:choose>	</td>
+<td><img src="img/star_PNG.png"  style=" width:30px; height:30px;margin-right: 10px; ">X ${weather_map.get(param.location_id).get(0).getStar_indicator_data()}</td>
+<td>${weather_map.get(param.location_id).get(0).getTem_min_value()}</td>
+<td>${weather_map.get(param.location_id).get(0).getTem_max_value()}</td>
+
+<td>${weather_map.get(param.location_id).get(0).getSun_set()}</td>
+</tr>
+
+	 </table>
+	 </div>
+	 	<%--  강수확률: ${weather_map.get(param.location_id).get(0).getRain_probability()}% /
+	 	강수량: ${weather_map.get(param.location_id).get(0).getRain_value()} /
+	 	날씨: <c:set var="icon" value="${weather_map.get(param.location_id).get(0).getIcon()}" />
+	 				<c:choose>
+					<c:when test="${ icon<10}">
+					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:when>
+					<c:otherwise>
+					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
+					</c:otherwise>
+						</c:choose>	
+		/ 
+	 	별지수:${weather_map.get(param.location_id).get(0).getStar_indicator_data()} / 
+	 	밤 최저기온 :${weather_map.get(param.location_id).get(0).getTem_min_value()} /
+	 밤 최고기온:	${weather_map.get(param.location_id).get(0).getTem_max_value()} /
+	 <br>
+	 	일몰시간:${weather_map.get(param.location_id).get(0).getSun_set()}
+<!-- 	 	</h3> -->
 	 --%>
+	
 <div class="map_wrap">
 
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
@@ -104,17 +157,42 @@ var placeOverlay = new kakao.maps.CustomOverlay({zIndex:1}),
     /* function coordSetter() { //좌표지정기
     	
      	double x_coord=0;
-    	double y-coord=0;
+    	double y_coord=0;
     	if(${param.location_id}==224209){
-    		x-coord= 33.4855624;
-    		y-coord=126.5276597;
+    		x_coord= 33.4855624;
+    		y_coord=126.5276597;
     	}
 	} */
     
+var x_coord=0;
+var y_coord=0;	
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
     	
-        center: new kakao.maps.LatLng(  33.4855624,126.5276597), // 지도의 중심좌표
+		<c:choose>
+		<c:when test= "${param.location_id==224209}">
+		<c:set var="x_coord" value="33.4855624" />
+		<c:set var="y_coord" value="126.5276597" />		
+		</c:when>
+		<c:when test= "${param.location_id==224210}">
+		<c:set var="x_coord" value="33.2534452" />
+		<c:set var="y_coord" value="126.5577805" />		
+		</c:when>
+		<c:when test= "${param.location_id==223576}">/* 정선 */
+		<c:set var="x_coord" value="37.3809354" />
+		<c:set var="y_coord" value="128.6657715" />		
+		</c:when>
+		<c:when test= "${param.location_id==223565}">/* 화천 */
+		<c:set var="x_coord" value="38.106256" />
+		<c:set var="y_coord" value="127.7032812" />		
+		</c:when>
+		<c:when test= "${param.location_id==223554}">/* 춘천 */
+		<c:set var="x_coord" value="37.8734109" />
+		<c:set var="y_coord" value="127.728008" />		
+		</c:when>
+		</c:choose>
+		
+        center: new kakao.maps.LatLng(${x_coord},${y_coord}), // 지도의 중심좌표
       //  center: new kakao.maps.LatLng( ${param.x_coord}, ${param.y_coord}), // 지도의 중심좌표
         level: 5 // 지도의 확대 레벨
     };  

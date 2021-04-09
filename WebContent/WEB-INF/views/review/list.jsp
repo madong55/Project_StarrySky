@@ -15,7 +15,6 @@
 </head>
 <body>	
 
-
 <div class="container" >
 	<div class="card shadow">
 		<div class="card-body" >
@@ -112,8 +111,6 @@
 		</div>
 	</div>
 </div>
-
-	
 
 </body>
 </html>
