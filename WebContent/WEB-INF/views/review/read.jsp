@@ -16,10 +16,6 @@
 </head>
 <body>
 
-	<header>
-		<jsp:include page="/WEB-INF/views/include/starry_top.jsp" />
-	</header>
-
 	<div class="container" style="margin-top: 100px">
 		<div class="row">
 			<div class="col-sm-3"></div>
@@ -81,8 +77,6 @@
 			<div class="col-sm-3"></div>
 		</div>
 	</div>
-
-	<jsp:include page="/WEB-INF/views/include/starry_footer.jsp" />
 
 </body>
 </html>
