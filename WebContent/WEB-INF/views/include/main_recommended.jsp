@@ -55,7 +55,7 @@ a:active{color:black;}
                     <div class="product__discount__percent">-${Math.round((1-saleAllProductList.product_sale_price/saleAllProductList.product_price)*100) }%</div>
                     <div class="product__discount__item__text">
                       <h5>
-                      <a href="${root }/shop/product/product_details?product_category_id=${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}">${saleAllProductList.product_name }</a>
+                      <a href="${root }/shop/product/product_details?product_category_id=${saleAllProductList.product_category_id}&product_id=${saleAllProductList.product_id}" target="_blank">${saleAllProductList.product_name }</a>
 						</h5>
 						<div class="product__item__price" style="text-align: center; padding-top: 20px; font-weight:bold">
 						&#8361;<fmt:formatNumber type="number" maxFractionDigits="3" value="${saleAllProductList.product_sale_price }" />

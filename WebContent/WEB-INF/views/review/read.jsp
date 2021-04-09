@@ -16,6 +16,10 @@
 </head>
 <body>
 
+	<header>
+		<jsp:include page="/WEB-INF/views/include/starry_top.jsp" />
+	</header>
+
 	<div class="container" style="margin-top: 100px">
 		<div class="row">
 			<div class="col-sm-3"></div>
@@ -51,14 +55,14 @@
 								
 							<div class="form-group">
 								<label for="recommnd_product">추천 상품</label>
-								<a href="${root }/shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}"></a>
-								<input id="recommnd_product" name="recommnd_product" class="form-control" value="${productBean.product_name }" disabled="disabled" />
+								<a href='${root }/shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}'" id="recommnd_product" name="recommnd_product" class="form-control" target="_blank">${productBean.product_name }</a>
+								<%-- <input type=button onclick="location.href='${root }/shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}" id="recommnd_product" name="recommnd_product" class="form-control" value="${productBean.product_name }'" disabled="disabled" /> --%>
 							</div>
 	
 							<c:if test="${readReviewBean.review_image !=null }">
 								<div class="form-group">
 									<label id="review_file">첨부 이미지</label>
-									<img src="shop/img/product/details/${productBean.product_category_id }/product_${productBean.product_id }_1.png" width="100%" style="cursor:pointer;" onclick="location.href='${root }/shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}'"/>
+									<img src="${root}reviewupload/${readReviewBean.review_image}" width="100%" style="cursor:pointer;" onclick="location.href='${root }/shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}'"/>
 								</div>
 							</c:if>
 
@@ -78,6 +82,8 @@
 			<div class="col-sm-3"></div>
 		</div>
 	</div>
+
+	<jsp:include page="/WEB-INF/views/include/starry_footer.jsp" />
 
 </body>
 </html>
