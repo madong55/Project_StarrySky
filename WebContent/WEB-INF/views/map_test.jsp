@@ -64,26 +64,58 @@
 <td>강수확률</td>
 <<<<<<< HEAD
 <td>구름</td>
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td>풍속</td>
+<<<<<<< HEAD
+>>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
+=======
+
 >>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td>날씨</td>
 <td>별지수</td>
 <td>밤 최저기온</td>
 <td>밤 최고기온</td>
 <<<<<<< HEAD
-<td>대기오염</td>
+<<<<<<< HEAD
 =======
+
+>>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
+<td>대기오염</td>
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td>구름 양</td>
+<<<<<<< HEAD
+>>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
+=======
+
 >>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 </tr>
 
 <tr>
 <td>${weather_map.get(param.location_id).get(0).getRain_probability()}%</td>
 <<<<<<< HEAD
-<td>${weather_map.get(param.location_id).get(0).getCloud_cover()} </td>
+<<<<<<< HEAD
 =======
+
+>>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
+<td>${weather_map.get(param.location_id).get(0).getCloud_cover()} </td>
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td>${weather_map.get(param.location_id).get(0).getWind_speed_value()} </td>
+<<<<<<< HEAD
+>>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
+=======
+
 >>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td> <c:set var="icon" value="${weather_map.get(param.location_id).get(0).getIcon()}" />
 	 				<c:choose>
@@ -107,25 +139,7 @@
 
 	 </table>
 	 </div>
-	 	<%--  강수확률: ${weather_map.get(param.location_id).get(0).getRain_probability()}% /
-	 	강수량: ${weather_map.get(param.location_id).get(0).getRain_value()} /
-	 	날씨: <c:set var="icon" value="${weather_map.get(param.location_id).get(0).getIcon()}" />
-	 				<c:choose>
-					<c:when test="${ icon<10}">
-					<img src="https://developer.accuweather.com/sites/default/files/0${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
-					</c:when>
-					<c:otherwise>
-					<img src="https://developer.accuweather.com/sites/default/files/${icon}-s.png" style=" width:50px; height:30px;margin-right: 30px; ">
-					</c:otherwise>
-						</c:choose>	
-		/ 
-	 	별지수:${weather_map.get(param.location_id).get(0).getStar_indicator_data()} / 
-	 	밤 최저기온 :${weather_map.get(param.location_id).get(0).getTem_min_value()} /
-	 밤 최고기온:	${weather_map.get(param.location_id).get(0).getTem_max_value()} /
-	 <br>
-	 	일몰시간:${weather_map.get(param.location_id).get(0).getSun_set()}
-<!-- 	 	</h3> -->
-	 --%>
+	 	
 	
 <div class="map_wrap">
 
