@@ -98,11 +98,11 @@
 <td>${weather_map.get(param.location_id).get(0).getTem_min_value()}</td>
 <td>${weather_map.get(param.location_id).get(0).getTem_max_value()}</td>
 
-<<<<<<< HEAD
+
 <td>${weather_map.get(param.location_id).get(0).getAir_quality_value()}</td>
-=======
+
 <td>${weather_map.get(param.location_id).get(0).getCloud_cover()}</td>
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
+
 </tr>
 
 	 </table>
