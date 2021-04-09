@@ -55,13 +55,14 @@
 								
 							<div class="form-group">
 								<label for="recommnd_product">추천 상품</label>
-								<input id="recommnd_product" name="recommnd_product" class="form-control" value="${readReviewBean.recommnd_product }" disabled="disabled" />
+								<a href="${root }/shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}"></a>
+								<input id="recommnd_product" name="recommnd_product" class="form-control" value="${productBean.product_name }" disabled="disabled" />
 							</div>
 	
 							<c:if test="${readReviewBean.review_image !=null }">
 								<div class="form-group">
 									<label id="review_file">첨부 이미지</label>
-									<img src="${root}reviewupload/${readReviewBean.review_image}" width="100%" />
+									<img src="shop/img/product/details/${productBean.product_category_id }/product_${productBean.product_id }_1.png" width="100%" style="cursor:pointer;" onclick="location.href='${root }/shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}'"/>
 								</div>
 							</c:if>
 
