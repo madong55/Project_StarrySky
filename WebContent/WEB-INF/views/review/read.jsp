@@ -16,10 +16,6 @@
 </head>
 <body>
 
-	<header>
-		<jsp:include page="/WEB-INF/views/include/starry_top.jsp" />
-	</header>
-
 	<div class="container" style="margin-top: 100px">
 		<div class="row">
 			<div class="col-sm-3"></div>
@@ -55,7 +51,7 @@
 								
 							<div class="form-group">
 								<label for="recommnd_product">추천 상품</label>
-								<a href='${root }/shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}'" id="recommnd_product" name="recommnd_product" class="form-control" target="_blank">${productBean.product_name }</a>
+								<a href="${root }shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}" id="recommnd_product" name="recommnd_product" class="form-control" target="_blank">${productBean.product_name }</a>
 								<%-- <input type=button onclick="location.href='${root }/shop/product/product_details?product_category_id=${productBean.product_category_id}&product_id=${productBean.product_id}" id="recommnd_product" name="recommnd_product" class="form-control" value="${productBean.product_name }'" disabled="disabled" /> --%>
 							</div>
 	
@@ -82,8 +78,6 @@
 			<div class="col-sm-3"></div>
 		</div>
 	</div>
-
-	<jsp:include page="/WEB-INF/views/include/starry_footer.jsp" />
 
 </body>
 </html>

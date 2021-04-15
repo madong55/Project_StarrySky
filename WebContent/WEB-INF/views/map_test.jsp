@@ -62,61 +62,25 @@
 	<table border="2"   bordercolor="gray" align="center" width="100%">
 <tr bgcolor="#FFE169">
 <td>강수확률</td>
-<<<<<<< HEAD
 <td>구름</td>
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td>풍속</td>
-<<<<<<< HEAD
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
-=======
-
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td>날씨</td>
 <td>별지수</td>
 <td>밤 최저기온</td>
 <td>밤 최고기온</td>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td>대기오염</td>
-<<<<<<< HEAD
-=======
-=======
-
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td>구름 양</td>
-<<<<<<< HEAD
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
-=======
 
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 </tr>
 
 <tr>
 <td>${weather_map.get(param.location_id).get(0).getRain_probability()}%</td>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td>${weather_map.get(param.location_id).get(0).getCloud_cover()} </td>
-<<<<<<< HEAD
-=======
-=======
 
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
+
 <td>${weather_map.get(param.location_id).get(0).getWind_speed_value()} </td>
-<<<<<<< HEAD
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
-=======
 
->>>>>>> branch 'develop' of https://github.com/madong55/Project_StarrySky.git
 <td> <c:set var="icon" value="${weather_map.get(param.location_id).get(0).getIcon()}" />
 	 				<c:choose>
 					<c:when test="${ icon<10}">
